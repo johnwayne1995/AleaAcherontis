@@ -5,6 +5,8 @@ namespace Managers
 {
     public abstract class TGameManager<T> : IGameManager where T : class, new()
     {
+        public int Id { get { return MgrIdMap<T>.Id; } }
+        
         public void Awake()
         {
             OnAwake();

@@ -1,5 +1,6 @@
 ﻿using Fsm;
 using Interfaces;
+using Managers;
 using Modules;
 using UI;
 namespace GameStages
@@ -12,8 +13,11 @@ namespace GameStages
         }
         protected override void OnEnterStage(object e = null)
         {
-            UIModule.Instance.ShowUI<MainUI>("MainUI");
+            UIModule.Instance.ShowUI<FightUI>("FightUI");
+            var fightMgr = GameManagerContainer.Instance.GetManager<FightManager>();
+            fightMgr.StartFight();
         }
+        
         protected override void OnLeaveStage(object e = null)
         {
         }

@@ -3,6 +3,11 @@
     public interface IGameManager
     {
         /// <summary>
+        /// 唯一id
+        /// </summary>
+        int Id { get; }
+        
+        /// <summary>
         /// 唤醒
         /// </summary>
         void Awake();

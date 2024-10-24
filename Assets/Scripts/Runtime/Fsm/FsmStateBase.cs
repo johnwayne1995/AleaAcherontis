@@ -37,7 +37,7 @@ namespace Fsm
         {
         
         }
-        public virtual void UpdateState(float detalTimes)
+        public virtual void UpdateState(float deltaTimes)
         {
         
         }

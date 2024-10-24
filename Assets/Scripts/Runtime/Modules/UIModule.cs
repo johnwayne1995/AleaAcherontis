@@ -35,7 +35,7 @@ namespace Modules
                 //添加到集合进行存储
                 _uiList.Add(ui);
             }
-            
+
             ui.OnShow();
             return ui;
         }
@@ -79,6 +79,17 @@ namespace Modules
             for (int i = 0; i < _uiList.Count; i++)
             {
                 if (_uiList[i].name == uiName) return _uiList[i];
+            }
+            return null;
+        }
+
+        //获取某个界面的脚本
+        public T GetUI<T>(string uiName) where T : UIBase
+        {
+            UIBase ui = Find(uiName);
+            if (ui != null)
+            {
+                return ui.GetComponent<T>();
             }
             return null;
         }

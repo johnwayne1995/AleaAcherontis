@@ -6,21 +6,28 @@ namespace Modules
 {
     public class GameManagerContainer : AbstractModule<GameManagerContainer>
     {
-        private List<IGameManager> _allGameManagers;
+        private List<IGameManager> _allGameManagersUnsort;
+        private IGameManager[] _allGameManagers;
+        
         private bool _registerFinish;
         
         public override void Start()
         {
-            _allGameManagers = new List<IGameManager>();
+            _allGameManagersUnsort = new List<IGameManager>();
             _registerFinish = false;
 
             RegisterGameManagers(new AudioManager());
+            RegisterGameManagers(new FightManager());
+            RegisterGameManagers(new PlayerManager());
+            RegisterGameManagers(new EnemyManager());
+            RegisterGameManagers(new FightCardManager());
+            SortingManagers();
             AwakeManagers();
         }
 
         public override void Update()
         {
-            for (int i = 0, imax = _allGameManagers.Count; i < imax; i++)
+            for (int i = 0, imax = _allGameManagers.Length; i < imax; i++)
             {
                 _allGameManagers[i].Update();
             }
@@ -28,7 +35,7 @@ namespace Modules
 
         public override void LateUpdate()
         {
-            for (int i = 0, imax = _allGameManagers.Count; i < imax; i++)
+            for (int i = 0, imax = _allGameManagers.Length; i < imax; i++)
             {
                 _allGameManagers[i].LateUpdate();
             }
@@ -36,7 +43,7 @@ namespace Modules
 
         public override void FixedUpdate()
         {
-            for (int i = 0, imax = _allGameManagers.Count; i < imax; i++)
+            for (int i = 0, imax = _allGameManagers.Length; i < imax; i++)
             {
                 _allGameManagers[i].FixedUpdate();
             }
@@ -44,7 +51,7 @@ namespace Modules
 
         public override void Pause()
         {
-            for (int i = 0, imax = _allGameManagers.Count; i < imax; i++)
+            for (int i = 0, imax = _allGameManagers.Length; i < imax; i++)
             {
                 _allGameManagers[i].PauseGame();
             }
@@ -52,7 +59,7 @@ namespace Modules
 
         public override void Continue()
         {
-            for (int i = 0, imax = _allGameManagers.Count; i < imax; i++)
+            for (int i = 0, imax = _allGameManagers.Length; i < imax; i++)
             {
                 _allGameManagers[i].ContinueGame();
             }
@@ -64,7 +71,7 @@ namespace Modules
         
         private void RegisterGameManagers<T>(T manager) where T : class, IGameManager, new()
         {
-            _allGameManagers.Add(manager);
+            _allGameManagersUnsort.Add(manager);
             _registerFinish = true;
         }
 
@@ -84,10 +91,28 @@ namespace Modules
         
         private void AwakeManagers()
         {
-            for (int i = 0, imax = _allGameManagers.Count; i < imax; i++)
+            for (int i = 0, imax = _allGameManagers.Length; i < imax; i++)
             {
                 _allGameManagers[i].Awake();
             }
+        }
+        
+        /// <summary>
+        /// 管理器排序
+        /// </summary>
+        private void SortingManagers()
+        {
+            int mgrCount = _allGameManagersUnsort.Count;
+            if (_allGameManagers == null)
+            {
+                _allGameManagers = new IGameManager[mgrCount];
+            }
+            for (int i = 0; i < mgrCount; ++i)
+            {
+                var mgr = _allGameManagersUnsort[i];
+                _allGameManagers[mgr.Id] = mgr;
+            }
+            _allGameManagersUnsort.Clear();
         }
     }
 }
