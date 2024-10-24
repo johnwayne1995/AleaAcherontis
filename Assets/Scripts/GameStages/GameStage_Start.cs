@@ -14,11 +14,12 @@ namespace GameStages
         }
         protected override void OnEnterStage(object e = null)
         {
+            UIModule.Instance.CloseAllUI();
             UIModule.Instance.ShowUI<StartUI>("StartUI");
         }
+        
         protected override void OnLeaveStage(object e = null)
         {
-            UIModule.Instance.CloseUI("StartUI");
         }
     }
 }

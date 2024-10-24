@@ -1,5 +1,7 @@
 ﻿using Fsm;
 using Interfaces;
+using Modules;
+using UI;
 namespace GameStages
 {
     public class GameStage_GameMain : GameStageBase
@@ -10,6 +12,7 @@ namespace GameStages
         }
         protected override void OnEnterStage(object e = null)
         {
+            UIModule.Instance.ShowUI<MainUI>("MainUI");
         }
         protected override void OnLeaveStage(object e = null)
         {
