@@ -64,7 +64,13 @@ namespace UI
                     break;
             }
 
-            outName += " " + number.ToString();
+            var faceStr = number.ToString();
+            if (number == 'T')
+            {
+                faceStr = "10";
+            }
+            
+            outName += " " + faceStr;
             col = textCol;
             return outName;
         }

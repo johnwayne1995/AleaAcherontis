@@ -5,15 +5,18 @@ namespace Managers
 {
     public class FightCardManager : TGameManager<FightCardManager>
     {
-        public const int CMAX_SEND_CARD_COUNT = 5;
+        public const int CMAX_SEND_CARD_COUNT = 7;
 
         public List<NormalCard> cardList;//卡堆集合
         public List<NormalCard> usedCardList;//弃牌堆
 
         private List<NormalCard> _cardListWaitToSend;
         
+        private PokerLogic _pokerLogic;
+        
         protected override void OnAwake()
         {
+            _pokerLogic = new PokerLogic();
             cardList = new List<NormalCard>();
             usedCardList = new List<NormalCard>();
             //定义临时集合
@@ -73,6 +76,12 @@ namespace Managers
             }
             
             _cardListWaitToSend.Add(cardConfig);
+            var handStr = string.Empty;
+            for (int i = 0; i < _cardListWaitToSend.Count; i++)
+            {
+                handStr += _cardListWaitToSend[i].cardId;
+            }
+            var maxHand = _pokerLogic.AnalyzeHandStr(handStr).GetMaxHands();
             return true;
         }
         
