@@ -13,159 +13,159 @@ MonoBehaviour:
   m_Name: NormalCardsConfig
   m_EditorClassIdentifier: 
   NormalCards:
-  - cardName: As
+  - cardId: As
     cardImgPath: 
     cardPoint: 10
-  - cardName: Ks
+  - cardId: Ks
     cardImgPath: 
     cardPoint: 10
-  - cardName: Qs
+  - cardId: Qs
     cardImgPath: 
     cardPoint: 10
-  - cardName: Js
+  - cardId: Js
     cardImgPath: 
     cardPoint: 10
-  - cardName: Ts
+  - cardId: Ts
     cardImgPath: 
     cardPoint: 10
-  - cardName: 9s
+  - cardId: 9s
     cardImgPath: 
     cardPoint: 10
-  - cardName: 8s
+  - cardId: 8s
     cardImgPath: 
     cardPoint: 10
-  - cardName: 7s
+  - cardId: 7s
     cardImgPath: 
     cardPoint: 10
-  - cardName: 6s
+  - cardId: 6s
     cardImgPath: 
     cardPoint: 10
-  - cardName: 5s
+  - cardId: 5s
     cardImgPath: 
     cardPoint: 10
-  - cardName: 4s
+  - cardId: 4s
     cardImgPath: 
     cardPoint: 10
-  - cardName: 3s
+  - cardId: 3s
     cardImgPath: 
     cardPoint: 10
-  - cardName: 2s
+  - cardId: 2s
     cardImgPath: 
     cardPoint: 10
-  - cardName: Ah
+  - cardId: Ah
     cardImgPath: 
     cardPoint: 10
-  - cardName: Kh
+  - cardId: Kh
     cardImgPath: 
     cardPoint: 10
-  - cardName: Qh
+  - cardId: Qh
     cardImgPath: 
     cardPoint: 10
-  - cardName: Jh
+  - cardId: Jh
     cardImgPath: 
     cardPoint: 10
-  - cardName: Th
+  - cardId: Th
     cardImgPath: 
     cardPoint: 10
-  - cardName: 9h
+  - cardId: 9h
     cardImgPath: 
     cardPoint: 10
-  - cardName: 8h
+  - cardId: 8h
     cardImgPath: 
     cardPoint: 10
-  - cardName: 7h
+  - cardId: 7h
     cardImgPath: 
     cardPoint: 10
-  - cardName: 6h
+  - cardId: 6h
     cardImgPath: 
     cardPoint: 10
-  - cardName: 5h
+  - cardId: 5h
     cardImgPath: 
     cardPoint: 10
-  - cardName: 4h
+  - cardId: 4h
     cardImgPath: 
     cardPoint: 10
-  - cardName: 3h
+  - cardId: 3h
     cardImgPath: 
     cardPoint: 10
-  - cardName: 2h
+  - cardId: 2h
     cardImgPath: 
     cardPoint: 10
-  - cardName: Ad
+  - cardId: Ad
     cardImgPath: 
     cardPoint: 10
-  - cardName: Kd
+  - cardId: Kd
     cardImgPath: 
     cardPoint: 10
-  - cardName: Qd
+  - cardId: Qd
     cardImgPath: 
     cardPoint: 10
-  - cardName: Jd
+  - cardId: Jd
     cardImgPath: 
     cardPoint: 10
-  - cardName: Td
+  - cardId: Td
     cardImgPath: 
     cardPoint: 10
-  - cardName: 9d
+  - cardId: 9d
     cardImgPath: 
     cardPoint: 10
-  - cardName: 8d
+  - cardId: 8d
     cardImgPath: 
     cardPoint: 10
-  - cardName: 7d
+  - cardId: 7d
     cardImgPath: 
     cardPoint: 10
-  - cardName: 6d
+  - cardId: 6d
     cardImgPath: 
     cardPoint: 10
-  - cardName: 5d
+  - cardId: 5d
     cardImgPath: 
     cardPoint: 10
-  - cardName: 4d
+  - cardId: 4d
     cardImgPath: 
     cardPoint: 10
-  - cardName: 3d
+  - cardId: 3d
     cardImgPath: 
     cardPoint: 10
-  - cardName: 2d
+  - cardId: 2d
     cardImgPath: 
     cardPoint: 10
-  - cardName: Ac
+  - cardId: Ac
     cardImgPath: 
     cardPoint: 10
-  - cardName: Kc
+  - cardId: Kc
     cardImgPath: 
     cardPoint: 10
-  - cardName: Qc
+  - cardId: Qc
     cardImgPath: 
     cardPoint: 10
-  - cardName: Jc
+  - cardId: Jc
     cardImgPath: 
     cardPoint: 10
-  - cardName: Tc
+  - cardId: Tc
     cardImgPath: 
     cardPoint: 10
-  - cardName: 9c
+  - cardId: 9c
     cardImgPath: 
     cardPoint: 10
-  - cardName: 8c
+  - cardId: 8c
     cardImgPath: 
     cardPoint: 10
-  - cardName: 7c
+  - cardId: 7c
     cardImgPath: 
     cardPoint: 10
-  - cardName: 6c
+  - cardId: 6c
     cardImgPath: 
     cardPoint: 10
-  - cardName: 5c
+  - cardId: 5c
     cardImgPath: 
     cardPoint: 10
-  - cardName: 4c
+  - cardId: 4c
     cardImgPath: 
     cardPoint: 10
-  - cardName: 3c
+  - cardId: 3c
     cardImgPath: 
     cardPoint: 10
-  - cardName: 2c
+  - cardId: 2c
     cardImgPath: 
     cardPoint: 10

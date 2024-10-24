@@ -9,20 +9,78 @@ namespace UI
     public class CardItem : UIBase, IPointerEnterHandler, IPointerExitHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
         private Text _nameText;
-
+        private Button _cardBtn;
         private Image _bgImg;
         private int _index;
+        private RectTransform _rectTransform;
+        private Vector3 _oriPos;
+
+        public bool isSelected = false;
         
         private void Awake()
         {
             _nameText = transform.Find("bg/nameText").GetComponent<Text>();
             _bgImg = transform.Find("bg").GetComponent<Image>();
+            _cardBtn = _bgImg.GetComponent<Button>();
             _bgImg.material = Instantiate(Resources.Load<Material>("Mats/outline"));
+
+            _rectTransform = this.GetComponent<RectTransform>();
+            _cardBtn.onClick.AddListener(OnCardClicked);
         }
         
         public void Init(NormalCard cardConfig)
         {
-            _nameText.text = cardConfig.cardName;
+            _nameText.text = ConvertIdToName(cardConfig.cardId, out var col);
+            _nameText.color = col;
+        }
+
+        private string ConvertIdToName(string id, out Color col)
+        {
+            string outName = string.Empty;
+            var number = id[0];
+            var color = id[1];
+            Color textCol = Color.black;
+            switch (color)
+            {
+                case 's' :
+                    outName = "♠";
+                    textCol = Color.black;
+                    break;
+                case 'h' :
+                    outName = "♥";
+                    textCol = Color.red;
+                    break;
+                case 'd' :
+                    outName = "♦";
+                    textCol = Color.red;
+                    break;
+                case 'c' :
+                    outName = "♣";
+                    textCol = Color.black;
+                    break;
+            }
+
+            outName += " " + number.ToString();
+            col = textCol;
+            return outName;
+        }
+        
+        private void OnCardClicked()
+        {
+            isSelected = !isSelected;
+            if (isSelected)
+            {
+                var targetPos = _oriPos + new Vector3(0, 30, 0);
+                _rectTransform.DOAnchorPos(targetPos, 0.2f);
+                _bgImg.material.SetColor("_lineColor", Color.yellow);
+                _bgImg.material.SetFloat("_lineWidth",7);
+            }
+            else
+            {
+                _rectTransform.DOAnchorPos(_oriPos, 0.2f);
+                _bgImg.material.SetColor("_lineColor", Color.black);
+                _bgImg.material.SetFloat("_lineWidth",1);
+            }
         }
 
         /// <summary>
@@ -32,19 +90,19 @@ namespace UI
         /// <exception cref="NotImplementedException"></exception>
         public void OnPointerEnter(PointerEventData eventData)
         {
-            transform.DOScale(1.2f, 0.15f);
-            _index = transform.GetSiblingIndex();
-            transform.SetAsLastSibling();
-            _bgImg.material.SetColor("_lineColor", Color.yellow);
-            _bgImg.material.SetFloat("_lineWidth",10);
+            // transform.DOScale(1.1f, 0.15f);
+            // _index = transform.GetSiblingIndex();
+            // transform.SetAsLastSibling();
+            // _bgImg.material.SetColor("_lineColor", Color.yellow);
+            // _bgImg.material.SetFloat("_lineWidth",10);
         }
         
         public void OnPointerExit(PointerEventData eventData)
         {
-            transform.DOScale(1, 0.15f);
-            transform.SetSiblingIndex(_index);
-            _bgImg.material.SetColor("_lineColor", Color.black);
-            _bgImg.material.SetFloat("_lineWidth", 1);
+            // transform.DOScale(1, 0.15f);
+            // transform.SetSiblingIndex(_index);
+            // _bgImg.material.SetColor("_lineColor", Color.black);
+            // _bgImg.material.SetFloat("_lineWidth", 1);
         }
         
         public void OnBeginDrag(PointerEventData eventData)
@@ -60,6 +118,12 @@ namespace UI
         public void OnEndDrag(PointerEventData eventData)
         {
             throw new NotImplementedException();
+        }
+        
+        public void DoInitMoveAni(Vector2 startPos)
+        {
+            this._oriPos = startPos;
+            this.GetComponent<RectTransform>().DOAnchorPos(startPos, 0.5f);
         }
     }
 }

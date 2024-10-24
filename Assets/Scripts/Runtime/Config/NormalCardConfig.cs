@@ -12,7 +12,7 @@ namespace Config
     [Serializable]
     public class NormalCard
     {
-        public string cardName;
+        public string cardId;
         public string cardImgPath;
         public float cardPoint;
     }

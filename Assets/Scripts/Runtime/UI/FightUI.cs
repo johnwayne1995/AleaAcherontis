@@ -43,11 +43,12 @@ namespace UI
         //更新卡牌位置
         public void UpdateCardItemPos()
         {
-            float offset = 800f / cardItemList.Count;
+            float offset = 1000f / cardItemList.Count;
             Vector2 startPos = new Vector2(-cardItemList.Count / 2f * offset + offset * 0.5f, -500);
             for (int i = 0; i < cardItemList.Count; i++)
             {
-                cardItemList[i].GetComponent<RectTransform>().DOAnchorPos(startPos, 0.5f);
+                var card = cardItemList[i];
+                card.DoInitMoveAni(startPos);
                 startPos.x = startPos.x + offset;
             }
         }

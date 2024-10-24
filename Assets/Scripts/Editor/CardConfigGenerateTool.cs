@@ -31,7 +31,7 @@ public class CardConfigGenerateTool
         for (int i = 0; i < AllCards.Length; i++)
         {
             var card = new NormalCard();
-            card.cardName = AllCards[i];
+            card.cardId = AllCards[i];
             card.cardPoint = 10;
             newConfig.NormalCards.Add(card);
         }
