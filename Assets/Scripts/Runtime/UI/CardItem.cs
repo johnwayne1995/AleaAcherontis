@@ -1,6 +1,8 @@
 ﻿using System;
 using Config;
 using DG.Tweening;
+using Managers;
+using Modules;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -14,6 +16,7 @@ namespace UI
         private int _index;
         private RectTransform _rectTransform;
         private Vector3 _oriPos;
+        private NormalCard _cardConfig;
 
         public bool isSelected = false;
         
@@ -30,6 +33,7 @@ namespace UI
         
         public void Init(NormalCard cardConfig)
         {
+            _cardConfig = cardConfig;
             _nameText.text = ConvertIdToName(cardConfig.cardId, out var col);
             _nameText.color = col;
         }
@@ -67,19 +71,24 @@ namespace UI
         
         private void OnCardClicked()
         {
-            isSelected = !isSelected;
-            if (isSelected)
+            var fightCardMgr = GameManagerContainer.Instance.GetManager<FightCardManager>();
+            
+            var targetState = !isSelected;
+            if (targetState && fightCardMgr.SetCardToWaitSend(_cardConfig))
             {
                 var targetPos = _oriPos + new Vector3(0, 30, 0);
                 _rectTransform.DOAnchorPos(targetPos, 0.2f);
                 _bgImg.material.SetColor("_lineColor", Color.yellow);
                 _bgImg.material.SetFloat("_lineWidth",7);
+                isSelected = true;
             }
-            else
+            else if (!targetState)
             {
+                fightCardMgr.SetCardToHand(_cardConfig);
                 _rectTransform.DOAnchorPos(_oriPos, 0.2f);
                 _bgImg.material.SetColor("_lineColor", Color.black);
                 _bgImg.material.SetFloat("_lineWidth",1);
+                isSelected = false;
             }
         }
 

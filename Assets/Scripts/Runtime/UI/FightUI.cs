@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using DG.Tweening;
 using Managers;
 using Modules;
 using UnityEngine;
@@ -21,7 +20,6 @@ namespace UI
         public void CreateCardItem(int count)
         {
             var fightCardMgr = GameManagerContainer.Instance.GetManager<FightCardManager>();
-
             if (count > fightCardMgr.cardList.Count)
             {
                 count = fightCardMgr.cardList.Count;
