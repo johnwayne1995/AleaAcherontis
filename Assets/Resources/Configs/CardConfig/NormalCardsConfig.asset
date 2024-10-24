@@ -1,0 +1,171 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8f60c43ed234e0585e8a6b2717cb302, type: 3}
+  m_Name: NormalCardsConfig
+  m_EditorClassIdentifier: 
+  NormalCards:
+  - cardName: As
+    cardImgPath: 
+    cardPoint: 10
+  - cardName: Ks
+    cardImgPath: 
+    cardPoint: 10
+  - cardName: Qs
+    cardImgPath: 
+    cardPoint: 10
+  - cardName: Js
+    cardImgPath: 
+    cardPoint: 10
+  - cardName: Ts
+    cardImgPath: 
+    cardPoint: 10
+  - cardName: 9s
+    cardImgPath: 
+    cardPoint: 10
+  - cardName: 8s
+    cardImgPath: 
+    cardPoint: 10
+  - cardName: 7s
+    cardImgPath: 
+    cardPoint: 10
+  - cardName: 6s
+    cardImgPath: 
+    cardPoint: 10
+  - cardName: 5s
+    cardImgPath: 
+    cardPoint: 10
+  - cardName: 4s
+    cardImgPath: 
+    cardPoint: 10
+  - cardName: 3s
+    cardImgPath: 
+    cardPoint: 10
+  - cardName: 2s
+    cardImgPath: 
+    cardPoint: 10
+  - cardName: Ah
+    cardImgPath: 
+    cardPoint: 10
+  - cardName: Kh
+    cardImgPath: 
+    cardPoint: 10
+  - cardName: Qh
+    cardImgPath: 
+    cardPoint: 10
+  - cardName: Jh
+    cardImgPath: 
+    cardPoint: 10
+  - cardName: Th
+    cardImgPath: 
+    cardPoint: 10
+  - cardName: 9h
+    cardImgPath: 
+    cardPoint: 10
+  - cardName: 8h
+    cardImgPath: 
+    cardPoint: 10
+  - cardName: 7h
+    cardImgPath: 
+    cardPoint: 10
+  - cardName: 6h
+    cardImgPath: 
+    cardPoint: 10
+  - cardName: 5h
+    cardImgPath: 
+    cardPoint: 10
+  - cardName: 4h
+    cardImgPath: 
+    cardPoint: 10
+  - cardName: 3h
+    cardImgPath: 
+    cardPoint: 10
+  - cardName: 2h
+    cardImgPath: 
+    cardPoint: 10
+  - cardName: Ad
+    cardImgPath: 
+    cardPoint: 10
+  - cardName: Kd
+    cardImgPath: 
+    cardPoint: 10
+  - cardName: Qd
+    cardImgPath: 
+    cardPoint: 10
+  - cardName: Jd
+    cardImgPath: 
+    cardPoint: 10
+  - cardName: Td
+    cardImgPath: 
+    cardPoint: 10
+  - cardName: 9d
+    cardImgPath: 
+    cardPoint: 10
+  - cardName: 8d
+    cardImgPath: 
+    cardPoint: 10
+  - cardName: 7d
+    cardImgPath: 
+    cardPoint: 10
+  - cardName: 6d
+    cardImgPath: 
+    cardPoint: 10
+  - cardName: 5d
+    cardImgPath: 
+    cardPoint: 10
+  - cardName: 4d
+    cardImgPath: 
+    cardPoint: 10
+  - cardName: 3d
+    cardImgPath: 
+    cardPoint: 10
+  - cardName: 2d
+    cardImgPath: 
+    cardPoint: 10
+  - cardName: Ac
+    cardImgPath: 
+    cardPoint: 10
+  - cardName: Kc
+    cardImgPath: 
+    cardPoint: 10
+  - cardName: Qc
+    cardImgPath: 
+    cardPoint: 10
+  - cardName: Jc
+    cardImgPath: 
+    cardPoint: 10
+  - cardName: Tc
+    cardImgPath: 
+    cardPoint: 10
+  - cardName: 9c
+    cardImgPath: 
+    cardPoint: 10
+  - cardName: 8c
+    cardImgPath: 
+    cardPoint: 10
+  - cardName: 7c
+    cardImgPath: 
+    cardPoint: 10
+  - cardName: 6c
+    cardImgPath: 
+    cardPoint: 10
+  - cardName: 5c
+    cardImgPath: 
+    cardPoint: 10
+  - cardName: 4c
+    cardImgPath: 
+    cardPoint: 10
+  - cardName: 3c
+    cardImgPath: 
+    cardPoint: 10
+  - cardName: 2c
+    cardImgPath: 
+    cardPoint: 10
