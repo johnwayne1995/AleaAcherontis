@@ -214,7 +214,7 @@ namespace Managers
                 }
             }
 
-            return baseDmg;
+            return baseDmg * magnification;
         }
     }
 }

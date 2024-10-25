@@ -1,4 +1,8 @@
 ﻿using DefaultNamespace;
+using Fsm;
+using Managers;
+using Modules;
+using Unity.Burst.Intrinsics;
 using UnityEngine.UI;
 
 namespace UI
@@ -33,6 +37,34 @@ namespace UI
         {
             curHp -= getCurHandsDamage;
             _hpText.text = $"{curHp.ToString()}/{maxHp.ToString()}";
+        }
+
+        public void DoAction()
+        {
+            var fightManager = GameManagerContainer.Instance.GetManager<FightManager>();
+            var curRound = fightManager.GetCurRound();
+            for (int i = _enemyConfig.enemyActions.Count - 1; i >= 0 ; i--)
+            {
+                var ac = _enemyConfig.enemyActions[i];
+                if (curRound % ac.perRound == 0)
+                {
+                    switch (ac.enemyActionType)
+                    {
+                        case EnemyActionType.Damage:
+                            fightManager.HitPlayer(ac.param);
+                            break;
+                        case EnemyActionType.ForceAddCard:
+                            
+                            break;
+                    }
+
+                    STimer.Wait(1, () =>
+                    {
+                        fightManager.ChangeState(EFIGHT_STAGE.Player);
+                    });
+                    return;
+                }
+            }
         }
     }
 }

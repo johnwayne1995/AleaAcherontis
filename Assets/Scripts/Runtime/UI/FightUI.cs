@@ -22,6 +22,7 @@ namespace UI
         private Text _caseText;
         private Text _caseDamageText;
         private Text _magnificationText;
+        private Text _playerHpText;
 
         private void Awake()
         {
@@ -31,6 +32,7 @@ namespace UI
             _caseText = transform.Find("leftMiddlePanel/caseTip/caseText").GetComponent<Text>();
             _caseDamageText = transform.Find("leftMiddlePanel/damagePanel/caseDamageText").GetComponent<Text>();
             _magnificationText = transform.Find("leftMiddlePanel/damagePanel/magnificationText").GetComponent<Text>();
+            _playerHpText = transform.Find("playerHp").GetComponent<Text>();
 
             _sortBtn = transform.Find("sortBtn").GetComponent<Button>();
             _sendBtn = transform.Find("sendBtn").GetComponent<Button>();
@@ -219,6 +221,11 @@ namespace UI
             var item = obj.AddComponent<EnemyCardItem>();
             item.Init(enemyConfig);
             return item;
+        }
+        
+        public void FlushHp(int curHp, int maxHp)
+        {
+            _playerHpText.text = $"{curHp.ToString()}/{maxHp.ToString()}";
         }
     }
 }

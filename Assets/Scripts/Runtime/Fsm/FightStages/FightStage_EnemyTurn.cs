@@ -13,7 +13,7 @@ namespace Fsm.FightStages
             //todo 播放敌人回合UI
             STimer.Wait(1, () =>
             {
-                controller.SwitchState(EFIGHT_STAGE.Player, null);
+                controller.SwitchState(EFIGHT_STAGE.EnemyTurnSettlement, null);
             });
         }
         protected override void OnUpdateStage(float deltaTimes)

@@ -22,9 +22,14 @@ namespace Managers
             _curEnemy = fightUi.CreateNewEnemy(enemyConfig);
         }
         
-        public void Hit(int getCurHandsDamage)
+        public void SelfHit(int getCurHandsDamage)
         {
             _curEnemy.Hit(getCurHandsDamage);
+        }
+        
+        public void DoAction()
+        {
+            _curEnemy.DoAction();
         }
     }
 }

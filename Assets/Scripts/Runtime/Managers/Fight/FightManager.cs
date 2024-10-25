@@ -2,6 +2,7 @@
 using Fsm;
 using Fsm.FightStages;
 using Modules;
+using UI;
 using UnityEngine;
 
 namespace Managers
@@ -30,7 +31,8 @@ namespace Managers
             _fsmController.AddState(EFIGHT_STAGE.Fail, new FightStage_Fail(EFIGHT_STAGE.Fail, _fsmController));
             _fsmController.SetDefault(EFIGHT_STAGE.Player);
             _roundCount = 0;
-            
+
+            CurHp = MaxHp = 1000;
             var enemyManager = GameManagerContainer.Instance.GetManager<EnemyManager>();
             enemyManager.LoadEnemy();
         }
@@ -68,6 +70,13 @@ namespace Managers
         public int GetCurRound()
         {
             return _roundCount;
+        }
+        
+        public void HitPlayer(int damage)
+        {
+            CurHp -= damage;
+            var fightUi = UIModule.Instance.GetUI<FightUI>("FightUI");
+            fightUi.FlushHp(CurHp, MaxHp);
         }
     }
 }

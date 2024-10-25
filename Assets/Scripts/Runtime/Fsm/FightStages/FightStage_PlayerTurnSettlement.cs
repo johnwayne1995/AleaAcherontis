@@ -18,7 +18,7 @@ namespace Fsm.FightStages
            var fightCardMgr = GameManagerContainer.Instance.GetManager<FightCardManager>();
 
            
-           enemyManager.Hit(fightCardMgr.GetCurHandsDamage());
+           enemyManager.SelfHit(fightCardMgr.GetCurHandsDamage());
            
            STimer.Wait(1.5f, () =>
            {

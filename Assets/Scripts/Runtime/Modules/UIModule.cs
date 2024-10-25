@@ -8,7 +8,8 @@ namespace Modules
     {
         private Transform _canvasTf; //画布的变换组件
         private List<UIBase> _uiList; //存储加载过的界面的集合
-
+        private Dictionary<string, UIBase> _uiDic;
+        
         public override void Start()
         {
             base.Start();
@@ -16,6 +17,7 @@ namespace Modules
             _canvasTf = GameObject.Find("GameMain/Canvas").transform;
             //初始化集合
             _uiList = new List<UIBase>();
+            _uiDic = new Dictionary<string, UIBase>();
         }
 
         public UIBase ShowUI<T>(string uiName) where T : UIBase
@@ -34,6 +36,7 @@ namespace Modules
 
                 //添加到集合进行存储
                 _uiList.Add(ui);
+                _uiDic.Add(ui.name, ui);
             }
 
             ui.OnShow();
@@ -58,6 +61,7 @@ namespace Modules
             if (ui != null)
             {
                 _uiList.Remove(ui);
+                _uiDic.Remove(ui.name);
                 GameObject.Destroy(ui.gameObject);
             }
         }
@@ -70,16 +74,18 @@ namespace Modules
                 GameObject.Destroy(_uiList[i].gameObject);
             }
             _uiList.Clear(); //清空合集
+            _uiDic.Clear();
         }
 
 
         //从集合中找到名字对应的界面脚本
         public UIBase Find(string uiName)
         {
-            for (int i = 0; i < _uiList.Count; i++)
+            if (_uiDic.TryGetValue(uiName, out var uiBase))
             {
-                if (_uiList[i].name == uiName) return _uiList[i];
+                return uiBase;
             }
+            
             return null;
         }
 

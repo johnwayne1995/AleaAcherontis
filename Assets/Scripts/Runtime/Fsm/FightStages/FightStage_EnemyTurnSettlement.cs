@@ -1,4 +1,6 @@
 ﻿using Interfaces;
+using Managers;
+using Modules;
 namespace Fsm.FightStages
 {
     public class FightStage_EnemyTurnSettlement : FightStageBase
@@ -9,6 +11,8 @@ namespace Fsm.FightStages
         }
         protected override void OnEnterStage(object e = null)
         {
+            var enemyManager = GameManagerContainer.Instance.GetManager<EnemyManager>();
+            enemyManager.DoAction();
         }
         protected override void OnUpdateStage(float deltaTimes)
         {
