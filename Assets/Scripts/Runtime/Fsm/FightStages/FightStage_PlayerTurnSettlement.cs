@@ -19,12 +19,6 @@ namespace Fsm.FightStages
 
            
            enemyManager.SelfHit(fightCardMgr.GetCurHandsDamage());
-           
-           STimer.Wait(1.5f, () =>
-           {
-               var fightUi = UIModule.Instance.GetUI<FightUI>("FightUI");
-               fightUi.RemoveAllSendCard();
-           });
         }
         protected override void OnUpdateStage(float deltaTimes)
         {

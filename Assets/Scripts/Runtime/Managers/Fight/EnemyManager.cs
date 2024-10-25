@@ -1,4 +1,5 @@
 ﻿using DefaultNamespace;
+using Fsm;
 using Modules;
 using UI;
 using UnityEngine;
@@ -12,7 +13,15 @@ namespace Managers
         protected override void OnAwake()
         {
             base.OnAwake();
-            
+        }
+
+        protected override void OnEnterGame()
+        {
+            base.OnEnterGame();
+            if (_curEnemy != null)
+            {
+                _curEnemy.Recycle();
+            }
         }
 
         public void LoadEnemy()
@@ -24,7 +33,20 @@ namespace Managers
         
         public void SelfHit(int getCurHandsDamage)
         {
-            _curEnemy.Hit(getCurHandsDamage);
+            var isDone = _curEnemy.Hit(getCurHandsDamage);
+            if (isDone)
+            {
+                var fightManager = GameManagerContainer.Instance.GetManager<FightManager>();
+                fightManager.ChangeState(EFIGHT_STAGE.Win);
+            }
+            else
+            {
+                STimer.Wait(1.5f, () =>
+                {
+                    var fightUi = UIModule.Instance.GetUI<FightUI>("FightUI");
+                    fightUi.RemoveAllSendCard();
+                });
+            }
         }
         
         public void DoAction()

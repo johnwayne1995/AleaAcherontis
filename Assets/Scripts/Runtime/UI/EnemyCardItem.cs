@@ -2,7 +2,7 @@
 using Fsm;
 using Managers;
 using Modules;
-using Unity.Burst.Intrinsics;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace UI
@@ -33,10 +33,17 @@ namespace UI
             base.OnShow();
             
         }
-        public void Hit(int getCurHandsDamage)
+        public bool Hit(int getCurHandsDamage)
         {
             curHp -= getCurHandsDamage;
+            if (curHp <= 0)
+            {
+                curHp = 0;
+                return true;
+            }
+            
             _hpText.text = $"{curHp.ToString()}/{maxHp.ToString()}";
+            return false;
         }
 
         public void DoAction()
@@ -58,13 +65,14 @@ namespace UI
                             break;
                     }
 
-                    STimer.Wait(1, () =>
-                    {
-                        fightManager.ChangeState(EFIGHT_STAGE.Player);
-                    });
                     return;
                 }
             }
+        }
+        
+        public void Recycle()
+        {
+            GameObject.DestroyImmediate(this.gameObject);
         }
     }
 }

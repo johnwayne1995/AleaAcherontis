@@ -75,8 +75,13 @@ namespace Managers
         public void HitPlayer(int damage)
         {
             CurHp -= damage;
-            var fightUi = UIModule.Instance.GetUI<FightUI>("FightUI");
-            fightUi.FlushHp(CurHp, MaxHp);
+
+            if (CurHp <= 0)
+            {
+                CurHp = 0;
+                var fightUi = UIModule.Instance.GetUI<FightUI>("FightUI");
+                fightUi.FlushHp(CurHp, MaxHp);
+            }
         }
     }
 }

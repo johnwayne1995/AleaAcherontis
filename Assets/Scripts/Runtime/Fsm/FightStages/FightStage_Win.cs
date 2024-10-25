@@ -1,4 +1,6 @@
 ﻿using Interfaces;
+using Modules;
+using UI;
 namespace Fsm.FightStages
 {
     public class FightStage_Win : FightStageBase
@@ -9,15 +11,13 @@ namespace Fsm.FightStages
         }
         protected override void OnEnterStage(object e = null)
         {
-            throw new System.NotImplementedException();
+            UIModule.Instance.ShowUI<WinUI>("WinUI");
         }
         protected override void OnUpdateStage(float deltaTimes)
         {
-            throw new System.NotImplementedException();
         }
         protected override void OnLeaveStage(object e = null)
         {
-            throw new System.NotImplementedException();
         }
     }
 }

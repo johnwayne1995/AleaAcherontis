@@ -61,7 +61,17 @@ namespace Managers
             Shuffle(tempList);
             CardList.AddRange(tempList);
         }
-        
+
+        protected override void OnEnterGame()
+        {
+            base.OnEnterGame();
+            if (CardListWaitToSend != null)
+            {
+                CardListWaitToSend.Clear();
+            }
+            _pokerHand = null;
+        }
+
         /// <summary>
         /// 洗牌
         /// </summary>

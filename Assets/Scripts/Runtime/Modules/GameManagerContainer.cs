@@ -94,7 +94,9 @@ namespace Modules
             for (int i = 0, imax = _allGameManagers.Length; i < imax; i++)
             {
                 _allGameManagers[i].Awake();
+                _allGameManagers[i].EnterGame();
             }
+            
         }
         
         /// <summary>

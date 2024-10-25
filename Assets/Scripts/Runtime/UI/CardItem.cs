@@ -135,17 +135,14 @@ namespace UI
         
         public void OnBeginDrag(PointerEventData eventData)
         {
-            throw new NotImplementedException();
         }
         
         public void OnDrag(PointerEventData eventData)
         {
-            throw new NotImplementedException();
         }
         
         public void OnEndDrag(PointerEventData eventData)
         {
-            throw new NotImplementedException();
         }
         
         public void DoInitMoveAni(Vector2 endPos, float time = 0.5f)
