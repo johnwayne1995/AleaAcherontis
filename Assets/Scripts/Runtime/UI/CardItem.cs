@@ -18,6 +18,8 @@ namespace UI
         private Vector3 _oriPos;
         private NormalCard _cardConfig;
 
+        private Action _cardSendStateChangedAc;
+        
         public bool isSelected = false;
         
         private void Awake()
@@ -31,11 +33,12 @@ namespace UI
             _cardBtn.onClick.AddListener(OnCardClicked);
         }
         
-        public void Init(NormalCard cardConfig)
+        public void Init(NormalCard cardConfig, Action cardStateChangeAc)
         {
             _cardConfig = cardConfig;
             _nameText.text = ConvertIdToName(cardConfig.cardId, out var col);
             _nameText.color = col;
+            _cardSendStateChangedAc = cardStateChangeAc;
         }
 
         private string ConvertIdToName(string id, out Color col)
@@ -87,6 +90,11 @@ namespace UI
                 _bgImg.material.SetColor("_lineColor", Color.yellow);
                 _bgImg.material.SetFloat("_lineWidth",7);
                 isSelected = true;
+
+                if (_cardSendStateChangedAc != null)
+                {
+                    _cardSendStateChangedAc.Invoke();
+                }
             }
             else if (!targetState)
             {
@@ -95,6 +103,11 @@ namespace UI
                 _bgImg.material.SetColor("_lineColor", Color.black);
                 _bgImg.material.SetFloat("_lineWidth",1);
                 isSelected = false;
+                
+                if (_cardSendStateChangedAc != null)
+                {
+                    _cardSendStateChangedAc.Invoke();
+                }
             }
         }
 
@@ -139,6 +152,12 @@ namespace UI
         {
             this._oriPos = startPos;
             this.GetComponent<RectTransform>().DOAnchorPos(startPos, 0.5f);
+        }
+        
+        public void OnRecycle()
+        {
+            _cardSendStateChangedAc = null;
+            GameObject.DestroyImmediate(this.gameObject);
         }
     }
 }

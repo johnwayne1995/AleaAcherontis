@@ -9,10 +9,12 @@ namespace Managers
 
         public List<NormalCard> cardList;//卡堆集合
         public List<NormalCard> usedCardList;//弃牌堆
-
+        public List<NormalCard> usingCardList;
+        
         private List<NormalCard> _cardListWaitToSend;
         
         private TexasLogic _texasLogic;
+        private PokerHand _pokerHand;
 
         protected override void OnAwake()
         {
@@ -20,6 +22,7 @@ namespace Managers
             
             cardList = new List<NormalCard>();
             usedCardList = new List<NormalCard>();
+            usingCardList = new List<NormalCard>();
             //定义临时集合
             List<NormalCard> tempList = new List<NormalCard>();
             var allNormalCard = Resources.Load<NormalCardsConfig>("Configs/CardConfig/NormalCardsConfig");
@@ -60,6 +63,16 @@ namespace Managers
             return cardConfig;
         }
         
+        public void DrawCards(int count)
+        {
+            for (int i = 0; i < count; i++)
+            {
+                var card = DrawCard();
+                usingCardList.Add(card);
+            }
+            SortUsingCards();
+        }
+        
         /// <summary>
         /// 将指定牌设置为待打出
         /// </summary>
@@ -82,9 +95,9 @@ namespace Managers
             {
                 handStr += _cardListWaitToSend[i].cardId;
             }
-            var hand = _texasLogic.AnalyzeHandStr(handStr);
-            hand.EvaluateHand();
             
+            _pokerHand = _texasLogic.AnalyzeHandStr(handStr);
+            _pokerHand.EvaluateHand();
             return true;
         }
         
@@ -95,6 +108,31 @@ namespace Managers
         public void SetCardToHand(NormalCard cardConfig)
         {
             _cardListWaitToSend.Remove(cardConfig);
+            if (_cardListWaitToSend.Count == 0)
+            {
+                _pokerHand = null;
+            }
+        }
+
+        public CaseEnum GetCurHandCardCase()
+        {
+            if (_pokerHand == null)
+                return CaseEnum.None;
+            return _pokerHand.HandCase;
+        }
+
+        public void SortUsingCards()
+        {
+            usingCardList.Sort((card1, card2) =>
+            {
+                var card1Rank = TexasLogic.ConvertStrToRank(card1.cardId[0]);
+                var card2Rank = TexasLogic.ConvertStrToRank(card2.cardId[0]);
+                if (card1Rank > card2Rank)
+                {
+                    return -1;
+                }
+                return 0;
+            });
         }
     }
 }

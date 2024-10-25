@@ -4,10 +4,16 @@ namespace Managers
 {
     public class TexasLogic
     {
+        private readonly PokerHand _pokerHand;
+
+        public TexasLogic()
+        {
+            _pokerHand = new PokerHand();
+        }
+        
         public PokerHand AnalyzeHandStr(string handStr)
         {
-            var hand = new PokerHand();
-            hand.Cards = new List<Card>();
+            _pokerHand.Cards.Clear();
 
             Rank curRank = Rank.Ace;
             char curRankChar = 'A';
@@ -25,14 +31,14 @@ namespace Managers
                     var suitValue = handStr[i];
                     var curSuit = ConvertStrToSuit(suitValue);
                     var card = new Card(curSuit, curRank, curRankChar.ToString() + suitValue);
-                    hand.Cards.Add(card);
+                    _pokerHand.Cards.Add(card);
                 }
             }
             
-            return hand;
+            return _pokerHand;
         }
 
-        private Rank ConvertStrToRank(char str)
+        public static Rank ConvertStrToRank(char str)
         {
             switch (str)
             {
@@ -97,6 +103,12 @@ namespace Managers
             Cards = Cards.OrderBy(card => card.Rank).ToList();
             HandDetails.Clear();
 
+            if (Cards.Count == 0)
+            {
+                HandCase = CaseEnum.None;
+                return;
+            }
+            
             // 检查牌型
             if (IsRoyalFlush()) HandCase = CaseEnum.Flush;
             else if (IsStraightFlush()) HandCase = CaseEnum.StraightFlush;
@@ -255,6 +267,7 @@ namespace Managers
     
     public enum CaseEnum
     {
+        None = 9,
         StraightFlush = 8, // 皇家同花顺&同花顺
         FourOfAKind   = 7, // 四条
         FullHouse     = 6, // 葫芦
@@ -276,18 +289,18 @@ namespace Managers
 
     public enum Rank
     {
-        Two = 2,
-        Three,
-        Four,
-        Five,
-        Six,
-        Seven,
-        Eight,
-        Nine,
-        Ten,
-        Jack,
-        Queen,
-        King,
-        Ace
+        Two = 13,
+        Ace = 12,
+        Three = 1,
+        Four = 2,
+        Five = 3,
+        Six = 4,
+        Seven = 5,
+        Eight = 6,
+        Nine = 7,
+        Ten = 8,
+        Jack = 9,
+        Queen = 10,
+        King = 11,
     }
 }
