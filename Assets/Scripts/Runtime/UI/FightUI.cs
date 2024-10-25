@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using DefaultNamespace;
+using Fsm;
 using Managers;
 using Modules;
 using UnityEngine;
@@ -8,22 +11,35 @@ namespace UI
 {
     public class FightUI : UIBase
     {
-        private List<CardItem> cardItemList;
+        private List<CardItem> _cardItemList;
+        private List<CardItem> _sendCardList;
 
         private FightCardManager _fightCardManager;
+        private FightManager _fightManager;
+
         private Button _sortBtn;
         private Button _sendBtn;
         private Text _caseText;
+        private Text _caseDamageText;
+        private Text _magnificationText;
 
         private void Awake()
         {
             _fightCardManager = GameManagerContainer.Instance.GetManager<FightCardManager>();
+            _fightManager = GameManagerContainer.Instance.GetManager<FightManager>();
+
             _caseText = transform.Find("leftMiddlePanel/caseTip/caseText").GetComponent<Text>();
+            _caseDamageText = transform.Find("leftMiddlePanel/damagePanel/caseDamageText").GetComponent<Text>();
+            _magnificationText = transform.Find("leftMiddlePanel/damagePanel/magnificationText").GetComponent<Text>();
+
             _sortBtn = transform.Find("sortBtn").GetComponent<Button>();
             _sendBtn = transform.Find("sendBtn").GetComponent<Button>();
             _sortBtn.onClick.AddListener(SortBtnClick);
             _sendBtn.onClick.AddListener(SendBtnClick);
-            UpdateCardCaseTip();
+            OnWaitSendListChanged();
+
+            _cardItemList = new List<CardItem>();
+            _sendCardList = new List<CardItem>();
         }
 
         public override void OnShow()
@@ -31,31 +47,48 @@ namespace UI
             base.OnShow();
             var audioMgr = GameManagerContainer.Instance.GetManager<AudioManager>();
             audioMgr.PlayBgm("battle", true);
-            cardItemList = new List<CardItem>();
         }
-        
-        public void CreateCardItem(int count)
+
+        public void CreateCardItem()
         {
-            if (count > _fightCardManager.cardList.Count)
+            var curHandCardCount = _fightCardManager.UsingCardList.Count;
+            if (curHandCardCount > FightCardManager.CMAX_SAVE_CARD_COUNT)
             {
-                count = _fightCardManager.cardList.Count;
+                //手牌超出，需弃牌
+                
+                return;
             }
 
-            _fightCardManager.DrawCards(count);
+            int needDrawCount = 0;
+            if (curHandCardCount == 0)
+            {
+                needDrawCount = FightCardManager.CMAX_SAVE_CARD_COUNT;
+            }
+            else
+            {
+                needDrawCount = FightCardManager.CMAX_SAVE_CARD_COUNT - curHandCardCount;
+            }
+            
+            if (needDrawCount > _fightCardManager.CardList.Count)
+            {
+                needDrawCount = _fightCardManager.CardList.Count;
+            }
+
+            _fightCardManager.DrawCards(needDrawCount);
             SortBtnClick();
         }
 
         private void ClearAllCardItem()
         {
-            for (int i = 0; i < cardItemList.Count; i++)
+            for (int i = 0; i < _cardItemList.Count; i++)
             {
-                cardItemList[i].OnRecycle();
+                _cardItemList[i].OnRecycle();
             }
-            
-            cardItemList.Clear();
+
+            _cardItemList.Clear();
         }
-        
-        public void UpdateCardCaseTip()
+
+        public void OnWaitSendListChanged()
         {
             var cardCase = _fightCardManager.GetCurHandCardCase();
             switch (cardCase)
@@ -88,19 +121,24 @@ namespace UI
                     _caseText.text = "高牌";
                     break;
                 default:
-                    _caseText.text = "";
-                    break;
+                    _caseText.text = String.Empty;
+                    _caseDamageText.text = String.Empty;
+                    _magnificationText.text = String.Empty;
+                    return;
             }
+            var cardCaseConfig = _fightCardManager.GetCardCaseConfigByCaseType(cardCase);
+            _caseDamageText.text = cardCaseConfig.damageValue.ToString();
+            _magnificationText.text = cardCaseConfig.magnification.ToString();
         }
 
         //更新卡牌位置
         public void UpdateCardItemPos()
         {
-            float offset = 1000f / cardItemList.Count;
-            Vector2 startPos = new Vector2(-cardItemList.Count / 2f * offset + offset * 0.5f, -500);
-            for (int i = 0; i < cardItemList.Count; i++)
+            float offset = 1000f / _cardItemList.Count;
+            Vector2 startPos = new Vector2(-_cardItemList.Count / 2f * offset + offset * 0.5f, -500);
+            for (int i = 0; i < _cardItemList.Count; i++)
             {
-                var card = cardItemList[i];
+                var card = _cardItemList[i];
                 card.DoInitMoveAni(startPos);
                 startPos.x = startPos.x + offset;
             }
@@ -110,21 +148,77 @@ namespace UI
         {
             ClearAllCardItem();
             _fightCardManager.SortUsingCards();
-            for (int i = 0; i < _fightCardManager.usingCardList.Count; i++)
+            for (int i = 0; i < _fightCardManager.UsingCardList.Count; i++)
             {
                 GameObject obj = Instantiate(Resources.Load("UI/CardItem"), transform) as GameObject;
                 obj.GetComponent<RectTransform>().anchoredPosition = new Vector2(-1000, -700);
                 var item = obj.AddComponent<CardItem>();
-                item.Init(_fightCardManager.usingCardList[i], UpdateCardCaseTip);
-                cardItemList.Add(item);
+                item.Init(_fightCardManager.UsingCardList[i], OnWaitSendListChanged);
+                _cardItemList.Add(item);
             }
 
             UpdateCardItemPos();
         }
-        
+
         private void SendBtnClick()
         {
+            if (_fightCardManager.CardListWaitToSend.Count == 0)
+            {
+                return;
+            }
+
+            _sendCardList.Clear();
+            for (int i = 0; i < _cardItemList.Count; i++)
+            {
+                var card = _cardItemList[i];
+                if (card.isSelected)
+                {
+                    _sendCardList.Add(card);
+                }
+            }
+
+            for (int i = _sendCardList.Count - 1; i >= 0; i--)
+            {
+                _cardItemList.Remove(_sendCardList[i]);
+            }
+            UpdateCardItemPos();
+
+            float offset = 600f / _sendCardList.Count;
+            Vector2 enPos = new Vector2(-_sendCardList.Count / 2f * offset + offset * 0.5f, 0);
+            for (int i = 0; i < _sendCardList.Count; i++)
+            {
+                var card = _sendCardList[i];
+                card.DoInitMoveAni(enPos);
+                enPos.x = enPos.x + offset;
+            }
             
+            _fightManager.ChangeState(EFIGHT_STAGE.PlayerTurnSettlement);
+        }
+        
+        public void RemoveAllSendCard()
+        {
+            for (int i = 0; i < _sendCardList.Count; i++)
+            {
+                var item = _sendCardList[i];
+                _fightCardManager.UseCard(item.GetCardConfig());
+                item.DoInitMoveAni(new Vector2(1000, -700), 0.25f);
+                item.DoScaleAni(0, 0.25f);
+                Destroy(item.gameObject, 1);
+            }
+
+            _fightCardManager.ClearWaitToSendList();
+            _sendCardList.Clear();
+            if(_fightManager.GetCurState() == EFIGHT_STAGE.PlayerTurnSettlement)
+                _fightManager.ChangeState(EFIGHT_STAGE.Enemy);
+        }
+
+        public EnemyCardItem CreateNewEnemy(EnemyConfig enemyConfig)
+        {
+            GameObject obj = GameObject.Instantiate(Resources.Load("UI/EnemyCardItem"), transform) as GameObject;
+            obj.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 100);
+            var item = obj.AddComponent<EnemyCardItem>();
+            item.Init(enemyConfig);
+            return item;
         }
     }
 }

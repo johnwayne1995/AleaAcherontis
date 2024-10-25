@@ -12,7 +12,9 @@
         None,
         LoadCard,
         Player,//玩家回合
+        PlayerTurnSettlement,
         Enemy,//敌人回合
+        EnemyTurnSettlement,
         Win,
         Fail 
     }

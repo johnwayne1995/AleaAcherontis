@@ -1,20 +1,15 @@
 ﻿using Interfaces;
-using Modules;
-using UI;
 namespace Fsm.FightStages
 {
-    public class FightStage_LoadCard : FightStageBase
+    public class FightStage_EnemyTurnSettlement : FightStageBase
     {
 
-        public FightStage_LoadCard(EFIGHT_STAGE stateType, IFsmController<EFIGHT_STAGE> controller) : base(stateType, controller)
+        public FightStage_EnemyTurnSettlement(EFIGHT_STAGE stateType, IFsmController<EFIGHT_STAGE> controller) : base(stateType, controller)
         {
         }
         protected override void OnEnterStage(object e = null)
         {
-            var fightUi = UIModule.Instance.GetUI<FightUI>("FightUI");
-            fightUi.CreateCardItem();
         }
-        
         protected override void OnUpdateStage(float deltaTimes)
         {
         }

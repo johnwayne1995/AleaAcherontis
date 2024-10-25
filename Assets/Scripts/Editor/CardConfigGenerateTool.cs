@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using Config;
-using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -32,7 +29,50 @@ public class CardConfigGenerateTool
         {
             var card = new NormalCard();
             card.cardId = AllCards[i];
-            card.cardPoint = 10;
+
+            switch (card.cardId[0])
+            {
+                case '2':
+                    card.cardPoint = 13;
+                    break;
+                case 'A':
+                    card.cardPoint = 12;
+                    break;
+                case 'K':
+                    card.cardPoint = 11;
+                    break;
+                case 'Q':
+                    card.cardPoint = 10;
+                    break;
+                case 'J':
+                    card.cardPoint = 9;
+                    break;
+                case 'T':
+                    card.cardPoint = 8;
+                    break;
+                case '9':
+                    card.cardPoint = 7;
+                    break;
+                case '8':
+                    card.cardPoint = 6;
+                    break;
+                case '7':
+                    card.cardPoint = 5;
+                    break;
+                case '6':
+                    card.cardPoint = 4;
+                    break;
+                case '5':
+                    card.cardPoint = 3;
+                    break;
+                case '4':
+                    card.cardPoint = 2;
+                    break;
+                case '3':
+                    card.cardPoint = 1;
+                    break;
+            }
+            
             newConfig.NormalCards.Add(card);
         }
         

@@ -148,10 +148,20 @@ namespace UI
             throw new NotImplementedException();
         }
         
-        public void DoInitMoveAni(Vector2 startPos)
+        public void DoInitMoveAni(Vector2 endPos, float time = 0.5f)
         {
-            this._oriPos = startPos;
-            this.GetComponent<RectTransform>().DOAnchorPos(startPos, 0.5f);
+            this._oriPos = endPos;
+            this.GetComponent<RectTransform>().DOAnchorPos(endPos, time);
+        }
+
+        public void DoScaleAni(float scale, float time)
+        {
+            transform.DOScale(scale, time);
+        }
+        
+        public NormalCard GetCardConfig()
+        {
+            return _cardConfig;
         }
         
         public void OnRecycle()

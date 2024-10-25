@@ -14,6 +14,6 @@ namespace Config
     {
         public string cardId;
         public string cardImgPath;
-        public float cardPoint;
+        public int cardPoint;
     }
 }

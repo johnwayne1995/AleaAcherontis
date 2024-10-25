@@ -14,6 +14,7 @@ namespace CardGame
             DontDestroyOnLoad(this.gameObject);
             _moduleMgr = ModuleMgr.Ins;
             _moduleMgr.AddModule(UIModule.Instance);
+            _moduleMgr.AddModule(TimerModule.Instance);
             _moduleMgr.AddModule(GameManagerContainer.Instance);
             _moduleMgr.AddModule(GameStageModule.Instance);
             _moduleMgr.Start();

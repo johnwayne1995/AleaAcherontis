@@ -5,13 +5,34 @@ namespace Managers
 {
     public class FightCardManager : TGameManager<FightCardManager>
     {
+        /// <summary>
+        /// 最大出牌数
+        /// </summary>
         public const int CMAX_SEND_CARD_COUNT = 5;
+        /// <summary>
+        /// 最大持有手牌数
+        /// </summary>
+        public const int CMAX_SAVE_CARD_COUNT = 8;
 
-        public List<NormalCard> cardList;//卡堆集合
-        public List<NormalCard> usedCardList;//弃牌堆
-        public List<NormalCard> usingCardList;
-        
-        private List<NormalCard> _cardListWaitToSend;
+        /// <summary>
+        /// 抽卡堆
+        /// </summary>
+        public List<NormalCard> CardList;
+        /// <summary>
+        /// 弃牌堆
+        /// </summary>
+        public List<NormalCard> UsedCardList;
+        /// <summary>
+        /// 手牌
+        /// </summary>
+        public List<NormalCard> UsingCardList;
+        /// <summary>
+        /// 待打出的牌
+        /// </summary>
+        public List<NormalCard> CardListWaitToSend;
+
+        private Dictionary<string, int> _cacheCardDamage = new Dictionary<string, int>();
+        private CardCaseConfig _cardCaseConfig;
         
         private TexasLogic _texasLogic;
         private PokerHand _pokerHand;
@@ -20,15 +41,25 @@ namespace Managers
         {
             _texasLogic = new TexasLogic();
             
-            cardList = new List<NormalCard>();
-            usedCardList = new List<NormalCard>();
-            usingCardList = new List<NormalCard>();
+            CardList = new List<NormalCard>();
+            UsedCardList = new List<NormalCard>();
+            UsingCardList = new List<NormalCard>();
             //定义临时集合
             List<NormalCard> tempList = new List<NormalCard>();
+            
+            _cardCaseConfig = Resources.Load<CardCaseConfig>("Configs/CardConfig/CardsCaseConfig");
+            
             var allNormalCard = Resources.Load<NormalCardsConfig>("Configs/CardConfig/NormalCardsConfig");
+
+            for (int i = 0; i < allNormalCard.NormalCards.Count; i++)
+            {
+                var card = allNormalCard.NormalCards[i];
+                _cacheCardDamage.Add(card.cardId, card.cardPoint);
+            }
+            
             tempList.AddRange(allNormalCard.NormalCards);
             Shuffle(tempList);
-            cardList.AddRange(tempList);
+            CardList.AddRange(tempList);
         }
         
         /// <summary>
@@ -52,14 +83,14 @@ namespace Managers
         //是否有卡
         public bool HasCard()
         {
-            return cardList.Count > 0;
+            return CardList.Count > 0;
         }
         
         //抽卡
         public NormalCard DrawCard()
         {
-            var cardConfig = cardList[cardList.Count - 1];
-            cardList.RemoveAt(cardList.Count - 1);
+            var cardConfig = CardList[CardList.Count - 1];
+            CardList.RemoveAt(CardList.Count - 1);
             return cardConfig;
         }
         
@@ -68,7 +99,7 @@ namespace Managers
             for (int i = 0; i < count; i++)
             {
                 var card = DrawCard();
-                usingCardList.Add(card);
+                UsingCardList.Add(card);
             }
             SortUsingCards();
         }
@@ -80,20 +111,20 @@ namespace Managers
         /// <returns></returns>
         public bool SetCardToWaitSend(NormalCard cardConfig)
         {
-            if (_cardListWaitToSend == null)
-                _cardListWaitToSend = new List<NormalCard>();
+            if (CardListWaitToSend == null)
+                CardListWaitToSend = new List<NormalCard>();
 
-            if (_cardListWaitToSend.Count == CMAX_SEND_CARD_COUNT)
+            if (CardListWaitToSend.Count == CMAX_SEND_CARD_COUNT)
             {
                 //TODO 提示待打出牌已满
                 return false;
             }
             
-            _cardListWaitToSend.Add(cardConfig);
+            CardListWaitToSend.Add(cardConfig);
             var handStr = string.Empty;
-            for (int i = 0; i < _cardListWaitToSend.Count; i++)
+            for (int i = 0; i < CardListWaitToSend.Count; i++)
             {
-                handStr += _cardListWaitToSend[i].cardId;
+                handStr += CardListWaitToSend[i].cardId;
             }
             
             _pokerHand = _texasLogic.AnalyzeHandStr(handStr);
@@ -107,8 +138,8 @@ namespace Managers
         /// <param name="cardConfig"></param>
         public void SetCardToHand(NormalCard cardConfig)
         {
-            _cardListWaitToSend.Remove(cardConfig);
-            if (_cardListWaitToSend.Count == 0)
+            CardListWaitToSend.Remove(cardConfig);
+            if (CardListWaitToSend.Count == 0)
             {
                 _pokerHand = null;
             }
@@ -123,7 +154,7 @@ namespace Managers
 
         public void SortUsingCards()
         {
-            usingCardList.Sort((card1, card2) =>
+            UsingCardList.Sort((card1, card2) =>
             {
                 var card1Rank = TexasLogic.ConvertStrToRank(card1.cardId[0]);
                 var card2Rank = TexasLogic.ConvertStrToRank(card2.cardId[0]);
@@ -133,6 +164,57 @@ namespace Managers
                 }
                 return 0;
             });
+        }
+
+        public CardCase GetCardCaseConfigByCaseType(CaseEnum caseEnum)
+        {
+            for (int i = 0; i < _cardCaseConfig.CardCases.Count; i++)
+            {
+                var cardCase = _cardCaseConfig.CardCases[i];
+                if (cardCase.caseEnum == caseEnum)
+                {
+                    return cardCase;
+                }
+            }
+
+            return null;
+        }
+
+        public void UseCard(NormalCard normalCard)
+        {
+            UsedCardList.Add(normalCard);
+            UsingCardList.Remove(normalCard);
+        }
+        
+        public void ClearWaitToSendList()
+        {
+            CardListWaitToSend.Clear();
+        }
+
+        public int GetCurHandsDamage()
+        {
+            int baseDmg = 0;
+            int magnification = 1;
+            for (int i = 0; i < _cardCaseConfig.CardCases.Count; i++)
+            {
+                var item = _cardCaseConfig.CardCases[i];
+                if (item.caseEnum == _pokerHand.HandCase)
+                {
+                    baseDmg = item.damageValue;
+                    magnification = item.magnification;
+                    break;
+                }
+            }
+
+            for (int i = 0; i < _pokerHand.HandDetails.Count; i++)
+            {
+                if (_cacheCardDamage.TryGetValue(_pokerHand.HandDetails[i].CardId, out var dmg))
+                {
+                    baseDmg += dmg;
+                }
+            }
+
+            return baseDmg;
         }
     }
 }

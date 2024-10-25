@@ -1,4 +1,5 @@
 ﻿using Interfaces;
+using Modules;
 namespace Fsm.FightStages
 {
     public class FightStage_EnemyTurn : FightStageBase
@@ -9,15 +10,17 @@ namespace Fsm.FightStages
         }
         protected override void OnEnterStage(object e = null)
         {
-            throw new System.NotImplementedException();
+            //todo 播放敌人回合UI
+            STimer.Wait(1, () =>
+            {
+                controller.SwitchState(EFIGHT_STAGE.Player, null);
+            });
         }
         protected override void OnUpdateStage(float deltaTimes)
         {
-            throw new System.NotImplementedException();
         }
         protected override void OnLeaveStage(object e = null)
         {
-            throw new System.NotImplementedException();
         }
     }
 }
