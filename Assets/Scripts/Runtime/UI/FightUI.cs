@@ -284,9 +284,12 @@ namespace UI
             {
                 var item = _sendCardList[i];
                 _fightCardManager.UseCard(item.GetCardConfig());
-                item.DoInitMoveAni(new Vector2(1000, -700), 0.25f);
+                var tweener = item.DoInitMoveAni(new Vector2(1000, -700), 0.25f);
                 item.DoScaleAni(0, 0.25f);
-                Destroy(item.gameObject, 1);
+                tweener.onComplete = () =>
+                {
+                    _pokerCardPool.Free(item);
+                };
             }
 
             _fightCardManager.ClearWaitToSendList();
