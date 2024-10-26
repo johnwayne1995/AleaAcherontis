@@ -21,6 +21,8 @@ namespace UI
         /// </summary>
         private List<PokerCardItem> _sendCardList;
 
+        private PokerCardPool _pokerCardPool;
+        
         private FightCardManager _fightCardManager;
         private FightManager _fightManager;
         private EquipManager _equipManager;
@@ -35,6 +37,8 @@ namespace UI
         private Text _playerHpText;
         private Text _roundCountText;
 
+        private Transform _cardParent;
+        
         private void Awake()
         {
             _fightCardManager = GameManagerContainer.Instance.GetManager<FightCardManager>();
@@ -56,6 +60,13 @@ namespace UI
             _foldBtn.onClick.AddListener(FoldBtnClick);
             OnWaitSendListChanged();
 
+            if (_cardParent == null)
+            {
+                _cardParent = new GameObject("Pokers").transform;
+                _cardParent.SetParent(transform);
+                _cardParent.transform.localPosition = Vector3.zero;
+            }
+            _pokerCardPool = new PokerCardPool(_cardParent);
             _cardItemList = new List<PokerCardItem>();
             _sendCardList = new List<PokerCardItem>();
         }
@@ -66,6 +77,13 @@ namespace UI
             var audioMgr = GameManagerContainer.Instance.GetManager<AudioManager>();
             audioMgr.PlayBgm("battle", true);
             InitEquipInfo();
+        }
+
+        public override void OnHide()
+        {
+            base.OnHide();
+            GameObject.DestroyImmediate(_cardParent);
+            _pokerCardPool.ReleaseAll();
         }
 
         public void CreateCardItem()
@@ -101,7 +119,7 @@ namespace UI
         {
             for (int i = 0; i < _cardItemList.Count; i++)
             {
-                _cardItemList[i].OnRecycle();
+                _pokerCardPool.Free(_cardItemList[i]);
             }
 
             _cardItemList.Clear();
@@ -154,12 +172,15 @@ namespace UI
         public void UpdateCardItemPos()
         {
             float offset = 1000f / _cardItemList.Count;
-            Vector2 startPos = new Vector2(-_cardItemList.Count / 2f * offset + offset * 0.5f, -500);
+            Vector2 startPos = new Vector2(-_cardItemList.Count / 2f * offset + offset * 0.5f, -800);
+            Vector2 endPos = new Vector2(-_cardItemList.Count / 2f * offset + offset * 0.5f, -500);
             for (int i = 0; i < _cardItemList.Count; i++)
             {
                 var card = _cardItemList[i];
-                card.DoInitMoveAni(startPos);
+                card.SetRectAnchorPos(startPos);
+                card.DoInitMoveAni(endPos);
                 startPos.x = startPos.x + offset;
+                endPos.x = endPos.x + offset;
             }
         }
 
@@ -172,9 +193,8 @@ namespace UI
                 var cardConfig = _fightCardManager.UsingCardList[i];
                 if (cardConfig is PokerCard pokerCard)
                 {
-                    GameObject obj = Instantiate(Resources.Load("UI/PokerCardItem"), transform) as GameObject;
-                    obj.GetComponent<RectTransform>().anchoredPosition = new Vector2(-1000, -700);
-                    var item = obj.AddComponent<PokerCardItem>();
+                    var item = _pokerCardPool.Alloc();
+                    item.transform.SetAsLastSibling();
                     item.InitCardItem(pokerCard, OnWaitSendListChanged);
                     _cardItemList.Add(item);
                 }
@@ -213,7 +233,7 @@ namespace UI
                 var tweener = card.DoInitMoveAni(new Vector2(1000, -700), 0.25f);
                 tweener.onComplete = () =>
                 {
-                    card.OnRecycle();
+                    _pokerCardPool.Free(card);
                 };
                 _fightCardManager.FoldCard(card.GetCardConfig());
             }
@@ -280,6 +300,7 @@ namespace UI
             GameObject obj = GameObject.Instantiate(Resources.Load("UI/EnemyCardItem"), transform) as GameObject;
             obj.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 100);
             var item = obj.AddComponent<EnemyCardItem>();
+            obj.transform.SetAsFirstSibling();
             item.Init(enemyConfig);
             return item;
         }

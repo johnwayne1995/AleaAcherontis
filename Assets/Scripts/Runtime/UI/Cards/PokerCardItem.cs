@@ -150,9 +150,14 @@ namespace UI
         public TweenerCore<Vector2, Vector2, VectorOptions> DoInitMoveAni(Vector2 endPos, float time = 0.5f)
         {
             this._oriPos = endPos;
-            return this.GetComponent<RectTransform>().DOAnchorPos(endPos, time);
+            return _rectTransform.DOAnchorPos(endPos, time);
         }
 
+        public void SetRectAnchorPos(Vector2 pos)
+        {
+            _rectTransform.anchoredPosition = pos;
+        }
+        
         public void DoScaleAni(float scale, float time)
         {
             transform.DOScale(scale, time);
@@ -163,10 +168,13 @@ namespace UI
             return _config;
         }
         
-        public void OnRecycle()
+        public void ResetView()
         {
+            _nameText.text = String.Empty;
             _cardSendStateChangedAc = null;
-            GameObject.DestroyImmediate(this.gameObject);
+            _oriPos = Vector3.zero;
+            _cardSendStateChangedAc = null;
+            isSelected = false;
         }
     }
 }
