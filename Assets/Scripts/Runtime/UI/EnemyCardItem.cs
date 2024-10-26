@@ -53,7 +53,17 @@ namespace UI
             for (int i = _enemyConfig.enemyActions.Count - 1; i >= 0 ; i--)
             {
                 var ac = _enemyConfig.enemyActions[i];
-                if (curRound % ac.perRound == 0)
+                bool activeAc = false;
+                if (ac.OneTimeAc && curRound == ac.round)
+                {
+                    activeAc = true;
+                }
+                else if (!ac.OneTimeAc && curRound % ac.perRound == 0)
+                {
+                    activeAc = true;
+                }
+
+                if (activeAc)
                 {
                     switch (ac.enemyActionType)
                     {
@@ -64,7 +74,6 @@ namespace UI
                             
                             break;
                     }
-
                     return;
                 }
             }

@@ -23,6 +23,7 @@ namespace UI
         private Text _caseDamageText;
         private Text _magnificationText;
         private Text _playerHpText;
+        private Text _roundCountText;
 
         private void Awake()
         {
@@ -33,6 +34,7 @@ namespace UI
             _caseDamageText = transform.Find("leftMiddlePanel/damagePanel/caseDamageText").GetComponent<Text>();
             _magnificationText = transform.Find("leftMiddlePanel/damagePanel/magnificationText").GetComponent<Text>();
             _playerHpText = transform.Find("playerHp").GetComponent<Text>();
+            _roundCountText = transform.Find("roundCount").GetComponent<Text>();
 
             _sortBtn = transform.Find("sortBtn").GetComponent<Button>();
             _sendBtn = transform.Find("sendBtn").GetComponent<Button>();
@@ -226,6 +228,11 @@ namespace UI
         public void FlushHp(int curHp, int maxHp)
         {
             _playerHpText.text = $"{curHp.ToString()}/{maxHp.ToString()}";
+        }
+        
+        public void FlushRoundCount(int curRound, int maxRound)
+        {
+            _roundCountText.text = $"{curRound.ToString()}/{maxRound.ToString()}";
         }
     }
 }

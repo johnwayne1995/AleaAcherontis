@@ -15,9 +15,8 @@ MonoBehaviour:
   maxHp: 3000
   enemyName: Test
   enemyActions:
-  - perRound: 2
-    enemyActionType: 1
-    param: 3
-  - perRound: 1
+  - OneTimeAc: 1
+    round: 1
+    perRound: 1
     enemyActionType: 0
-    param: 10
+    param: 30

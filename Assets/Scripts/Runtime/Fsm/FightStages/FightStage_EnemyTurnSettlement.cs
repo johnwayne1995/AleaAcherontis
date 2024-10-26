@@ -16,6 +16,15 @@ namespace Fsm.FightStages
             var enemyManager = GameManagerContainer.Instance.GetManager<EnemyManager>();
             enemyManager.DoAction();
 
+            if (_fightManager.RoundOver())
+            {
+                STimer.Wait(0.5f, () =>
+                {
+                    _fightManager.ChangeState(EFIGHT_STAGE.Fail);
+                });
+                return;
+            }
+            
             if (_fightManager.CurHp > 0)
             {
                 STimer.Wait(0.5f, () =>

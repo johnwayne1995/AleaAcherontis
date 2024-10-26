@@ -16,6 +16,11 @@ namespace Managers
         /// <summary>
         /// 回合数
         /// </summary>
+        private int _maxRoundCount = 3;
+        
+        /// <summary>
+        /// 回合数
+        /// </summary>
         private int _roundCount = 0;
         
         public void StartFight()
@@ -65,6 +70,8 @@ namespace Managers
         public void EnterNewRound()
         {
             _roundCount++;
+            var fightUi = UIModule.Instance.GetUI<FightUI>("FightUI");
+            fightUi.FlushRoundCount(_roundCount, _maxRoundCount);
         }
 
         public int GetCurRound()
@@ -79,9 +86,24 @@ namespace Managers
             if (CurHp <= 0)
             {
                 CurHp = 0;
-                var fightUi = UIModule.Instance.GetUI<FightUI>("FightUI");
-                fightUi.FlushHp(CurHp, MaxHp);
             }
+            
+            var fightUi = UIModule.Instance.GetUI<FightUI>("FightUI");
+            fightUi.FlushHp(CurHp, MaxHp);
+        }
+        
+        /// <summary>
+        /// 出牌数是否用完
+        /// </summary>
+        /// <returns></returns>
+        public bool RoundOver()
+        {
+            if (_roundCount + 1 > _maxRoundCount)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }
