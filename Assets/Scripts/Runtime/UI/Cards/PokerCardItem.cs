@@ -160,7 +160,8 @@ namespace UI
         
         public void DoScaleAni(float scale, float time)
         {
-            transform.DOScale(scale, time);
+            
+            //_rectTransform.DOScale(scale, time);
         }
         
         public PokerCard GetCardConfig()
@@ -175,6 +176,11 @@ namespace UI
             _oriPos = Vector3.zero;
             _cardSendStateChangedAc = null;
             isSelected = false;
+            
+            this._rectTransform.localScale = Vector3.one;
+            _bgImg.material.SetColor("_lineColor", Color.black);
+            _bgImg.material.SetFloat("_lineWidth",1);
+            SetRectAnchorPos(PokerCardPool.HidePos);
         }
     }
 }

@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using Managers;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace UI
 {
     public class PokerCardPool
     {
-        private Queue<PokerCardItem> _pool = new Queue<PokerCardItem>(20);
-        private const int MAX_COUNT = 20;
-        private Vector2 _hidePos = new Vector2(100000, 1000000);
+        private Queue<PokerCardItem> _pool = new Queue<PokerCardItem>(18);
+        private const int MAX_COUNT = 18;
+        public static Vector2 HidePos = new Vector2(1000000, 1000000);
         
         public PokerCardPool(Transform parent)
         {
@@ -17,7 +15,7 @@ namespace UI
             {
                 GameObject obj = GameObject.Instantiate(Resources.Load("UI/PokerCardItem"), parent) as GameObject;
                 var item = obj.AddComponent<PokerCardItem>();
-                item.SetRectAnchorPos(_hidePos);
+                item.SetRectAnchorPos(HidePos);
                 EnqueItem(item);
             }
         }
@@ -39,14 +37,13 @@ namespace UI
             {
                 _pool.Enqueue(obj);
                 obj.ResetView();
-                obj.SetRectAnchorPos(_hidePos);
             }
         }
 
         private void EnqueItem(PokerCardItem item)
         {
             _pool.Enqueue(item);
-            item.SetRectAnchorPos(_hidePos);
+            item.SetRectAnchorPos(HidePos);
         }
 
         /// <summary>

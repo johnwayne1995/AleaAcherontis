@@ -262,7 +262,6 @@ namespace Managers
                 }
             }
 
-
             return baseDmg * lastMag;
         }
 
@@ -274,6 +273,7 @@ namespace Managers
         {
             UsedCardList.Add(getCardConfig);
             UsingCardList.Remove(getCardConfig);
+            CardListWaitToSend.Clear();
         }
     }
 }

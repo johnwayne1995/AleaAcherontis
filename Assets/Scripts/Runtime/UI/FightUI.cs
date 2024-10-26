@@ -82,7 +82,7 @@ namespace UI
         public override void OnHide()
         {
             base.OnHide();
-            GameObject.DestroyImmediate(_cardParent);
+            DestroyImmediate(_cardParent);
             _pokerCardPool.ReleaseAll();
         }
 
@@ -225,12 +225,13 @@ namespace UI
             {
                 _cardItemList.Remove(_sendCardList[i]);
             }
-            UpdateCardItemPos();
+            //UpdateCardItemPos();
 
             for (int i = 0; i < _sendCardList.Count; i++)
             {
                 var card = _sendCardList[i];
                 var tweener = card.DoInitMoveAni(new Vector2(1000, -700), 0.25f);
+                card.DoScaleAni(0, 0.25f);
                 tweener.onComplete = () =>
                 {
                     _pokerCardPool.Free(card);
