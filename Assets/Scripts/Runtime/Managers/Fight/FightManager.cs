@@ -1,4 +1,5 @@
-﻿using FightStages;
+﻿using Config;
+using FightStages;
 using Fsm;
 using Fsm.FightStages;
 using Modules;
@@ -36,10 +37,31 @@ namespace Managers
             _fsmController.AddState(EFIGHT_STAGE.Fail, new FightStage_Fail(EFIGHT_STAGE.Fail, _fsmController));
             _fsmController.SetDefault(EFIGHT_STAGE.Player);
             _roundCount = 0;
-
             CurHp = MaxHp = 1000;
+            
+        }
+
+        /// <summary>
+        /// 关卡接口-加载牌组
+        /// </summary>
+        /// <param name="cardCaseConfig">牌组参数</param>
+        public void SetCardGroup(PokerCardsConfig cardCaseConfig)
+        {
+            cardCaseConfig = Resources.Load<PokerCardsConfig>("Configs/CardConfig/PokerCardsConfig");
+            var fightCardMgr = GameManagerContainer.Instance.GetManager<FightCardManager>();
+            fightCardMgr.LoadCardGroup(cardCaseConfig);
+
+        }
+        
+        /// <summary>
+        /// 关卡接口 创建敌人
+        /// </summary>
+        /// <param name="enemyConfig">敌人参数</param>
+        public void SetEnemy(EnemyConfig enemyConfig)
+        {
+            enemyConfig = Resources.Load<EnemyConfig>("Configs/EnemyConfigs/EnemyCardsConfig");
             var enemyManager = GameManagerContainer.Instance.GetManager<EnemyManager>();
-            enemyManager.LoadEnemy();
+            enemyManager.LoadEnemy(enemyConfig);
         }
         
         //切换战斗类型

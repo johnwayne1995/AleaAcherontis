@@ -24,9 +24,8 @@ namespace Managers
             }
         }
 
-        public void LoadEnemy()
+        public void LoadEnemy(EnemyConfig enemyConfig)
         {
-            var enemyConfig = Resources.Load<EnemyConfig>("Configs/EnemyConfigs/EnemyCardsConfig");
             var fightUi = UIModule.Instance.GetUI<FightUI>("FightUI");
             _curEnemy = fightUi.CreateNewEnemy(enemyConfig);
         }

@@ -49,33 +49,35 @@ namespace Managers
             UsingCardList = new List<CardBase>();
             
             //定义临时集合
-            List<CardBase> tempList = new List<CardBase>();
             
             _cardCaseConfig = Resources.Load<CardCaseConfig>("Configs/CardConfig/CardsCaseConfig");
-            
-            var allNormalCard = Resources.Load<PokerCardsConfig>("Configs/CardConfig/PokerCardsConfig");
-
-            for (int i = 0; i < allNormalCard.normalCards.Count; i++)
-            {
-                var card = allNormalCard.normalCards[i];
-                _cacheCardDamage.Add(card.id, card.basePoint);
-            }
-            
-            tempList.AddRange(allNormalCard.normalCards);
-            Shuffle(tempList);
-            CardList.AddRange(tempList);
         }
 
         protected override void OnEnterGame()
         {
             base.OnEnterGame();
             if (CardListWaitToSend != null)
-            {
                 CardListWaitToSend.Clear();
-            }
+            
+            if (_cacheCardDamage != null)
+                _cacheCardDamage.Clear();
             _pokerHand = null;
         }
 
+        public void LoadCardGroup(PokerCardsConfig cardsConfig)
+        {
+            List<CardBase> tempList = new List<CardBase>();
+            for (int i = 0; i < cardsConfig.normalCards.Count; i++)
+            {
+                var card = cardsConfig.normalCards[i];
+                _cacheCardDamage.Add(card.id, card.basePoint);
+            }
+            
+            tempList.AddRange(cardsConfig.normalCards);
+            Shuffle(tempList);
+            CardList.AddRange(tempList);
+        }
+        
         /// <summary>
         /// 洗牌
         /// </summary>

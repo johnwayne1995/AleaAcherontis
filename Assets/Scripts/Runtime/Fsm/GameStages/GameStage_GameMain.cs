@@ -16,6 +16,8 @@ namespace GameStages
             GameManagerContainer.Instance.ReEnterGame();
             UIModule.Instance.ShowUI<FightUI>("FightUI");
             var fightMgr = GameManagerContainer.Instance.GetManager<FightManager>();
+            fightMgr.SetCardGroup(null);
+            fightMgr.SetEnemy(null);
             fightMgr.StartFight();
         }
         
