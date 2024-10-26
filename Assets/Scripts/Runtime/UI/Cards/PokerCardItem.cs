@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 namespace UI
 {
-    public class CardItem : UIBase, IPointerEnterHandler, IPointerExitHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
+    public class PokerCardItem : CardItemBase<PokerCard> //, IPointerEnterHandler, IPointerExitHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
         private Text _nameText;
         private Button _cardBtn;
@@ -16,14 +16,15 @@ namespace UI
         private int _index;
         private RectTransform _rectTransform;
         private Vector3 _oriPos;
-        private NormalCard _cardConfig;
 
         private Action _cardSendStateChangedAc;
         
         public bool isSelected = false;
-        
-        private void Awake()
+
+
+        public override void OnAwake()
         {
+            base.OnAwake();
             _nameText = transform.Find("bg/nameText").GetComponent<Text>();
             _bgImg = transform.Find("bg").GetComponent<Image>();
             _cardBtn = _bgImg.GetComponent<Button>();
@@ -32,11 +33,11 @@ namespace UI
             _rectTransform = this.GetComponent<RectTransform>();
             _cardBtn.onClick.AddListener(OnCardClicked);
         }
-        
-        public void Init(NormalCard cardConfig, Action cardStateChangeAc)
+
+        public override void InitCardItem(PokerCard config, Action cardStateChangeAc)
         {
-            _cardConfig = cardConfig;
-            _nameText.text = ConvertIdToName(cardConfig.cardId, out var col);
+            _config = config;
+            _nameText.text = ConvertIdToName(_config.id, out var col);
             _nameText.color = col;
             _cardSendStateChangedAc = cardStateChangeAc;
         }
@@ -83,7 +84,7 @@ namespace UI
             var fightCardMgr = GameManagerContainer.Instance.GetManager<FightCardManager>();
             
             var targetState = !isSelected;
-            if (targetState && fightCardMgr.SetCardToWaitSend(_cardConfig))
+            if (targetState && fightCardMgr.SetCardToWaitSend(_config))
             {
                 var targetPos = _oriPos + new Vector3(0, 30, 0);
                 _rectTransform.DOAnchorPos(targetPos, 0.2f);
@@ -98,7 +99,7 @@ namespace UI
             }
             else if (!targetState)
             {
-                fightCardMgr.SetCardToHand(_cardConfig);
+                fightCardMgr.SetCardToHand(_config);
                 _rectTransform.DOAnchorPos(_oriPos, 0.2f);
                 _bgImg.material.SetColor("_lineColor", Color.black);
                 _bgImg.material.SetFloat("_lineWidth",1);
@@ -156,9 +157,9 @@ namespace UI
             transform.DOScale(scale, time);
         }
         
-        public NormalCard GetCardConfig()
+        public PokerCard GetCardConfig()
         {
-            return _cardConfig;
+            return _config;
         }
         
         public void OnRecycle()

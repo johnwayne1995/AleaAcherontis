@@ -21,6 +21,7 @@ namespace Modules
             RegisterGameManagers(new PlayerManager());
             RegisterGameManagers(new EnemyManager());
             RegisterGameManagers(new FightCardManager());
+            RegisterGameManagers(new EquipManager());
             RegisterGameManagers(new JobManager());
             SortingManagers();
             AwakeManagers();

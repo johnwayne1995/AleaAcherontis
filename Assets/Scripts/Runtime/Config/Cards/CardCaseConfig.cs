@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Managers;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Config
 {

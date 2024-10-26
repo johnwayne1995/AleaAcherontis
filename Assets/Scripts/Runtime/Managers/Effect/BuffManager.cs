@@ -5,9 +5,9 @@ using Modules;
 
 namespace Managers
 {
-    public class EffectManager : TGameManager<AudioManager>
+    public class BuffManager : TGameManager<AudioManager>
     {
-        private Dictionary<Type, ObjectPool<BaseEffect>> _effectsPool = new Dictionary<Type, ObjectPool<BaseEffect>>();
+        private Dictionary<Type, ObjectPool<BuffBase>> _effectsPool = new Dictionary<Type, ObjectPool<BuffBase>>();
         
         protected override void OnAwake()
         {
@@ -16,7 +16,7 @@ namespace Managers
 
         private void InitEffectMapping()
         {
-            _effectsPool = new Dictionary<Type, ObjectPool<BaseEffect>>();
+            _effectsPool = new Dictionary<Type, ObjectPool<BuffBase>>();
         }
         
         protected override void OnBeforeDestroy()
@@ -29,12 +29,12 @@ namespace Managers
             _effectsPool = null;
         }
         
-        private void RegisterJob<T>() where T : BaseEffect
+        private void RegisterJob<T>() where T : BuffBase
         {
-            _effectsPool.Add(typeof(T),new ObjectPool<BaseEffect>(null,null, Activator.CreateInstance<T>));
+            _effectsPool.Add(typeof(T),new ObjectPool<BuffBase>(null,null, Activator.CreateInstance<T>));
         }
         
-        public T CreateNewJob<T>() where T : BaseEffect
+        public T CreateNewJob<T>() where T : BuffBase
         {
             Type type = typeof(T);
             if (!_effectsPool.ContainsKey(type))
@@ -45,7 +45,7 @@ namespace Managers
             return _effectsPool[type].Get() as T;
         }
 
-        public void RecycleJob<T>(T job) where T : BaseEffect
+        public void RecycleJob<T>(T job) where T : BuffBase
         {
             Type type = typeof(T);
             if (!_effectsPool.ContainsKey(type))
@@ -57,7 +57,7 @@ namespace Managers
             _effectsPool[type].Release(job);
         }
 
-        public void RecycleJobList(ref List<BaseEffect> jobList)
+        public void RecycleJobList(ref List<BuffBase> jobList)
         {
             if(jobList == null || jobList.Count == 0)
                 return;

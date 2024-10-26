@@ -1,4 +1,4 @@
-using DefaultNamespace;
+using Config;
 using UnityEditor;
 using UnityEngine;
 

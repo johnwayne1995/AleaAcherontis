@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using DefaultNamespace;
+using Config;
 using Fsm;
 using Managers;
 using Modules;
@@ -11,8 +11,8 @@ namespace UI
 {
     public class FightUI : UIBase
     {
-        private List<CardItem> _cardItemList;
-        private List<CardItem> _sendCardList;
+        private List<PokerCardItem> _cardItemList;
+        private List<PokerCardItem> _sendCardList;
 
         private FightCardManager _fightCardManager;
         private FightManager _fightManager;
@@ -42,8 +42,8 @@ namespace UI
             _sendBtn.onClick.AddListener(SendBtnClick);
             OnWaitSendListChanged();
 
-            _cardItemList = new List<CardItem>();
-            _sendCardList = new List<CardItem>();
+            _cardItemList = new List<PokerCardItem>();
+            _sendCardList = new List<PokerCardItem>();
         }
 
         public override void OnShow()
@@ -154,11 +154,16 @@ namespace UI
             _fightCardManager.SortUsingCards();
             for (int i = 0; i < _fightCardManager.UsingCardList.Count; i++)
             {
-                GameObject obj = Instantiate(Resources.Load("UI/CardItem"), transform) as GameObject;
-                obj.GetComponent<RectTransform>().anchoredPosition = new Vector2(-1000, -700);
-                var item = obj.AddComponent<CardItem>();
-                item.Init(_fightCardManager.UsingCardList[i], OnWaitSendListChanged);
-                _cardItemList.Add(item);
+                var cardConfig = _fightCardManager.UsingCardList[i];
+                if (cardConfig is PokerCard pokerCard)
+                {
+                    GameObject obj = Instantiate(Resources.Load("UI/PokerCardItem"), transform) as GameObject;
+                    obj.GetComponent<RectTransform>().anchoredPosition = new Vector2(-1000, -700);
+                    var item = obj.AddComponent<PokerCardItem>();
+                    item.InitCardItem(pokerCard, OnWaitSendListChanged);
+                    _cardItemList.Add(item);
+                }
+                
             }
 
             UpdateCardItemPos();
@@ -233,6 +238,11 @@ namespace UI
         public void FlushRoundCount(int curRound, int maxRound)
         {
             _roundCountText.text = $"{curRound.ToString()}/{maxRound.ToString()}";
+        }
+
+        public void InitEquipInfo()
+        {
+            
         }
     }
 }

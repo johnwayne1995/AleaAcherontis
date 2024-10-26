@@ -1,0 +1,275 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8f60c43ed234e0585e8a6b2717cb302, type: 3}
+  m_Name: PokerCardsConfig
+  m_EditorClassIdentifier: 
+  normalCards:
+  - name: 
+    iconPath: 
+    bgPath: 
+    id: As
+    basePoint: 12
+  - name: 
+    iconPath: 
+    bgPath: 
+    id: Ks
+    basePoint: 11
+  - name: 
+    iconPath: 
+    bgPath: 
+    id: Qs
+    basePoint: 10
+  - name: 
+    iconPath: 
+    bgPath: 
+    id: Js
+    basePoint: 9
+  - name: 
+    iconPath: 
+    bgPath: 
+    id: Ts
+    basePoint: 8
+  - name: 
+    iconPath: 
+    bgPath: 
+    id: 9s
+    basePoint: 7
+  - name: 
+    iconPath: 
+    bgPath: 
+    id: 8s
+    basePoint: 6
+  - name: 
+    iconPath: 
+    bgPath: 
+    id: 7s
+    basePoint: 5
+  - name: 
+    iconPath: 
+    bgPath: 
+    id: 6s
+    basePoint: 4
+  - name: 
+    iconPath: 
+    bgPath: 
+    id: 5s
+    basePoint: 3
+  - name: 
+    iconPath: 
+    bgPath: 
+    id: 4s
+    basePoint: 2
+  - name: 
+    iconPath: 
+    bgPath: 
+    id: 3s
+    basePoint: 1
+  - name: 
+    iconPath: 
+    bgPath: 
+    id: 2s
+    basePoint: 13
+  - name: 
+    iconPath: 
+    bgPath: 
+    id: Ah
+    basePoint: 12
+  - name: 
+    iconPath: 
+    bgPath: 
+    id: Kh
+    basePoint: 11
+  - name: 
+    iconPath: 
+    bgPath: 
+    id: Qh
+    basePoint: 10
+  - name: 
+    iconPath: 
+    bgPath: 
+    id: Jh
+    basePoint: 9
+  - name: 
+    iconPath: 
+    bgPath: 
+    id: Th
+    basePoint: 8
+  - name: 
+    iconPath: 
+    bgPath: 
+    id: 9h
+    basePoint: 7
+  - name: 
+    iconPath: 
+    bgPath: 
+    id: 8h
+    basePoint: 6
+  - name: 
+    iconPath: 
+    bgPath: 
+    id: 7h
+    basePoint: 5
+  - name: 
+    iconPath: 
+    bgPath: 
+    id: 6h
+    basePoint: 4
+  - name: 
+    iconPath: 
+    bgPath: 
+    id: 5h
+    basePoint: 3
+  - name: 
+    iconPath: 
+    bgPath: 
+    id: 4h
+    basePoint: 2
+  - name: 
+    iconPath: 
+    bgPath: 
+    id: 3h
+    basePoint: 1
+  - name: 
+    iconPath: 
+    bgPath: 
+    id: 2h
+    basePoint: 13
+  - name: 
+    iconPath: 
+    bgPath: 
+    id: Ad
+    basePoint: 12
+  - name: 
+    iconPath: 
+    bgPath: 
+    id: Kd
+    basePoint: 11
+  - name: 
+    iconPath: 
+    bgPath: 
+    id: Qd
+    basePoint: 10
+  - name: 
+    iconPath: 
+    bgPath: 
+    id: Jd
+    basePoint: 9
+  - name: 
+    iconPath: 
+    bgPath: 
+    id: Td
+    basePoint: 8
+  - name: 
+    iconPath: 
+    bgPath: 
+    id: 9d
+    basePoint: 7
+  - name: 
+    iconPath: 
+    bgPath: 
+    id: 8d
+    basePoint: 6
+  - name: 
+    iconPath: 
+    bgPath: 
+    id: 7d
+    basePoint: 5
+  - name: 
+    iconPath: 
+    bgPath: 
+    id: 6d
+    basePoint: 4
+  - name: 
+    iconPath: 
+    bgPath: 
+    id: 5d
+    basePoint: 3
+  - name: 
+    iconPath: 
+    bgPath: 
+    id: 4d
+    basePoint: 2
+  - name: 
+    iconPath: 
+    bgPath: 
+    id: 3d
+    basePoint: 1
+  - name: 
+    iconPath: 
+    bgPath: 
+    id: 2d
+    basePoint: 13
+  - name: 
+    iconPath: 
+    bgPath: 
+    id: Ac
+    basePoint: 12
+  - name: 
+    iconPath: 
+    bgPath: 
+    id: Kc
+    basePoint: 11
+  - name: 
+    iconPath: 
+    bgPath: 
+    id: Qc
+    basePoint: 10
+  - name: 
+    iconPath: 
+    bgPath: 
+    id: Jc
+    basePoint: 9
+  - name: 
+    iconPath: 
+    bgPath: 
+    id: Tc
+    basePoint: 8
+  - name: 
+    iconPath: 
+    bgPath: 
+    id: 9c
+    basePoint: 7
+  - name: 
+    iconPath: 
+    bgPath: 
+    id: 8c
+    basePoint: 6
+  - name: 
+    iconPath: 
+    bgPath: 
+    id: 7c
+    basePoint: 5
+  - name: 
+    iconPath: 
+    bgPath: 
+    id: 6c
+    basePoint: 4
+  - name: 
+    iconPath: 
+    bgPath: 
+    id: 5c
+    basePoint: 3
+  - name: 
+    iconPath: 
+    bgPath: 
+    id: 4c
+    basePoint: 2
+  - name: 
+    iconPath: 
+    bgPath: 
+    id: 3c
+    basePoint: 1
+  - name: 
+    iconPath: 
+    bgPath: 
+    id: 2c
+    basePoint: 13

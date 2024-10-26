@@ -1,5 +1,4 @@
-﻿using DefaultNamespace;
-using Fsm;
+﻿using Config;
 using Managers;
 using Modules;
 using UnityEngine;

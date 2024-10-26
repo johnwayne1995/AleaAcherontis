@@ -1,4 +1,4 @@
-﻿using DefaultNamespace;
+﻿using Config;
 using Fsm;
 using Modules;
 using UI;

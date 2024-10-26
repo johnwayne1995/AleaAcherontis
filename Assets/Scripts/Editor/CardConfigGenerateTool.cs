@@ -1,4 +1,5 @@
 using Config;
+using Managers;
 using UnityEditor;
 using UnityEngine;
 
@@ -7,11 +8,11 @@ public class CardConfigGenerateTool
     private const string CSAVE_PATH = "Assets/Resources/Configs/CardConfig/";
     private static string[] AllCards;
     
-    [MenuItem("Assets/配置/卡牌配置", false, 0)]
+    [MenuItem("Assets/配置/扑克卡配置", false, 0)]
     static void ShowProfilerWindow()
     {
-        var newConfig = ScriptableObject.CreateInstance<NormalCardsConfig>();
-        var fullPath = CSAVE_PATH + "NormalCardsConfig.asset";
+        var newConfig = ScriptableObject.CreateInstance<PokerCardsConfig>();
+        var fullPath = CSAVE_PATH + "PokerCardsConfig.asset";
         
         AllCards  = new string[]
         {
@@ -27,53 +28,53 @@ public class CardConfigGenerateTool
 
         for (int i = 0; i < AllCards.Length; i++)
         {
-            var card = new NormalCard();
-            card.cardId = AllCards[i];
+            var card = new PokerCard();
+            card.id = AllCards[i];
 
-            switch (card.cardId[0])
+            switch (card.id[0])
             {
                 case '2':
-                    card.cardPoint = 13;
+                    card.basePoint = 13;
                     break;
                 case 'A':
-                    card.cardPoint = 12;
+                    card.basePoint = 12;
                     break;
                 case 'K':
-                    card.cardPoint = 11;
+                    card.basePoint = 11;
                     break;
                 case 'Q':
-                    card.cardPoint = 10;
+                    card.basePoint = 10;
                     break;
                 case 'J':
-                    card.cardPoint = 9;
+                    card.basePoint = 9;
                     break;
                 case 'T':
-                    card.cardPoint = 8;
+                    card.basePoint = 8;
                     break;
                 case '9':
-                    card.cardPoint = 7;
+                    card.basePoint = 7;
                     break;
                 case '8':
-                    card.cardPoint = 6;
+                    card.basePoint = 6;
                     break;
                 case '7':
-                    card.cardPoint = 5;
+                    card.basePoint = 5;
                     break;
                 case '6':
-                    card.cardPoint = 4;
+                    card.basePoint = 4;
                     break;
                 case '5':
-                    card.cardPoint = 3;
+                    card.basePoint = 3;
                     break;
                 case '4':
-                    card.cardPoint = 2;
+                    card.basePoint = 2;
                     break;
                 case '3':
-                    card.cardPoint = 1;
+                    card.basePoint = 1;
                     break;
             }
             
-            newConfig.NormalCards.Add(card);
+            newConfig.normalCards.Add(card);
         }
         
         AssetDatabase.CreateAsset(newConfig, fullPath);

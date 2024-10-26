@@ -1,7 +1,7 @@
 ﻿using Interfaces;
 namespace Managers.Effects
 {
-    public abstract class BaseEffect : IEffect
+    public abstract class BuffBase : IEffect
     {
         public virtual void StartEffect()
         {
