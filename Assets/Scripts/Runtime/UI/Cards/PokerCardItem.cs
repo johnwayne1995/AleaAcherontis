@@ -1,5 +1,7 @@
 ﻿using System;
 using DG.Tweening;
+using DG.Tweening.Core;
+using DG.Tweening.Plugins.Options;
 using Managers;
 using Modules;
 using UnityEngine;
@@ -145,10 +147,10 @@ namespace UI
         {
         }
         
-        public void DoInitMoveAni(Vector2 endPos, float time = 0.5f)
+        public TweenerCore<Vector2, Vector2, VectorOptions> DoInitMoveAni(Vector2 endPos, float time = 0.5f)
         {
             this._oriPos = endPos;
-            this.GetComponent<RectTransform>().DOAnchorPos(endPos, time);
+            return this.GetComponent<RectTransform>().DOAnchorPos(endPos, time);
         }
 
         public void DoScaleAni(float scale, float time)

@@ -11,7 +11,14 @@ namespace UI
 {
     public class FightUI : UIBase
     {
+        /// <summary>
+        /// 所有手牌
+        /// </summary>
         private List<PokerCardItem> _cardItemList;
+        
+        /// <summary>
+        /// 等待打出的牌
+        /// </summary>
         private List<PokerCardItem> _sendCardList;
 
         private FightCardManager _fightCardManager;
@@ -20,6 +27,7 @@ namespace UI
 
         private Transform _equipParent;
         private Button _sortBtn;
+        private Button _foldBtn;
         private Button _sendBtn;
         private Text _caseText;
         private Text _caseDamageText;
@@ -41,9 +49,11 @@ namespace UI
             _roundCountText = transform.Find("roundCount").GetComponent<Text>();
 
             _sortBtn = transform.Find("sortBtn").GetComponent<Button>();
+            _foldBtn = transform.Find("foldBtn").GetComponent<Button>();
             _sendBtn = transform.Find("sendBtn").GetComponent<Button>();
             _sortBtn.onClick.AddListener(SortBtnClick);
             _sendBtn.onClick.AddListener(SendBtnClick);
+            _foldBtn.onClick.AddListener(FoldBtnClick);
             OnWaitSendListChanged();
 
             _cardItemList = new List<PokerCardItem>();
@@ -172,6 +182,45 @@ namespace UI
             }
 
             UpdateCardItemPos();
+        }
+
+        private void FoldBtnClick()
+        {
+            if (_fightCardManager.CardListWaitToSend.Count == 0)
+            {
+                return;
+            }
+            
+            _sendCardList.Clear();
+            for (int i = 0; i < _cardItemList.Count; i++)
+            {
+                var card = _cardItemList[i];
+                if (card.isSelected)
+                {
+                    _sendCardList.Add(card);
+                }
+            }
+
+            for (int i = _sendCardList.Count - 1; i >= 0; i--)
+            {
+                _cardItemList.Remove(_sendCardList[i]);
+            }
+            UpdateCardItemPos();
+
+            for (int i = 0; i < _sendCardList.Count; i++)
+            {
+                var card = _sendCardList[i];
+                var tweener = card.DoInitMoveAni(new Vector2(1000, -700), 0.25f);
+                tweener.onComplete = () =>
+                {
+                    card.OnRecycle();
+                };
+                _fightCardManager.FoldCard(card.GetCardConfig());
+            }
+            
+            _fightCardManager.ClearWaitToSendList();
+            _sendCardList.Clear();
+            CreateCardItem();
         }
 
         private void SendBtnClick()

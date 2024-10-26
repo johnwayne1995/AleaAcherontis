@@ -265,5 +265,15 @@ namespace Managers
 
             return baseDmg * lastMag;
         }
+
+        /// <summary>
+        /// 弃牌
+        /// </summary>
+        /// <param name="getCardConfig"></param>
+        public void FoldCard(PokerCard getCardConfig)
+        {
+            UsedCardList.Add(getCardConfig);
+            UsingCardList.Remove(getCardConfig);
+        }
     }
 }
