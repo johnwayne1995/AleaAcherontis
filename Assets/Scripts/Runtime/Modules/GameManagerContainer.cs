@@ -98,7 +98,14 @@ namespace Modules
                 _allGameManagers[i].Awake();
                 _allGameManagers[i].EnterGame();
             }
-            
+        }
+
+        public void ReEnterGame()
+        {
+            for (int i = 0, imax = _allGameManagers.Length; i < imax; i++)
+            {
+                _allGameManagers[i].EnterGame();
+            }
         }
         
         /// <summary>

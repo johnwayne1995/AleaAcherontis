@@ -16,7 +16,9 @@ namespace UI
 
         private FightCardManager _fightCardManager;
         private FightManager _fightManager;
+        private EquipManager _equipManager;
 
+        private Transform _equipParent;
         private Button _sortBtn;
         private Button _sendBtn;
         private Text _caseText;
@@ -29,7 +31,9 @@ namespace UI
         {
             _fightCardManager = GameManagerContainer.Instance.GetManager<FightCardManager>();
             _fightManager = GameManagerContainer.Instance.GetManager<FightManager>();
+            _equipManager = GameManagerContainer.Instance.GetManager<EquipManager>();
 
+            _equipParent = transform.Find("rightMiddlePanel/cardGrid");
             _caseText = transform.Find("leftMiddlePanel/caseTip/caseText").GetComponent<Text>();
             _caseDamageText = transform.Find("leftMiddlePanel/damagePanel/caseDamageText").GetComponent<Text>();
             _magnificationText = transform.Find("leftMiddlePanel/damagePanel/magnificationText").GetComponent<Text>();
@@ -51,6 +55,7 @@ namespace UI
             base.OnShow();
             var audioMgr = GameManagerContainer.Instance.GetManager<AudioManager>();
             audioMgr.PlayBgm("battle", true);
+            InitEquipInfo();
         }
 
         public void CreateCardItem()
@@ -242,7 +247,16 @@ namespace UI
 
         public void InitEquipInfo()
         {
-            
+            for (int i = 0; i < _equipManager.MaxEquipSlotCount; i++)
+            {
+                bool isLock = i >= _equipManager.CanEquipSlotCount;
+                var cardConfig = _equipManager.GetEquipCardConfigByPos(i);
+                GameObject obj = GameObject.Instantiate(Resources.Load("UI/EquipCardItem"), _equipParent) as GameObject;
+                obj.transform.SetAsFirstSibling();
+                obj.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 100);
+                var item = obj.AddComponent<EquipCardItem>();
+                item.Init(isLock, cardConfig);
+            }
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Interfaces;
+using Managers;
 using Modules;
 using UI;
 namespace Fsm.FightStages
@@ -12,6 +13,8 @@ namespace Fsm.FightStages
         protected override void OnEnterStage(object e = null)
         {
             UIModule.Instance.ShowUI<WinUI>("WinUI");
+            var equipManager = GameManagerContainer.Instance.GetManager<EquipManager>();
+            equipManager.AddEquipReward();
         }
         protected override void OnUpdateStage(float deltaTimes)
         {

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Config
 {
-    public class DevilCardConfig : ScriptableObject
+    public class EquipCardConfig : ScriptableObject
     {
         [LabelText("卡名")]
         public string name;

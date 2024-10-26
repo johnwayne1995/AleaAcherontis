@@ -13,6 +13,7 @@ namespace GameStages
         }
         protected override void OnEnterStage(object e = null)
         {
+            GameManagerContainer.Instance.ReEnterGame();
             UIModule.Instance.ShowUI<FightUI>("FightUI");
             var fightMgr = GameManagerContainer.Instance.GetManager<FightManager>();
             fightMgr.StartFight();

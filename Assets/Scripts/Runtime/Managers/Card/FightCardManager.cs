@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Config;
+using Modules;
 using UnityEngine;
 
 namespace Managers
@@ -46,6 +47,7 @@ namespace Managers
             CardList = new List<CardBase>();
             UsedCardList = new List<CardBase>();
             UsingCardList = new List<CardBase>();
+            
             //定义临时集合
             List<CardBase> tempList = new List<CardBase>();
             
@@ -238,8 +240,28 @@ namespace Managers
             }
 
             //todo计算 装备牌加的倍率
-            
-            return baseDmg * _baseMagnification;
+            var lastMag = _baseMagnification;
+            var equipManager = GameManagerContainer.Instance.GetManager<EquipManager>();
+            for (int i = 0; i < equipManager.CanEquipSlotCount; i++)
+            {
+                var equip = equipManager.GetEquipCardConfigByPos(i);
+                if (equip == null)
+                {
+                    continue;
+                }                
+                switch (equip.devilCardInfluenceType)
+                {
+                    case DevilCardInfluenceType.Add:
+                        lastMag += equip.paramValue;
+                        break;
+                    case DevilCardInfluenceType.Multiplication:
+                        lastMag *= equip.paramValue;
+                        break;
+                }
+            }
+
+
+            return baseDmg * lastMag;
         }
     }
 }

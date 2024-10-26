@@ -1,11 +1,11 @@
 ﻿using System;
-using Config;
 using DG.Tweening;
 using Managers;
 using Modules;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+
 namespace UI
 {
     public class PokerCardItem : CardItemBase<PokerCard> //, IPointerEnterHandler, IPointerExitHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
@@ -29,8 +29,7 @@ namespace UI
             _bgImg = transform.Find("bg").GetComponent<Image>();
             _cardBtn = _bgImg.GetComponent<Button>();
             _bgImg.material = Instantiate(Resources.Load<Material>("Mats/outline"));
-
-            _rectTransform = this.GetComponent<RectTransform>();
+            _rectTransform = GetComponent<RectTransform>();
             _cardBtn.onClick.AddListener(OnCardClicked);
         }
 

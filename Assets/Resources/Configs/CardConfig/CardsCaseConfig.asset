@@ -38,5 +38,5 @@ MonoBehaviour:
     damageValue: 10
     magnification: 2
   - caseEnum: 0
-    damageValue: 5
+    damageValue: 3000
     magnification: 1

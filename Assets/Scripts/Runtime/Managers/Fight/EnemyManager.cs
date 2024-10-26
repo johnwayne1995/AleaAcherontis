@@ -31,17 +31,24 @@ namespace Managers
             _curEnemy = fightUi.CreateNewEnemy(enemyConfig);
         }
         
-        public void SelfHit(int getCurHandsDamage)
+        /// <summary>
+        /// 受击
+        /// </summary>
+        /// <param name="getCurHandsDamage"></param>
+        public void BeHit(int getCurHandsDamage)
         {
             var isDone = _curEnemy.Hit(getCurHandsDamage);
             if (isDone)
             {
-                var fightManager = GameManagerContainer.Instance.GetManager<FightManager>();
-                fightManager.ChangeState(EFIGHT_STAGE.Win);
+                STimer.Wait(0.5f, () =>
+                {
+                    var fightManager = GameManagerContainer.Instance.GetManager<FightManager>();
+                    fightManager.ChangeState(EFIGHT_STAGE.Win);
+                });
             }
             else
             {
-                STimer.Wait(1.5f, () =>
+                STimer.Wait(0.5f, () =>
                 {
                     var fightUi = UIModule.Instance.GetUI<FightUI>("FightUI");
                     fightUi.RemoveAllSendCard();

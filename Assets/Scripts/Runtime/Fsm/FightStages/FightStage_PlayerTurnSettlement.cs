@@ -1,7 +1,7 @@
 ﻿using Interfaces;
 using Managers;
 using Modules;
-using UI;
+
 namespace Fsm.FightStages
 {
     public class FightStage_PlayerTurnSettlement : FightStageBase
@@ -18,7 +18,7 @@ namespace Fsm.FightStages
            var fightCardMgr = GameManagerContainer.Instance.GetManager<FightCardManager>();
 
            
-           enemyManager.SelfHit(fightCardMgr.GetCurHandsDamage());
+           enemyManager.BeHit(fightCardMgr.GetCurHandsDamage());
         }
         protected override void OnUpdateStage(float deltaTimes)
         {
