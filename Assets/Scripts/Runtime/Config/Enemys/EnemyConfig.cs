@@ -9,6 +9,7 @@ namespace Config
     {
         public int maxHp;
         public string enemyName;
+        public string iconPath;
         
         public List<EnemyAction> enemyActions = new List<EnemyAction>();
     }

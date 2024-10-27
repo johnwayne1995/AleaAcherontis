@@ -8,7 +8,6 @@ namespace Fsm.FightStages
 {
     public class FightStage_Win : FightStageBase
     {
-
         public FightStage_Win(EFIGHT_STAGE stateType, IFsmController<EFIGHT_STAGE> controller) : base(stateType, controller)
         {
         }
