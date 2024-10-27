@@ -3,7 +3,8 @@
     public enum EGAME_STAGE
     {
         Unknown = -1, 
-        Start = 0,               
+        Start = 0,   
+        MatchRoom,
         GameMain,       
     }
     

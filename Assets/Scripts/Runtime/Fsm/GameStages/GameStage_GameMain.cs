@@ -17,7 +17,10 @@ namespace GameStages
             UIModule.Instance.ShowUI<FightUI>("FightUI");
             var fightMgr = GameManagerContainer.Instance.GetManager<FightManager>();
             fightMgr.SetCardGroup(null);
-            fightMgr.SetEnemy(null);
+            var matchLevelManager = GameManagerContainer.Instance.GetManager<MatchLevelManager>();
+            var table = matchLevelManager.GetMatchLevelTable();
+            string path = table[matchLevelManager.curRoom].EnemyConfig;
+            fightMgr.SetEnemy(path);
             fightMgr.StartFight();
         }
         
