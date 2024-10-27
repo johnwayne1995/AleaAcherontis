@@ -15,14 +15,34 @@ namespace UI
         /// 所有手牌
         /// </summary>
         private List<PokerCardItem> _cardItemList;
-        
+
         /// <summary>
         /// 等待打出的牌
         /// </summary>
         private List<PokerCardItem> _sendCardList;
 
+        /// <summary>  
+        /// 卡牌起始位置  
+        /// </summary>  
+        public Vector3 rootPos = new Vector3(0, -2500, 0);
+        /// <summary>  
+        /// 扇形半径  
+        /// </summary>  
+        public float size = 2500f;
+        /// <summary>  
+        /// 卡牌出现最大位置  
+        /// </summary>  
+        private float minPos = 1.415f;
+        /// <summary>  
+        /// 卡牌出现最小位置  
+        /// </summary>  
+        private float maxPos = 1.73f;
+        /// <summary>  
+        /// 手牌位置  
+        /// </summary>  
+        private List<float> _rotPos;
+
         private PokerCardPool _pokerCardPool;
-        
         private FightCardManager _fightCardManager;
         private FightManager _fightManager;
         private EquipManager _equipManager;
@@ -38,13 +58,15 @@ namespace UI
         private Text _roundCountText;
 
         private Transform _cardParent;
-        
+
         private void Awake()
         {
             _fightCardManager = GameManagerContainer.Instance.GetManager<FightCardManager>();
             _fightManager = GameManagerContainer.Instance.GetManager<FightManager>();
             _equipManager = GameManagerContainer.Instance.GetManager<EquipManager>();
 
+            rootPos.x = (float)Screen.width / 2;
+            
             _equipParent = transform.Find("rightMiddlePanel/cardGrid");
             _caseText = transform.Find("leftMiddlePanel/caseTip/caseText").GetComponent<Text>();
             _caseDamageText = transform.Find("leftMiddlePanel/damagePanel/caseDamageText").GetComponent<Text>();
@@ -69,6 +91,32 @@ namespace UI
             _pokerCardPool = new PokerCardPool(_cardParent);
             _cardItemList = new List<PokerCardItem>();
             _sendCardList = new List<PokerCardItem>();
+            _rotPos = InitRotPos(FightCardManager.CMAX_SAVE_CARD_COUNT);
+        }
+
+        private void Update()
+        {
+            RefreshCardPos();
+        }
+
+        /// <summary>  
+        /// 手牌状态刷新  
+        /// </summary>  
+        private void RefreshCardPos()
+        {
+            if (_cardItemList == null)
+            {
+                return;
+            }
+
+            for (int i = 0; i < _cardItemList.Count; i++)
+            {
+                var card = _cardItemList[i];
+                if (card != null)
+                {
+                    card.RefreshData(rootPos, _rotPos[i], size);
+                }
+            }
         }
 
         public override void OnShow()
@@ -92,7 +140,7 @@ namespace UI
             if (curHandCardCount > FightCardManager.CMAX_SAVE_CARD_COUNT)
             {
                 //手牌超出，需弃牌
-                
+
                 return;
             }
 
@@ -105,7 +153,7 @@ namespace UI
             {
                 needDrawCount = FightCardManager.CMAX_SAVE_CARD_COUNT - curHandCardCount;
             }
-            
+
             if (needDrawCount > _fightCardManager.CardList.Count)
             {
                 needDrawCount = _fightCardManager.CardList.Count;
@@ -168,22 +216,6 @@ namespace UI
             _magnificationText.text = cardCaseConfig.magnification.ToString();
         }
 
-        //更新卡牌位置
-        public void UpdateCardItemPos()
-        {
-            float offset = 1000f / _cardItemList.Count;
-            Vector2 startPos = new Vector2(-_cardItemList.Count / 2f * offset + offset * 0.5f, -800);
-            Vector2 endPos = new Vector2(-_cardItemList.Count / 2f * offset + offset * 0.5f, -500);
-            for (int i = 0; i < _cardItemList.Count; i++)
-            {
-                var card = _cardItemList[i];
-                card.SetRectAnchorPos(startPos);
-                card.DoInitMoveAni(endPos);
-                startPos.x = startPos.x + offset;
-                endPos.x = endPos.x + offset;
-            }
-        }
-
         private void SortBtnClick()
         {
             ClearAllCardItem();
@@ -196,12 +228,28 @@ namespace UI
                     var item = _pokerCardPool.Alloc();
                     item.transform.SetAsLastSibling();
                     item.InitCardItem(pokerCard, OnWaitSendListChanged);
+                    item.RefreshData(rootPos, 0, 0);
                     _cardItemList.Add(item);
                 }
-                
-            }
 
-            UpdateCardItemPos();
+            }
+        }
+
+        /// <summary>  
+        /// 初始化位置  
+        /// </summary>  
+        /// <param name="count"></param>    
+        /// <returns></returns>    
+        private List<float> InitRotPos(int count)
+        {
+            List<float> rotPosList = new List<float>();
+            float interval = (maxPos - minPos) / count;
+            for (int i = 0; i < count; i++)
+            {
+                float nowPos = maxPos - interval * i;
+                rotPosList.Add(nowPos);
+            }
+            return rotPosList;
         }
 
         private void FoldBtnClick()
@@ -210,7 +258,7 @@ namespace UI
             {
                 return;
             }
-            
+
             _sendCardList.Clear();
             for (int i = 0; i < _cardItemList.Count; i++)
             {
@@ -225,7 +273,6 @@ namespace UI
             {
                 _cardItemList.Remove(_sendCardList[i]);
             }
-            //UpdateCardItemPos();
 
             for (int i = 0; i < _sendCardList.Count; i++)
             {
@@ -238,7 +285,7 @@ namespace UI
                 };
                 _fightCardManager.FoldCard(card.GetCardConfig());
             }
-            
+
             _fightCardManager.ClearWaitToSendList();
             _sendCardList.Clear();
             CreateCardItem();
@@ -265,7 +312,6 @@ namespace UI
             {
                 _cardItemList.Remove(_sendCardList[i]);
             }
-            UpdateCardItemPos();
 
             float offset = 600f / _sendCardList.Count;
             Vector2 enPos = new Vector2(-_sendCardList.Count / 2f * offset + offset * 0.5f, 0);
@@ -275,10 +321,10 @@ namespace UI
                 card.DoInitMoveAni(enPos);
                 enPos.x = enPos.x + offset;
             }
-            
+
             _fightManager.ChangeState(EFIGHT_STAGE.PlayerTurnSettlement);
         }
-        
+
         public void RemoveAllSendCard()
         {
             for (int i = 0; i < _sendCardList.Count; i++)
@@ -295,7 +341,7 @@ namespace UI
 
             _fightCardManager.ClearWaitToSendList();
             _sendCardList.Clear();
-            if(_fightManager.GetCurState() == EFIGHT_STAGE.PlayerTurnSettlement)
+            if (_fightManager.GetCurState() == EFIGHT_STAGE.PlayerTurnSettlement)
                 _fightManager.ChangeState(EFIGHT_STAGE.Enemy);
         }
 
@@ -308,12 +354,12 @@ namespace UI
             item.Init(enemyConfig);
             return item;
         }
-        
+
         public void FlushHp(int curHp, int maxHp)
         {
             _playerHpText.text = $"{curHp.ToString()}/{maxHp.ToString()}";
         }
-        
+
         public void FlushRoundCount(int curRound, int maxRound)
         {
             _roundCountText.text = $"{curRound.ToString()}/{maxRound.ToString()}";

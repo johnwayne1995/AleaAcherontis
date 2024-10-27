@@ -11,7 +11,7 @@ namespace Fsm.FightStages
         protected override void OnEnterStage(object e = null)
         {
             //todo 播放敌人回合UI
-            STimer.Wait(1, () =>
+            STimer.Wait(0.5f, () =>
             {
                 controller.SwitchState(EFIGHT_STAGE.EnemyTurnSettlement, null);
             });

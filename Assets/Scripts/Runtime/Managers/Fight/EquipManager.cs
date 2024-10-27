@@ -22,8 +22,8 @@ namespace Managers
         protected override void OnAwake()
         {
             base.OnAwake();
-            MaxEquipSlotCount = 2;
-            CanEquipSlotCount = 1;
+            MaxEquipSlotCount = 4;
+            CanEquipSlotCount = 3;
         }
 
         protected override void OnEnterGame()
