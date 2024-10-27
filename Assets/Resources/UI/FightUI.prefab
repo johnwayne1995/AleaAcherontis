@@ -36,7 +36,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 444.0632, y: 266.2546}
+  m_SizeDelta: {x: 669.1307, y: 266.2546}
   m_Pivot: {x: 1.0000001, y: 0.9999999}
 --- !u!222 &2256670758231387886
 CanvasRenderer:
@@ -1068,13 +1068,13 @@ MonoBehaviour:
   m_Padding:
     m_Left: 0
     m_Right: 26
-    m_Top: 50
+    m_Top: 30
     m_Bottom: 0
   m_ChildAlignment: 2
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 150, y: 200}
-  m_Spacing: {x: 66.31, y: 0}
+  m_Spacing: {x: 8, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!1 &7566823010638575257

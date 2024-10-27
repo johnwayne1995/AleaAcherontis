@@ -1,12 +1,13 @@
-﻿using Interfaces;
+﻿using Config;
+using Interfaces;
 using Managers;
 using Modules;
 using UI;
+using UnityEngine;
 namespace Fsm.FightStages
 {
     public class FightStage_Win : FightStageBase
     {
-
         public FightStage_Win(EFIGHT_STAGE stateType, IFsmController<EFIGHT_STAGE> controller) : base(stateType, controller)
         {
         }
@@ -14,7 +15,8 @@ namespace Fsm.FightStages
         {
             UIModule.Instance.ShowUI<WinUI>("WinUI");
             var equipManager = GameManagerContainer.Instance.GetManager<EquipManager>();
-            equipManager.AddEquipReward();
+            var reward = Resources.Load<EquipCardConfig>("Configs/CardConfig/EquipCardsConfig");
+            equipManager.AddEquipReward(reward);
         }
         protected override void OnUpdateStage(float deltaTimes)
         {
