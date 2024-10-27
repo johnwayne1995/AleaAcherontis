@@ -24,7 +24,7 @@ namespace UI
         {
             //关闭login界面
             Close();
-            GameStageModule.Instance.SwitchStage(EGAME_STAGE.GameMain);
+            GameStageModule.Instance.SwitchStage(EGAME_STAGE.MatchRoom);
         }
     }
 }

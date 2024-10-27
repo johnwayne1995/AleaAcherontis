@@ -23,6 +23,7 @@ namespace Modules
             RegisterGameManagers(new FightCardManager());
             RegisterGameManagers(new EquipManager());
             RegisterGameManagers(new JobManager());
+            RegisterGameManagers(new MatchLevelManager());
             SortingManagers();
             AwakeManagers();
         }

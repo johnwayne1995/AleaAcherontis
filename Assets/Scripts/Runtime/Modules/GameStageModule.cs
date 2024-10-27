@@ -11,6 +11,7 @@ namespace Modules
             _fsmController = new GameStageController();
             _fsmController.InitState();
             _fsmController.AddState(EGAME_STAGE.Start, new GameStage_Start(EGAME_STAGE.Start, _fsmController));
+            _fsmController.AddState(EGAME_STAGE.MatchRoom, new GameStage_MatchRoom(EGAME_STAGE.MatchRoom, _fsmController));
             _fsmController.AddState(EGAME_STAGE.GameMain, new GameStage_GameMain(EGAME_STAGE.GameMain, _fsmController));
             _fsmController.SetDefault(EGAME_STAGE.Start);
         }

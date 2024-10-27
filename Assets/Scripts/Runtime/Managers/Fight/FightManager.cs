@@ -57,9 +57,13 @@ namespace Managers
         /// 关卡接口 创建敌人
         /// </summary>
         /// <param name="enemyConfig">敌人参数</param>
-        public void SetEnemy(EnemyConfig enemyConfig)
+        public void SetEnemy(string path)
         {
-            enemyConfig = Resources.Load<EnemyConfig>("Configs/EnemyConfigs/EnemyCardsConfig");
+            EnemyConfig enemyConfig;
+            if(path == default)
+                enemyConfig = Resources.Load<EnemyConfig>("Configs/EnemyConfigs/EnemyCardsConfig");
+            else
+                enemyConfig = Resources.Load<EnemyConfig>("Configs/EnemyConfigs/"+path);
             var enemyManager = GameManagerContainer.Instance.GetManager<EnemyManager>();
             enemyManager.LoadEnemy(enemyConfig);
         }
