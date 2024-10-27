@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Config;
-using UnityEngine;
+
 namespace Managers
 {
     public class EquipManager : TGameManager<EquipManager>
@@ -41,7 +41,7 @@ namespace Managers
             return _equipCardList[pos];
         }
 
-        public void AddEquipReward()
+        public void AddEquipReward(EquipCardConfig reward)
         {
             if (_equipCardList.Count == CanEquipSlotCount)
             {
@@ -49,7 +49,6 @@ namespace Managers
                 return;
             }
             
-            var reward = Resources.Load<EquipCardConfig>("Configs/CardConfig/EquipCardsConfig");
             var equip = new EquipCard();
             equip.name = reward.name;
             equip.dialog = reward.dialog;

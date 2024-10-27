@@ -67,22 +67,23 @@ namespace UI
                 return;
             
             //选中卡牌半径增加  
-            float radius = size;
+            float radius = isSelected ? size + 40 : size;
             //选中卡牌旋转归零  
             var position = transform.position;
-            float rotZ = isSelected ? 0 : GetAngleInDegrees(root, position);
+            float rotZ = GetAngleInDegrees(root, position);
             //设置卡牌位置  
             float x = root.x + Mathf.Cos(rot) * radius;
             float y = root.y + Mathf.Sin(rot) * radius;
             _lastPos.x = x;
-            if (isSelected)
-            {
-                _lastPos.y = 30;
-            }
-            else
-            {
-                _lastPos.y = y;
-            }
+            _lastPos.y = y;
+            // if (isSelected)
+            // {
+            //     _lastPos.y += 30;
+            // }
+            // else
+            // {
+            //     _lastPos.y = y;
+            // }
             
             position = Vector3.Lerp(position, _lastPos, Time.deltaTime * animSpeed);
             transform.position = position;
