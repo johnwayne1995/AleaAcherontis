@@ -14,8 +14,8 @@ namespace UI
 
         private void Awake()
         {
-            Register("DoorLeft").onClick = OnStartGameBtnClick;
-            Register("DoorRight").onClick = OnStartGameBtnClick;
+            Register("Battle").onClick = OnStartGameBtnClick;
+            Register("Skip").onClick = OnSkipGameBtnClick;
             _EnemyTypeText = transform.Find("Enemy").GetComponentInChildren<Text>();
             _CurRoomID = transform.Find("CurRoomID").GetComponentInChildren<Text>();
         }
@@ -47,6 +47,14 @@ namespace UI
             //关闭login界面 , 
             Close();
             GameStageModule.Instance.SwitchStage(EGAME_STAGE.GameMain);
+        }
+        
+        private void OnSkipGameBtnClick(GameObject obj, PointerEventData pData)
+        {
+            //关闭login界面 , 
+            Close();
+            GameStageModule.Instance.SwitchStage(EGAME_STAGE.MatchRoom);
+            GameManagerContainer.Instance.GetManager<MatchLevelManager>().SkipCurRoom();
         }
     }
 }

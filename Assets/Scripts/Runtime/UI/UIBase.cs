@@ -28,8 +28,14 @@ namespace UI
         
         public UIEventTrigger Register(string name)
         {
-            Transform tf = transform.Find(name);
-            return UIEventTrigger.Get(tf.gameObject);
+            Transform[] transforms = gameObject.GetComponentsInChildren<Transform>(true);
+            foreach (var tra in transforms)
+            {
+                if(tra.gameObject.name == name)
+                    return UIEventTrigger.Get(tra.gameObject);
+            }
+
+            return null;
         }
     }
     
