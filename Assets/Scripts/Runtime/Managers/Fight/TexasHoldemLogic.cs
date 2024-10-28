@@ -73,7 +73,7 @@ namespace Managers
             return Rank.Three;
         }
         
-        private Suit ConvertStrToSuit(char str)
+        public static Suit ConvertStrToSuit(char str)
         {
             switch (str)
             {
@@ -281,10 +281,10 @@ namespace Managers
 
     public enum Suit
     {
-        Hearts,
-        Diamonds,
-        Clubs,
-        Spades
+        Hearts = 1,
+        Diamonds = 2,
+        Clubs = 3,
+        Spades = 4
     }
 
     public enum Rank
