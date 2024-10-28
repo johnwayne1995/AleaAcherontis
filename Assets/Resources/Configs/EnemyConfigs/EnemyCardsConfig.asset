@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: EnemyCardsConfig
   m_EditorClassIdentifier: 
   maxHp: 3000
-  enemyName: Test
+  enemyName: DEVIL
+  iconPath: art/boss/Boss_Cerberus
   enemyActions:
   - OneTimeAc: 1
     round: 1

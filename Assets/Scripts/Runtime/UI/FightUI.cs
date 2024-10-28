@@ -48,7 +48,9 @@ namespace UI
         private EquipManager _equipManager;
 
         private Transform _equipParent;
-        private Button _sortBtn;
+        private Button _faceSortBtn;
+        private Button _suitSortBtn;
+
         private Button _foldBtn;
         private Button _sendBtn;
         private Text _caseText;
@@ -74,10 +76,14 @@ namespace UI
             _playerHpText = transform.Find("playerHp").GetComponent<Text>();
             _roundCountText = transform.Find("roundCount").GetComponent<Text>();
 
-            _sortBtn = transform.Find("sortBtn").GetComponent<Button>();
+            _faceSortBtn = transform.Find("faceSortBtn").GetComponent<Button>();
+            _suitSortBtn = transform.Find("suitSortBtn").GetComponent<Button>();
+
             _foldBtn = transform.Find("foldBtn").GetComponent<Button>();
             _sendBtn = transform.Find("sendBtn").GetComponent<Button>();
-            _sortBtn.onClick.AddListener(SortBtnClick);
+            _faceSortBtn.onClick.AddListener(FaceSortBtnClick);
+            _suitSortBtn.onClick.AddListener(SuitSortBtnClick);
+
             _sendBtn.onClick.AddListener(SendBtnClick);
             _foldBtn.onClick.AddListener(FoldBtnClick);
             OnWaitSendListChanged();
@@ -134,7 +140,7 @@ namespace UI
             _pokerCardPool.ReleaseAll();
         }
 
-        public void CreateCardItem()
+        public void CreateCardItem(bool defaultSort = false)
         {
             var curHandCardCount = _fightCardManager.UsingCardList.Count;
             if (curHandCardCount > FightCardManager.CMAX_SAVE_CARD_COUNT)
@@ -160,7 +166,11 @@ namespace UI
             }
 
             _fightCardManager.DrawCards(needDrawCount);
-            SortBtnClick();
+            
+            if (defaultSort)
+            {
+                FaceSortBtnClick();
+            }
         }
 
         private void ClearAllCardItem()
@@ -216,10 +226,20 @@ namespace UI
             _magnificationText.text = cardCaseConfig.magnification.ToString();
         }
 
-        private void SortBtnClick()
+        private void FaceSortBtnClick()
         {
+            SortCardItem(true);
+        }
+        
+        private void SuitSortBtnClick()
+        {
+            SortCardItem(false);
+        }
+
+        public void SortCardItem(bool sortByFace)
+        {
+            _fightCardManager.SortUsingCards(sortByFace);
             ClearAllCardItem();
-            _fightCardManager.SortUsingCards();
             for (int i = 0; i < _fightCardManager.UsingCardList.Count; i++)
             {
                 var cardConfig = _fightCardManager.UsingCardList[i];

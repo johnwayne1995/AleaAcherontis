@@ -12,7 +12,7 @@ namespace Fsm.FightStages
         protected override void OnEnterStage(object e = null)
         {
             var fightUi = UIModule.Instance.GetUI<FightUI>("FightUI");
-            fightUi.CreateCardItem();
+            fightUi.CreateCardItem(true);
         }
         
         protected override void OnUpdateStage(float deltaTimes)

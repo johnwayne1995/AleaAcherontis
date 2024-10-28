@@ -122,7 +122,7 @@ namespace Managers
                 var card = DrawCard();
                 UsingCardList.Add(card);
             }
-            SortUsingCards();
+            SortUsingCards(true);
         }
         
         /// <summary>
@@ -176,22 +176,42 @@ namespace Managers
             return _pokerHand.HandCase;
         }
 
-        public void SortUsingCards()
+        public void SortUsingCards(bool sortByFace)
         {
-            UsingCardList.Sort((card1, card2) =>
+            if (sortByFace)
             {
-                if (card1 is PokerCard p1 && card2 is PokerCard p2)
+                UsingCardList.Sort((card1, card2) =>
                 {
-                    var card1Rank = TexasLogic.ConvertStrToRank(p1.id[0]);
-                    var card2Rank = TexasLogic.ConvertStrToRank(p2.id[0]);
-                    if (card1Rank > card2Rank)
+                    if (card1 is PokerCard p1 && card2 is PokerCard p2)
                     {
-                        return -1;
+                        var card1Rank = TexasLogic.ConvertStrToRank(p1.id[0]);
+                        var card2Rank = TexasLogic.ConvertStrToRank(p2.id[0]);
+                        if (card1Rank > card2Rank)
+                        {
+                            return -1;
+                        }
                     }
-                }
                 
-                return 0;
-            });
+                    return 0;
+                });
+            }
+            else
+            {
+                UsingCardList.Sort((card1, card2) =>
+                {
+                    if (card1 is PokerCard p1 && card2 is PokerCard p2)
+                    {
+                        var suit1 = TexasLogic.ConvertStrToSuit(p1.id[1]);
+                        var suit2 = TexasLogic.ConvertStrToSuit(p2.id[1]);
+                        if (suit1 > suit2)
+                        {
+                            return -1;
+                        }
+                    }
+                
+                    return 0;
+                });
+            }
         }
 
         public CardCase GetCardCaseConfigByCaseType(CaseEnum caseEnum)
