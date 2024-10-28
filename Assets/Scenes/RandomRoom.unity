@@ -304,6 +304,22 @@ MonoBehaviour:
     m_Bits: 256
   maxStep: 0
   rooms: []
+  wallType:
+    singleLeft: {fileID: 6355756603179084207, guid: 49b221acb6aa3b8468b488b13262e5a8, type: 3}
+    singleRight: {fileID: 6355756603179084207, guid: 1b50731612904b943b40ceb344ff7490, type: 3}
+    singleUp: {fileID: 6355756603179084207, guid: 1686e76efa341ee45b2b4c5f61a43a9e, type: 3}
+    singleBottom: {fileID: 6355756603179084207, guid: 58a95675396f9a0478450f6b0ad745c0, type: 3}
+    doubleLU: {fileID: 6355756603179084207, guid: 83bdfbe5714f58a48bb5416f4dbcfb13, type: 3}
+    doubleLR: {fileID: 6355756603179084207, guid: 2b1c83ce3365b2b45a85fcd278923443, type: 3}
+    doubleLB: {fileID: 6355756603179084207, guid: c1fdcad999a58204db195437bc13b939, type: 3}
+    doubleUR: {fileID: 6355756603179084207, guid: 4a64c4b389305ea4581e98bd907e3a90, type: 3}
+    doubleUB: {fileID: 6355756603179084207, guid: 1b64a95ea8554594381ee1d6ea87dc40, type: 3}
+    doubleRB: {fileID: 6355756603179084207, guid: ec3dd2a80f142754598a9ce542fb5804, type: 3}
+    tripleLUR: {fileID: 6355756603179084207, guid: cdd99ccad81944349bae43c849e711af, type: 3}
+    tripleLUB: {fileID: 6355756603179084207, guid: 5b18cd5a7a56c8547a3967c8e5fbdaea, type: 3}
+    tripleURB: {fileID: 6355756603179084207, guid: de407b325ec324e4d95472bff5706a3b, type: 3}
+    tripleLRB: {fileID: 6355756603179084207, guid: 8ed786c9dba131d47a84df5048b5b156, type: 3}
+    fourDoors: {fileID: 6355756603179084207, guid: 462056969b36d9040a86ff87f827effe, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
