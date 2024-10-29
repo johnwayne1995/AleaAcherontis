@@ -45,7 +45,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -113,10 +113,10 @@ TextureImporter:
       name: Cultist Brute Sprite Sheet_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 6
         y: 128
-        width: 32
-        height: 32
+        width: 17
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 217473b9d0695324fb301ec961680d09
-      internalID: -1864798
+      spriteID: 1fbcb7782e717de4391192856ebbefb6
+      internalID: 502068006
       vertices: []
       indices: 
       edges: []
@@ -134,10 +134,10 @@ TextureImporter:
       name: Cultist Brute Sprite Sheet_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 38
         y: 128
-        width: 32
-        height: 32
+        width: 17
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 828ccc024c5ab594c986ee3b392f4f4f
-      internalID: -1488385453
+      spriteID: eb7d5060511a2cf4c9f41086aa5faded
+      internalID: 129017509
       vertices: []
       indices: 
       edges: []
@@ -155,10 +155,10 @@ TextureImporter:
       name: Cultist Brute Sprite Sheet_2
       rect:
         serializedVersion: 2
-        x: 64
+        x: 70
         y: 128
-        width: 32
-        height: 32
+        width: 17
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,8 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d17e9c83a44c4040aa48358502e02f6
-      internalID: -825080672
+      spriteID: aeb47b5c843832a4daa81a9b716f83ef
+      internalID: -2100651948
       vertices: []
       indices: 
       edges: []
@@ -176,10 +176,10 @@ TextureImporter:
       name: Cultist Brute Sprite Sheet_3
       rect:
         serializedVersion: 2
-        x: 96
+        x: 102
         y: 128
-        width: 32
-        height: 32
+        width: 17
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,8 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b2d0b37b864796428e484667dcbf846
-      internalID: 1339378131
+      spriteID: 6878e0292c7ec164eb787b0502095f24
+      internalID: 1229656218
       vertices: []
       indices: 
       edges: []
@@ -197,10 +197,10 @@ TextureImporter:
       name: Cultist Brute Sprite Sheet_4
       rect:
         serializedVersion: 2
-        x: 0
+        x: 5
         y: 96
-        width: 32
-        height: 32
+        width: 18
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,8 +208,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed72cd185c479ad4f8fe8930512c43c5
-      internalID: 527129501
+      spriteID: d942a12bd697afd4aa59bf36704b2005
+      internalID: 1883548113
       vertices: []
       indices: 
       edges: []
@@ -218,10 +218,10 @@ TextureImporter:
       name: Cultist Brute Sprite Sheet_5
       rect:
         serializedVersion: 2
-        x: 32
+        x: 36
         y: 96
-        width: 32
-        height: 32
+        width: 18
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,8 +229,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d3d97c8cf93a4d447af47c29e2fc357b
-      internalID: -2033881989
+      spriteID: c4cd1d7e674cda649832fe0a1150e0fc
+      internalID: -798698306
       vertices: []
       indices: 
       edges: []
@@ -239,10 +239,10 @@ TextureImporter:
       name: Cultist Brute Sprite Sheet_6
       rect:
         serializedVersion: 2
-        x: 64
+        x: 69
         y: 96
-        width: 32
-        height: 32
+        width: 17
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -250,8 +250,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a517cecffcfe90e4b989d4c3ba44cdda
-      internalID: -871713135
+      spriteID: 7803288e99f8b5343ab4576768ab5d05
+      internalID: -1330337245
       vertices: []
       indices: 
       edges: []
@@ -260,10 +260,10 @@ TextureImporter:
       name: Cultist Brute Sprite Sheet_7
       rect:
         serializedVersion: 2
-        x: 96
+        x: 101
         y: 96
-        width: 32
-        height: 32
+        width: 17
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -271,8 +271,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 208e1a88b2726b5478bf2deb753a311c
-      internalID: 1128655461
+      spriteID: 1c4b9a75f0ef57647b47ec5f9694450e
+      internalID: 34329568
       vertices: []
       indices: 
       edges: []
@@ -281,10 +281,10 @@ TextureImporter:
       name: Cultist Brute Sprite Sheet_8
       rect:
         serializedVersion: 2
-        x: 128
+        x: 133
         y: 96
-        width: 32
-        height: 32
+        width: 18
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -292,8 +292,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 77cd3c04e3e73454484fa3151d022098
-      internalID: 1923414240
+      spriteID: bee880202a408c8428939c442b494b90
+      internalID: 57252701
       vertices: []
       indices: 
       edges: []
@@ -302,10 +302,10 @@ TextureImporter:
       name: Cultist Brute Sprite Sheet_9
       rect:
         serializedVersion: 2
-        x: 0
+        x: 6
         y: 64
-        width: 32
-        height: 32
+        width: 17
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -313,8 +313,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af0aa70a344baec4cac7c1dd0aa58e6b
-      internalID: -439575299
+      spriteID: b28050b65f524fd409888cdf2e029e12
+      internalID: -1741999624
       vertices: []
       indices: 
       edges: []
@@ -323,10 +323,10 @@ TextureImporter:
       name: Cultist Brute Sprite Sheet_10
       rect:
         serializedVersion: 2
-        x: 32
+        x: 35
         y: 64
-        width: 32
-        height: 32
+        width: 26
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -334,8 +334,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ffee372ed7507a245848ae538557e25c
-      internalID: -956584625
+      spriteID: de6929f9cb921a04eb77c3c95a541b29
+      internalID: 499007334
       vertices: []
       indices: 
       edges: []
@@ -344,10 +344,10 @@ TextureImporter:
       name: Cultist Brute Sprite Sheet_11
       rect:
         serializedVersion: 2
-        x: 64
+        x: 66
         y: 64
-        width: 32
-        height: 32
+        width: 26
+        height: 29
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -355,8 +355,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cdc0cf6a749f2774081747907a31cbf3
-      internalID: -389616764
+      spriteID: 5e700292ad3cdf740a18ecdb3aa597f3
+      internalID: 1512379184
       vertices: []
       indices: 
       edges: []
@@ -365,10 +365,10 @@ TextureImporter:
       name: Cultist Brute Sprite Sheet_12
       rect:
         serializedVersion: 2
-        x: 96
+        x: 102
         y: 64
-        width: 32
-        height: 32
+        width: 24
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -376,8 +376,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a78596450117d0e4e877f04e0e9b7360
-      internalID: 302684740
+      spriteID: 53b09c9afea962e48af3a2ecdf192cdc
+      internalID: 1487104235
       vertices: []
       indices: 
       edges: []
@@ -386,10 +386,10 @@ TextureImporter:
       name: Cultist Brute Sprite Sheet_13
       rect:
         serializedVersion: 2
-        x: 128
+        x: 134
         y: 64
-        width: 32
-        height: 32
+        width: 18
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -397,8 +397,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a0a7ad055bb52064ca2b970db34e8a5f
-      internalID: -1899949312
+      spriteID: 046f311725434df4285c394d2a282faf
+      internalID: -866568982
       vertices: []
       indices: 
       edges: []
@@ -407,10 +407,10 @@ TextureImporter:
       name: Cultist Brute Sprite Sheet_14
       rect:
         serializedVersion: 2
-        x: 160
+        x: 166
         y: 64
-        width: 32
-        height: 32
+        width: 18
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -418,8 +418,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 42683650b48e2c941b0e09041671b009
-      internalID: 358142171
+      spriteID: b20e2ddb2755e3941a4c45e36bd2887d
+      internalID: -626578546
       vertices: []
       indices: 
       edges: []
@@ -428,10 +428,10 @@ TextureImporter:
       name: Cultist Brute Sprite Sheet_15
       rect:
         serializedVersion: 2
-        x: 0
+        x: 6
         y: 32
-        width: 32
-        height: 32
+        width: 17
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -439,8 +439,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db32f9869a1429a4980301b75c4255d5
-      internalID: -418040736
+      spriteID: 2c060cfb91538a2409feb51bafa5ba50
+      internalID: -763457039
       vertices: []
       indices: 
       edges: []
@@ -449,10 +449,10 @@ TextureImporter:
       name: Cultist Brute Sprite Sheet_16
       rect:
         serializedVersion: 2
-        x: 32
+        x: 36
         y: 32
-        width: 32
-        height: 32
+        width: 21
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -460,8 +460,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2eb6a160ac13e30438ee3cc48b0b4159
-      internalID: -1078784785
+      spriteID: bcd2222ed3a8736428142e6fc945f916
+      internalID: 1658137524
       vertices: []
       indices: 
       edges: []
@@ -470,10 +470,10 @@ TextureImporter:
       name: Cultist Brute Sprite Sheet_17
       rect:
         serializedVersion: 2
-        x: 64
+        x: 67
         y: 32
-        width: 32
-        height: 32
+        width: 22
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -481,8 +481,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 02607df9752d7644ea89bb69c7cfbc8c
-      internalID: 1056699293
+      spriteID: 27c41738babbd684a8342613ecfdaa1a
+      internalID: 126582773
       vertices: []
       indices: 
       edges: []
@@ -491,10 +491,10 @@ TextureImporter:
       name: Cultist Brute Sprite Sheet_18
       rect:
         serializedVersion: 2
-        x: 96
+        x: 101
         y: 32
-        width: 32
-        height: 32
+        width: 18
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -502,8 +502,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a36f45ab6ee09bf45bc4d27f7ae86388
-      internalID: -161524518
+      spriteID: e1fda899fc4314a44ac9f045b542d78e
+      internalID: -727178618
       vertices: []
       indices: 
       edges: []
@@ -512,10 +512,10 @@ TextureImporter:
       name: Cultist Brute Sprite Sheet_19
       rect:
         serializedVersion: 2
-        x: 0
+        x: 6
         y: 0
-        width: 32
-        height: 32
+        width: 17
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -523,8 +523,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f1af201c15196a941b912a7796312a22
-      internalID: -917187834
+      spriteID: d79101e9b7eaff64080e8a12efe41006
+      internalID: -1717212788
       vertices: []
       indices: 
       edges: []
@@ -533,10 +533,10 @@ TextureImporter:
       name: Cultist Brute Sprite Sheet_20
       rect:
         serializedVersion: 2
-        x: 32
+        x: 36
         y: 0
-        width: 32
-        height: 32
+        width: 21
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -544,8 +544,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a197f3a1575ba7145a6b5ed86fc7a286
-      internalID: 1867820720
+      spriteID: 01bc74830ef55ac49a09a5c3e52046d0
+      internalID: 1990056155
       vertices: []
       indices: 
       edges: []
@@ -554,10 +554,10 @@ TextureImporter:
       name: Cultist Brute Sprite Sheet_21
       rect:
         serializedVersion: 2
-        x: 64
+        x: 67
         y: 0
-        width: 32
-        height: 32
+        width: 22
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -565,8 +565,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 79c531cd653931e4bb8485e889be294c
-      internalID: -99339678
+      spriteID: 5b634f189a2f92140b43fec57258c7e3
+      internalID: 587284175
       vertices: []
       indices: 
       edges: []
@@ -575,10 +575,10 @@ TextureImporter:
       name: Cultist Brute Sprite Sheet_22
       rect:
         serializedVersion: 2
-        x: 96
+        x: 100
         y: 0
-        width: 32
-        height: 32
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -586,8 +586,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: afa168e60a622f942a849877f7cd76c7
-      internalID: -529056297
+      spriteID: b18f9b1c7c126e040aa88aa78f9650d7
+      internalID: -1723906240
       vertices: []
       indices: 
       edges: []
@@ -596,10 +596,10 @@ TextureImporter:
       name: Cultist Brute Sprite Sheet_23
       rect:
         serializedVersion: 2
-        x: 128
+        x: 130
         y: 0
-        width: 32
-        height: 32
+        width: 29
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -607,8 +607,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9414ed22cef88e6459dc2acb1e730c66
-      internalID: 1052258097
+      spriteID: 9cb4d2ed352fb414e878f51fa0c5f0d4
+      internalID: 535390378
       vertices: []
       indices: 
       edges: []
@@ -624,30 +624,30 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Cultist Brute Sprite Sheet_0: -1864798
-      Cultist Brute Sprite Sheet_1: -1488385453
-      Cultist Brute Sprite Sheet_10: -956584625
-      Cultist Brute Sprite Sheet_11: -389616764
-      Cultist Brute Sprite Sheet_12: 302684740
-      Cultist Brute Sprite Sheet_13: -1899949312
-      Cultist Brute Sprite Sheet_14: 358142171
-      Cultist Brute Sprite Sheet_15: -418040736
-      Cultist Brute Sprite Sheet_16: -1078784785
-      Cultist Brute Sprite Sheet_17: 1056699293
-      Cultist Brute Sprite Sheet_18: -161524518
-      Cultist Brute Sprite Sheet_19: -917187834
-      Cultist Brute Sprite Sheet_2: -825080672
-      Cultist Brute Sprite Sheet_20: 1867820720
-      Cultist Brute Sprite Sheet_21: -99339678
-      Cultist Brute Sprite Sheet_22: -529056297
-      Cultist Brute Sprite Sheet_23: 1052258097
-      Cultist Brute Sprite Sheet_3: 1339378131
-      Cultist Brute Sprite Sheet_4: 527129501
-      Cultist Brute Sprite Sheet_5: -2033881989
-      Cultist Brute Sprite Sheet_6: -871713135
-      Cultist Brute Sprite Sheet_7: 1128655461
-      Cultist Brute Sprite Sheet_8: 1923414240
-      Cultist Brute Sprite Sheet_9: -439575299
+      Cultist Brute Sprite Sheet_0: 502068006
+      Cultist Brute Sprite Sheet_1: 129017509
+      Cultist Brute Sprite Sheet_10: 499007334
+      Cultist Brute Sprite Sheet_11: 1512379184
+      Cultist Brute Sprite Sheet_12: 1487104235
+      Cultist Brute Sprite Sheet_13: -866568982
+      Cultist Brute Sprite Sheet_14: -626578546
+      Cultist Brute Sprite Sheet_15: -763457039
+      Cultist Brute Sprite Sheet_16: 1658137524
+      Cultist Brute Sprite Sheet_17: 126582773
+      Cultist Brute Sprite Sheet_18: -727178618
+      Cultist Brute Sprite Sheet_19: -1717212788
+      Cultist Brute Sprite Sheet_2: -2100651948
+      Cultist Brute Sprite Sheet_20: 1990056155
+      Cultist Brute Sprite Sheet_21: 587284175
+      Cultist Brute Sprite Sheet_22: -1723906240
+      Cultist Brute Sprite Sheet_23: 535390378
+      Cultist Brute Sprite Sheet_3: 1229656218
+      Cultist Brute Sprite Sheet_4: 1883548113
+      Cultist Brute Sprite Sheet_5: -798698306
+      Cultist Brute Sprite Sheet_6: -1330337245
+      Cultist Brute Sprite Sheet_7: 34329568
+      Cultist Brute Sprite Sheet_8: 57252701
+      Cultist Brute Sprite Sheet_9: -1741999624
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
