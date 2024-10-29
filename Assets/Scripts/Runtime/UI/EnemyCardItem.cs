@@ -51,6 +51,9 @@ namespace UI
         {
             var fightManager = GameManagerContainer.Instance.GetManager<FightManager>();
             var curRound = fightManager.GetCurRound();
+            var fightUI = UIModule.Instance.GetUI<FightUI>("FightUI");
+            fightUI.HideTip();
+
             for (int i = _enemyConfig.enemyActions.Count - 1; i >= 0 ; i--)
             {
                 var ac = _enemyConfig.enemyActions[i];
@@ -66,7 +69,6 @@ namespace UI
 
                 if (activeAc)
                 {
-                    var fightUI = UIModule.Instance.GetUI<FightUI>("FightUI");
 
                     switch (ac.enemyActionType)
                     {

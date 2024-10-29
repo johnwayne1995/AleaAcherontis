@@ -426,5 +426,10 @@ namespace UI
             var tweenerHide = _dialogCanvas.DOFade(0, 0.5f);
             tweenerHide.SetDelay(1.5f);
         }
+        
+        public void HideTip()
+        {
+            _tipParent.gameObject.SetActive(false);
+        }
     }
 }
