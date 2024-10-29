@@ -14,7 +14,7 @@ public class CardCaseConfigGenerateTool
     {
         var newConfig = ScriptableObject.CreateInstance<CardCaseConfig>();
         var fullPath = CSAVE_PATH + "CardsCaseConfig.asset";
-        
+        fullPath = AssetDatabase.GenerateUniqueAssetPath(fullPath);
         foreach (CaseEnum day in Enum.GetValues(typeof(CaseEnum)))
         {
             if(day == CaseEnum.None)

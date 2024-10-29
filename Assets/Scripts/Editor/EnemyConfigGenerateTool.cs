@@ -12,6 +12,7 @@ public class EnemyConfigGenerateTool
     {
         var newConfig = ScriptableObject.CreateInstance<EnemyConfig>();
         var fullPath = CSAVE_PATH + "EnemyCardsConfig.asset";
+        fullPath = AssetDatabase.GenerateUniqueAssetPath(fullPath);
 
         AssetDatabase.CreateAsset(newConfig, fullPath);
         AssetDatabase.SaveAssets();

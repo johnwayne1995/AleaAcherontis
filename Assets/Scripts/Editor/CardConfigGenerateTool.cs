@@ -13,7 +13,8 @@ public class CardConfigGenerateTool
     {
         var newConfig = ScriptableObject.CreateInstance<PokerCardsConfig>();
         var fullPath = CSAVE_PATH + "PokerCardsConfig.asset";
-        
+        fullPath = AssetDatabase.GenerateUniqueAssetPath(fullPath);
+
         AllCards  = new string[]
         {
             // 黑桃

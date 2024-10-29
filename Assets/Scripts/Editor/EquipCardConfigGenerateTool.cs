@@ -12,7 +12,7 @@ public class EquipCardConfigGenerateTool
     {
         var newConfig = ScriptableObject.CreateInstance<EquipCardConfig>();
         var fullPath = CSAVE_PATH + "EquipCardsConfig.asset";
-
+        fullPath = AssetDatabase.GenerateUniqueAssetPath(fullPath);
         
         AssetDatabase.CreateAsset(newConfig, fullPath);
         AssetDatabase.SaveAssets();
