@@ -83,7 +83,7 @@ namespace Managers
         /// </summary>
         private void Shuffle(List<CardBase> allCards)
         {
-            DoShuffle(allCards, 52);
+            DoShuffle(allCards, allCards.Count);
         }
         
         public void DoShuffle(List<CardBase> card, int n)
