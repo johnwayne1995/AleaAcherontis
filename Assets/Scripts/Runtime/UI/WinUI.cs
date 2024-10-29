@@ -25,7 +25,7 @@ namespace UI
             //关闭login界面
             Close();
             GameStageModule.Instance.SwitchStage(EGAME_STAGE.MatchRoom);
-            GameManagerContainer.Instance.GetManager<MatchLevelManager>().curRoom++;
+            GameManagerContainer.Instance.GetManager<MatchLevelManager>().SkipCurRoom();
         }
     }
 }
