@@ -126,6 +126,11 @@ namespace Managers
         {
             return _curFoldCount;
         }
+
+        public bool CanFold()
+        {
+            return _curFoldCount < _maxFoldCount;
+        }
         
         public int GetMaxFoldCount()
         {
