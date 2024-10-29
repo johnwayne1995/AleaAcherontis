@@ -25,7 +25,7 @@ namespace UI
         /// <summary>  
         /// 卡牌起始位置  
         /// </summary>  
-        public Vector3 rootPos = new Vector3(0, -2450, 0);
+        public Vector3 rootPos = new Vector3(0, -2400, 0);
         /// <summary>  
         /// 扇形半径  
         /// </summary>  

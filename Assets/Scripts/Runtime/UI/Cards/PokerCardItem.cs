@@ -67,7 +67,7 @@ namespace UI
                 return;
             
             //选中卡牌半径增加  
-            float radius = isSelected ? size + 40 : size;
+            float radius = isSelected ? size + 50 : size;
             //选中卡牌旋转归零  
             var position = transform.position;
             float rotZ = GetAngleInDegrees(root, position);
@@ -128,10 +128,11 @@ namespace UI
         {
             isEnable = true;
             _config = config;
-            _nameText.text = ConvertIdToName(_config.id, out var col);
-            _nameText.color = col;
+            //_nameText.text = ConvertIdToName(_config.id, out var col);
+            //_nameText.color = col;
             _cardSendStateChangedAc = cardStateChangeAc;
             transform.position = _oriPos;
+            _bgImg.sprite = Resources.Load<Sprite>(config.bgPath);
         }
 
         private string ConvertIdToName(string id, out Color col)
