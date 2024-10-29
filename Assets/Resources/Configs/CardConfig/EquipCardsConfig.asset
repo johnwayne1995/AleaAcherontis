@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0927cec8dfe4b7da3c63fe9b8a13ecc, type: 3}
   m_Name: EquipCardsConfig
   m_EditorClassIdentifier: 
-  name: Test
-  dialog: aaaaaaaaaaaa
+  name: "\u51A5\u9E26\u4E4B\u8D22"
+  dialog: "\u8BA9\u6240\u6709\u6253\u51FA\u7684\u624B\u724C\u500D\u7387+2"
+  cardIconPath: art\card\Card_Function board01
   devilCardInfluenceType: 0
   paramValue: 2

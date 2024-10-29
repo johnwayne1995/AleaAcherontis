@@ -13,20 +13,15 @@ MonoBehaviour:
   m_Name: EnemyCardsConfig
   m_EditorClassIdentifier: 
   maxHp: 3000
-  enemyName: DEVIL
-  iconPath: art/boss/Boss_Cerberus
+  enemyName: 
+  iconPath: 
+  maxRoundCount: 5
+  maxFoldCount: 5
   enemyActions:
   - OneTimeAc: 1
-    round: 1
+    round: 3
     isEnableOnPlayerTurn: 0
-    perRound: 1
-    enemyActionType: 0
-    param: 30
-    paramStr: 
-  - OneTimeAc: 1
-    round: 1
-    isEnableOnPlayerTurn: 1
     perRound: 0
-    enemyActionType: 1
-    param: 0
-    paramStr: HHHHHHHH
+    enemyActionType: 0
+    param: 50
+    paramStr: 
