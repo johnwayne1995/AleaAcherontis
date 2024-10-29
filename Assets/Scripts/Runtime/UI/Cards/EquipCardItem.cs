@@ -9,6 +9,7 @@ namespace UI
         private Transform _lockPanel;
         private Transform _emptyPanel;
 
+        private Image _icon;
         private Text _namText;
         private Text _dialogText;
         
@@ -20,6 +21,7 @@ namespace UI
             
             _namText = transform.Find("nameText").GetComponent<Text>();
             _dialogText = transform.Find("dialogText").GetComponent<Text>();
+            _icon = transform.Find("icon").GetComponent<Image>();
         }
 
         public void Init(bool isLock, EquipCard cardConfig)
@@ -44,6 +46,7 @@ namespace UI
         public override void InitCardItem(EquipCard config, Action cardStateChangeAc)
         {
             base.InitCardItem(config, cardStateChangeAc);
+            _icon.sprite = Resources.Load<Sprite>(config.iconPath);
             _namText.text = config.name;
             _dialogText.text = config.dialog;
         }

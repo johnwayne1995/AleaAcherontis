@@ -66,13 +66,18 @@ namespace UI
 
                 if (activeAc)
                 {
+                    var fightUI = UIModule.Instance.GetUI<FightUI>("FightUI");
+
                     switch (ac.enemyActionType)
                     {
                         case EnemyActionType.Damage:
                             fightManager.HitPlayer(ac.param);
                             break;
-                        case EnemyActionType.ForceAddCard:
-                            
+                        case EnemyActionType.Tip:
+                            fightUI.ShowTip(ac.paramStr);
+                            break;
+                        case EnemyActionType.Dialog:
+                            fightUI.ShowDialog(ac.paramStr);
                             break;
                     }
                     return;

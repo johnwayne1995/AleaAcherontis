@@ -17,7 +17,7 @@ namespace Managers
         /// <summary>
         /// 回合数
         /// </summary>
-        private int _maxRoundCount = 3;
+        private int _maxRoundCount = 10;
         
         /// <summary>
         /// 回合数

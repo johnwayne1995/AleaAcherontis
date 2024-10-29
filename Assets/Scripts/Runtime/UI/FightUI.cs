@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Config;
+using DG.Tweening;
 using Fsm;
 using Managers;
 using Modules;
@@ -48,6 +49,9 @@ namespace UI
         private EquipManager _equipManager;
 
         private Transform _equipParent;
+        private Transform _tipParent;
+        private CanvasGroup _dialogCanvas;
+
         private Button _faceSortBtn;
         private Button _suitSortBtn;
 
@@ -58,6 +62,8 @@ namespace UI
         private Text _magnificationText;
         private Text _playerHpText;
         private Text _roundCountText;
+        private Text _tipText;
+        private Text _dialogText;
 
         private Transform _cardParent;
 
@@ -69,12 +75,17 @@ namespace UI
 
             rootPos.x = (float)Screen.width / 2;
             
+            _tipParent = transform.Find("tipPanel/tip");
+            _dialogCanvas = transform.Find("tipPanel/dialog").GetComponent<CanvasGroup>();
+
             _equipParent = transform.Find("rightMiddlePanel/cardGrid");
             _caseText = transform.Find("leftMiddlePanel/caseTip/caseText").GetComponent<Text>();
             _caseDamageText = transform.Find("leftMiddlePanel/damagePanel/caseDamageText").GetComponent<Text>();
             _magnificationText = transform.Find("leftMiddlePanel/damagePanel/magnificationText").GetComponent<Text>();
             _playerHpText = transform.Find("playerHp").GetComponent<Text>();
             _roundCountText = transform.Find("roundCount").GetComponent<Text>();
+            _tipText = transform.Find("tipPanel/tip/tipText").GetComponent<Text>();
+            _dialogText = transform.Find("tipPanel/dialog/dialogText").GetComponent<Text>();
 
             _faceSortBtn = transform.Find("faceSortBtn").GetComponent<Button>();
             _suitSortBtn = transform.Find("suitSortBtn").GetComponent<Button>();
@@ -94,6 +105,9 @@ namespace UI
                 _cardParent.SetParent(transform);
                 _cardParent.transform.localPosition = Vector3.zero;
             }
+            _tipParent.gameObject.SetActive(false);
+            _dialogCanvas.alpha = 0;
+            
             _pokerCardPool = new PokerCardPool(_cardParent);
             _cardItemList = new List<PokerCardItem>();
             _sendCardList = new List<PokerCardItem>();
@@ -397,6 +411,20 @@ namespace UI
                 var item = obj.AddComponent<EquipCardItem>();
                 item.Init(isLock, cardConfig);
             }
+        }
+
+        public void ShowTip(string tipStr)
+        {
+            _tipParent.gameObject.SetActive(true);
+            _tipText.text = tipStr;
+        }
+        
+        public void ShowDialog(string tipStr)
+        {
+            _dialogText.text = tipStr;
+            _dialogCanvas.DOFade(1, 0.5f);
+            var tweenerHide = _dialogCanvas.DOFade(0, 0.5f);
+            tweenerHide.SetDelay(1.5f);
         }
     }
 }

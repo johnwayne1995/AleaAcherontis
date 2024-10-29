@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Config
 {
-    public class EnemyConfig: ScriptableObject
+    public class EnemyConfig : ScriptableObject
     {
         public int maxHp;
         public string enemyName;
@@ -32,12 +32,19 @@ namespace Config
         [ShowIf("@OneTimeAc == false")]
         public int perRound;
         public EnemyActionType enemyActionType = EnemyActionType.Damage;
+        
+        [ShowIf("@enemyActionType == EnemyActionType.Damage")]
         public int param;
+        
+        [ShowIf("@enemyActionType != EnemyActionType.Damage")]
+        public string paramStr;
     }
 
     public enum EnemyActionType
     {
         Damage,
-        ForceAddCard,
+        //ForceAddCard,
+        Tip,
+        Dialog,
     }
 }

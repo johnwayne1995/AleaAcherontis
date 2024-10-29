@@ -52,6 +52,7 @@ namespace Managers
             var equip = new EquipCard();
             equip.name = reward.name;
             equip.dialog = reward.dialog;
+            equip.iconPath = reward.cardIconPath;
             equip.devilCardInfluenceType = reward.devilCardInfluenceType;
             equip.paramValue = reward.paramValue;
             _equipCardList.Add(equip);

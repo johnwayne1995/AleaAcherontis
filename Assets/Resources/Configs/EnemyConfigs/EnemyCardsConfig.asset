@@ -21,3 +21,10 @@ MonoBehaviour:
     perRound: 1
     enemyActionType: 0
     param: 30
+    paramStr: 
+  - OneTimeAc: 1
+    round: 1
+    perRound: 0
+    enemyActionType: 2
+    param: 0
+    paramStr: HHHHHHHH

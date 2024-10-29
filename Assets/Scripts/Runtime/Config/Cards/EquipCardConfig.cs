@@ -11,6 +11,9 @@ namespace Config
         [LabelText("描述")]
         public string dialog;
 
+        [LabelText("卡面路径")]
+        public string cardIconPath;
+        
         [LabelText("对倍率的影响形式")]
         public DevilCardInfluenceType devilCardInfluenceType;
 
