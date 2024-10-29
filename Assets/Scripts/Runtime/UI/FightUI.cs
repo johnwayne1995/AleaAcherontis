@@ -295,7 +295,7 @@ namespace UI
 
         private void FoldBtnClick()
         {
-            if (_fightCardManager.CardListWaitToSend.Count == 0)
+            if (_fightCardManager.CardListWaitToSend.Count == 0 || !_fightManager.CanFold())
             {
                 return;
             }
