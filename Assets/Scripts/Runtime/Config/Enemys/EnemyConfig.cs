@@ -10,6 +10,9 @@ namespace Config
         public int maxHp;
         public string enemyName;
         public string iconPath;
+
+        public int maxRoundCount = 5;
+        public int maxFoldCount = 5;
         
         public List<EnemyAction> enemyActions = new List<EnemyAction>();
     }

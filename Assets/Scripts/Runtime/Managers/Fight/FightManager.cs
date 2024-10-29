@@ -50,9 +50,9 @@ namespace Managers
             _roundCount = 0;
             CurHp = MaxHp = 1000;
             
-            var config = Resources.Load<GameConfig>("Configs/GameConfig");
-            _maxRoundCount = config.maxSendCardCount;
-            _maxFoldCount = config.maxFoldCardCount;
+            // var config = Resources.Load<GameConfig>("Configs/GameConfig");
+            // _maxRoundCount = config.maxSendCardCount;
+            // _maxFoldCount = config.maxFoldCardCount;
         }
 
         /// <summary>
@@ -80,6 +80,9 @@ namespace Managers
                 enemyConfig = Resources.Load<EnemyConfig>("Configs/EnemyConfigs/"+path);
             var enemyManager = GameManagerContainer.Instance.GetManager<EnemyManager>();
             enemyManager.LoadEnemy(enemyConfig);
+
+            _maxFoldCount = enemyConfig.maxFoldCount;
+            _maxRoundCount = enemyConfig.maxRoundCount;
         }
         
         //切换战斗类型
