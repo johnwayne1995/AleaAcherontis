@@ -80,14 +80,14 @@ public class RoomGenerator : MonoBehaviour
         Room startRoomComponent = rooms[0].GetComponent<Room>();
         if (startRoomComponent.text != null)
         {
-            startRoomComponent.text.text = "初始房间" + startRoomComponent.stepToStart.ToString();
+            startRoomComponent.text.text = "初始房间101" + startRoomComponent.stepToStart.ToString();
         }
 
         // 设置最终房间的Text组件的文本
         Room endRoomComponent = endRoom.GetComponent<Room>();
         if (endRoomComponent.text != null)
         {
-            endRoomComponent.text.text = "最终房间" + endRoomComponent.stepToStart.ToString();
+            endRoomComponent.text.text = "最终房间199" + endRoomComponent.stepToStart.ToString();
         }
 
     }
