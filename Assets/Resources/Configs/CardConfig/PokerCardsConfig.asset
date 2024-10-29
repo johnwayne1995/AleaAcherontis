@@ -15,261 +15,261 @@ MonoBehaviour:
   normalCards:
   - name: 
     iconPath: 
-    bgPath: 
+    bgPath: art\pukeImage\Puke_As
     id: As
     basePoint: 12
   - name: 
     iconPath: 
-    bgPath: 
+    bgPath: art\pukeImage\Puke_Ks
     id: Ks
     basePoint: 11
   - name: 
     iconPath: 
-    bgPath: 
+    bgPath: art\pukeImage\Puke_Qs
     id: Qs
     basePoint: 10
   - name: 
     iconPath: 
-    bgPath: 
+    bgPath: art\pukeImage\Puke_Js
     id: Js
     basePoint: 9
   - name: 
     iconPath: 
-    bgPath: 
+    bgPath: art\pukeImage\Puke_Ts
     id: Ts
     basePoint: 8
   - name: 
     iconPath: 
-    bgPath: 
+    bgPath: art\pukeImage\Puke_9s
     id: 9s
     basePoint: 7
   - name: 
     iconPath: 
-    bgPath: 
+    bgPath: art\pukeImage\Puke_8s
     id: 8s
     basePoint: 6
   - name: 
     iconPath: 
-    bgPath: 
+    bgPath: art\pukeImage\Puke_7s
     id: 7s
     basePoint: 5
   - name: 
     iconPath: 
-    bgPath: 
+    bgPath: art\pukeImage\Puke_6s
     id: 6s
     basePoint: 4
   - name: 
     iconPath: 
-    bgPath: 
+    bgPath: art\pukeImage\Puke_5s
     id: 5s
     basePoint: 3
   - name: 
     iconPath: 
-    bgPath: 
+    bgPath: art\pukeImage\Puke_4s
     id: 4s
     basePoint: 2
   - name: 
     iconPath: 
-    bgPath: 
+    bgPath: art\pukeImage\Puke_3s
     id: 3s
     basePoint: 1
   - name: 
     iconPath: 
-    bgPath: 
+    bgPath: art\pukeImage\Puke_2s
     id: 2s
     basePoint: 13
   - name: 
     iconPath: 
-    bgPath: 
+    bgPath: art\pukeImage\Puke_Ah
     id: Ah
     basePoint: 12
   - name: 
     iconPath: 
-    bgPath: 
+    bgPath: art\pukeImage\Puke_Kh
     id: Kh
     basePoint: 11
   - name: 
     iconPath: 
-    bgPath: 
+    bgPath: art\pukeImage\Puke_Qh
     id: Qh
     basePoint: 10
   - name: 
     iconPath: 
-    bgPath: 
+    bgPath: art\pukeImage\Puke_Jh
     id: Jh
     basePoint: 9
   - name: 
     iconPath: 
-    bgPath: 
+    bgPath: art\pukeImage\Puke_Th
     id: Th
     basePoint: 8
   - name: 
     iconPath: 
-    bgPath: 
+    bgPath: art\pukeImage\Puke_9h
     id: 9h
     basePoint: 7
   - name: 
     iconPath: 
-    bgPath: 
+    bgPath: art\pukeImage\Puke_8h
     id: 8h
     basePoint: 6
   - name: 
     iconPath: 
-    bgPath: 
+    bgPath: art\pukeImage\Puke_7h
     id: 7h
     basePoint: 5
   - name: 
     iconPath: 
-    bgPath: 
+    bgPath: art\pukeImage\Puke_6h
     id: 6h
     basePoint: 4
   - name: 
     iconPath: 
-    bgPath: 
+    bgPath: art\pukeImage\Puke_5h
     id: 5h
     basePoint: 3
   - name: 
     iconPath: 
-    bgPath: 
+    bgPath: art\pukeImage\Puke_4h
     id: 4h
     basePoint: 2
   - name: 
     iconPath: 
-    bgPath: 
+    bgPath: art\pukeImage\Puke_3h
     id: 3h
     basePoint: 1
   - name: 
     iconPath: 
-    bgPath: 
+    bgPath: art\pukeImage\Puke_2h
     id: 2h
     basePoint: 13
   - name: 
     iconPath: 
-    bgPath: 
+    bgPath: art\pukeImage\Puke_Ad
     id: Ad
     basePoint: 12
   - name: 
     iconPath: 
-    bgPath: 
+    bgPath: art\pukeImage\Puke_Kd
     id: Kd
     basePoint: 11
   - name: 
     iconPath: 
-    bgPath: 
+    bgPath: art\pukeImage\Puke_Qd
     id: Qd
     basePoint: 10
   - name: 
     iconPath: 
-    bgPath: 
+    bgPath: art\pukeImage\Puke_Jd
     id: Jd
     basePoint: 9
   - name: 
     iconPath: 
-    bgPath: 
+    bgPath: art\pukeImage\Puke_Td
     id: Td
     basePoint: 8
   - name: 
     iconPath: 
-    bgPath: 
+    bgPath: art\pukeImage\Puke_9d
     id: 9d
     basePoint: 7
   - name: 
     iconPath: 
-    bgPath: 
+    bgPath: art\pukeImage\Puke_8d
     id: 8d
     basePoint: 6
   - name: 
     iconPath: 
-    bgPath: 
+    bgPath: art\pukeImage\Puke_7d
     id: 7d
     basePoint: 5
   - name: 
     iconPath: 
-    bgPath: 
+    bgPath: art\pukeImage\Puke_6d
     id: 6d
     basePoint: 4
   - name: 
     iconPath: 
-    bgPath: 
+    bgPath: art\pukeImage\Puke_5d
     id: 5d
     basePoint: 3
   - name: 
     iconPath: 
-    bgPath: 
+    bgPath: art\pukeImage\Puke_4d
     id: 4d
     basePoint: 2
   - name: 
     iconPath: 
-    bgPath: 
+    bgPath: art\pukeImage\Puke_3d
     id: 3d
     basePoint: 1
   - name: 
     iconPath: 
-    bgPath: 
+    bgPath: art\pukeImage\Puke_2d
     id: 2d
     basePoint: 13
   - name: 
     iconPath: 
-    bgPath: 
+    bgPath: art\pukeImage\Puke_Ac
     id: Ac
     basePoint: 12
   - name: 
     iconPath: 
-    bgPath: 
+    bgPath: art\pukeImage\Puke_Kc
     id: Kc
     basePoint: 11
   - name: 
     iconPath: 
-    bgPath: 
+    bgPath: art\pukeImage\Puke_Qc
     id: Qc
     basePoint: 10
   - name: 
     iconPath: 
-    bgPath: 
+    bgPath: art\pukeImage\Puke_Jc
     id: Jc
     basePoint: 9
   - name: 
     iconPath: 
-    bgPath: 
+    bgPath: art\pukeImage\Puke_Tc
     id: Tc
     basePoint: 8
   - name: 
     iconPath: 
-    bgPath: 
+    bgPath: art\pukeImage\Puke_9c
     id: 9c
     basePoint: 7
   - name: 
     iconPath: 
-    bgPath: 
+    bgPath: art\pukeImage\Puke_8c
     id: 8c
     basePoint: 6
   - name: 
     iconPath: 
-    bgPath: 
+    bgPath: art\pukeImage\Puke_7c
     id: 7c
     basePoint: 5
   - name: 
     iconPath: 
-    bgPath: 
+    bgPath: art\pukeImage\Puke_6c
     id: 6c
     basePoint: 4
   - name: 
     iconPath: 
-    bgPath: 
+    bgPath: art\pukeImage\Puke_5c
     id: 5c
     basePoint: 3
   - name: 
     iconPath: 
-    bgPath: 
+    bgPath: art\pukeImage\Puke_4c
     id: 4c
     basePoint: 2
   - name: 
     iconPath: 
-    bgPath: 
+    bgPath: art\pukeImage\Puke_3c
     id: 3c
     basePoint: 1
   - name: 
     iconPath: 
-    bgPath: 
+    bgPath: art\pukeImage\Puke_2c
     id: 2c
     basePoint: 13
