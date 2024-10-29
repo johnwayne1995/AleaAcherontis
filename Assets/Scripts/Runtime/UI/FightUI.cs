@@ -328,6 +328,7 @@ namespace UI
             }
 
             _fightCardManager.ClearWaitToSendList();
+            _fightManager.UseFold();
             _sendCardList.Clear();
             CreateCardItem();
             FlushFoldCount();
