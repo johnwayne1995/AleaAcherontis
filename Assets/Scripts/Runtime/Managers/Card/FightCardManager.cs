@@ -91,7 +91,7 @@ namespace Managers
             System.Random rand = new System.Random();
             for (int i = 0; i < n; i++)
             {
-                int r = i + rand.Next(52 - i);
+                int r = i + rand.Next(n - i);
                 (card[r], card[i]) = (card[i], card[r]);
             }
         }
