@@ -14,6 +14,9 @@ namespace Fsm.FightStages
             var fightManager = GameManagerContainer.Instance.GetManager<FightManager>();
             fightManager.EnterNewRound();
             
+            var enemyManager = GameManagerContainer.Instance.GetManager<EnemyManager>();
+            enemyManager.DoAction(false);
+            
             //todo 展示回合UI
             //结束后切换到抽卡
 

@@ -47,7 +47,11 @@ namespace UI
             return false;
         }
 
-        public void DoAction()
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="isEnemyRound">在敌人回合开始时触发</param>
+        public void DoAction(bool isEnemyRound)
         {
             var fightManager = GameManagerContainer.Instance.GetManager<FightManager>();
             var curRound = fightManager.GetCurRound();
@@ -58,11 +62,11 @@ namespace UI
             {
                 var ac = _enemyConfig.enemyActions[i];
                 bool activeAc = false;
-                if (ac.OneTimeAc && curRound == ac.round)
+                if (ac.OneTimeAc && curRound == ac.round && ac.isEnableOnPlayerTurn != isEnemyRound)
                 {
                     activeAc = true;
                 }
-                else if (!ac.OneTimeAc && curRound % ac.perRound == 0)
+                else if (!ac.OneTimeAc && curRound % ac.perRound == 0 && ac.isEnableOnPlayerTurn != isEnemyRound)
                 {
                     activeAc = true;
                 }

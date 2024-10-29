@@ -16,8 +16,6 @@ namespace Fsm.FightStages
 
            var enemyManager = GameManagerContainer.Instance.GetManager<EnemyManager>();
            var fightCardMgr = GameManagerContainer.Instance.GetManager<FightCardManager>();
-
-           
            enemyManager.BeHit(fightCardMgr.GetCurHandsDamage());
         }
         protected override void OnUpdateStage(float deltaTimes)

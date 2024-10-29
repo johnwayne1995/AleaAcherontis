@@ -55,9 +55,13 @@ namespace Managers
             }
         }
         
-        public void DoAction()
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="isEnemyRound">在敌人回合开始时触发</param>
+        public void DoAction(bool isEnemyRound = true)
         {
-            _curEnemy.DoAction();
+            _curEnemy.DoAction(isEnemyRound);
         }
     }
 }
