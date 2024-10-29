@@ -50,6 +50,7 @@ namespace UI
 
         private Transform _equipParent;
         private Transform _tipParent;
+        private Transform _enemyParent;
         private CanvasGroup _dialogCanvas;
 
         private Button _faceSortBtn;
@@ -78,6 +79,7 @@ namespace UI
             _tipParent = transform.Find("tipPanel/tip");
             _dialogCanvas = transform.Find("tipPanel/dialog").GetComponent<CanvasGroup>();
 
+            _enemyParent = transform.Find("enemyParent");
             _equipParent = transform.Find("rightMiddlePanel/cardGrid");
             _caseText = transform.Find("leftMiddlePanel/caseTip/caseText").GetComponent<Text>();
             _caseDamageText = transform.Find("leftMiddlePanel/damagePanel/caseDamageText").GetComponent<Text>();
@@ -381,7 +383,7 @@ namespace UI
 
         public EnemyCardItem CreateNewEnemy(EnemyConfig enemyConfig)
         {
-            GameObject obj = GameObject.Instantiate(Resources.Load("UI/EnemyCardItem"), transform) as GameObject;
+            GameObject obj = GameObject.Instantiate(Resources.Load("UI/EnemyCardItem"), _enemyParent) as GameObject;
             obj.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 100);
             var item = obj.AddComponent<EnemyCardItem>();
             obj.transform.SetAsFirstSibling();

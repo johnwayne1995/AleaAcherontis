@@ -25,6 +25,9 @@ namespace Config
         /// </summary>
         [ShowIf("@OneTimeAc == true")]
         public int round;
+
+        [LabelText("在玩家回合触发")]
+        public bool isEnableOnPlayerTurn = false;
         
         /// <summary>
         /// 每几回合执行一次

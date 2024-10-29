@@ -18,13 +18,15 @@ MonoBehaviour:
   enemyActions:
   - OneTimeAc: 1
     round: 1
+    isEnableOnPlayerTurn: 0
     perRound: 1
     enemyActionType: 0
     param: 30
     paramStr: 
   - OneTimeAc: 1
     round: 1
+    isEnableOnPlayerTurn: 0
     perRound: 0
-    enemyActionType: 2
+    enemyActionType: 1
     param: 0
     paramStr: HHHHHHHH
