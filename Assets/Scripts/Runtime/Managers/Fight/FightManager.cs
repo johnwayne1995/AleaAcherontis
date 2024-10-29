@@ -132,6 +132,11 @@ namespace Managers
             return _curFoldCount < _maxFoldCount;
         }
         
+        public void UseFold()
+        {
+            _curFoldCount++;
+        }
+        
         public int GetMaxFoldCount()
         {
             return _maxFoldCount;
