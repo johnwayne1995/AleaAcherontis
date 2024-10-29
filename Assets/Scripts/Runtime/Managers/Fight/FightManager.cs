@@ -3,6 +3,7 @@ using FightStages;
 using Fsm;
 using Fsm.FightStages;
 using Modules;
+using Runtime.Config;
 using UI;
 using UnityEngine;
 
@@ -17,12 +18,22 @@ namespace Managers
         /// <summary>
         /// 回合数
         /// </summary>
+        private int _maxFoldCount = 5;
+        
+        /// <summary>
+        /// 回合数
+        /// </summary>
         private int _maxRoundCount = 10;
         
         /// <summary>
         /// 回合数
         /// </summary>
         private int _roundCount = 0;
+
+        /// <summary>
+        /// 已弃牌数
+        /// </summary>
+        private int _curFoldCount = 0;
         
         public void StartFight()
         {
@@ -39,6 +50,9 @@ namespace Managers
             _roundCount = 0;
             CurHp = MaxHp = 1000;
             
+            var config = Resources.Load<GameConfig>("Configs/GameConfig");
+            _maxRoundCount = config.maxSendCardCount;
+            _maxFoldCount = config.maxFoldCardCount;
         }
 
         /// <summary>
@@ -96,13 +110,26 @@ namespace Managers
         public void EnterNewRound()
         {
             _roundCount++;
-            var fightUi = UIModule.Instance.GetUI<FightUI>("FightUI");
-            fightUi.FlushRoundCount(_roundCount, _maxRoundCount);
         }
 
         public int GetCurRound()
         {
             return _roundCount;
+        }
+        
+        public int GetMaxRound()
+        {
+            return _maxRoundCount;
+        }
+        
+        public int GetCurFoldCount()
+        {
+            return _curFoldCount;
+        }
+        
+        public int GetMaxFoldCount()
+        {
+            return _maxFoldCount;
         }
         
         public void HitPlayer(int damage)

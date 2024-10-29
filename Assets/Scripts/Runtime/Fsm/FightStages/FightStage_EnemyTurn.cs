@@ -1,5 +1,6 @@
 ﻿using Interfaces;
 using Modules;
+using UI;
 namespace Fsm.FightStages
 {
     public class FightStage_EnemyTurn : FightStageBase
@@ -10,6 +11,9 @@ namespace Fsm.FightStages
         }
         protected override void OnEnterStage(object e = null)
         {
+            var fightUi = UIModule.Instance.GetUI<FightUI>("FightUI");
+            fightUi.FlushRoundCount();
+            
             //todo 播放敌人回合UI
             STimer.Wait(0.5f, () =>
             {

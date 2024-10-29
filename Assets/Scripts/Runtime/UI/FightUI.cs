@@ -66,6 +66,9 @@ namespace UI
         private Text _tipText;
         private Text _dialogText;
 
+        private Text _sendLastCountText;
+        private Text _foldLastCountText;
+        
         private Transform _cardParent;
 
         private void Awake()
@@ -94,6 +97,10 @@ namespace UI
 
             _foldBtn = transform.Find("foldBtn").GetComponent<Button>();
             _sendBtn = transform.Find("sendBtn").GetComponent<Button>();
+            
+            _sendLastCountText = transform.Find("sendBtn/lastCount").GetComponent<Text>();
+            _foldLastCountText = transform.Find("foldBtn/lastCount").GetComponent<Text>();
+
             _faceSortBtn.onClick.AddListener(FaceSortBtnClick);
             _suitSortBtn.onClick.AddListener(SuitSortBtnClick);
 
@@ -147,6 +154,8 @@ namespace UI
             var audioMgr = GameManagerContainer.Instance.GetManager<AudioManager>();
             audioMgr.PlayBgm("battle", true);
             InitEquipInfo();
+            FlushFoldCount();
+            FlushRoundCount();
         }
 
         public override void OnHide()
@@ -156,7 +165,7 @@ namespace UI
             _pokerCardPool.ReleaseAll();
         }
 
-        public void CreateCardItem(bool defaultSort = false)
+        public void CreateCardItem()
         {
             var curHandCardCount = _fightCardManager.UsingCardList.Count;
             if (curHandCardCount > FightCardManager.CMAX_SAVE_CARD_COUNT)
@@ -182,11 +191,7 @@ namespace UI
             }
 
             _fightCardManager.DrawCards(needDrawCount);
-            
-            if (defaultSort)
-            {
-                FaceSortBtnClick();
-            }
+            FaceSortBtnClick();
         }
 
         private void ClearAllCardItem()
@@ -325,6 +330,7 @@ namespace UI
             _fightCardManager.ClearWaitToSendList();
             _sendCardList.Clear();
             CreateCardItem();
+            FlushFoldCount();
         }
 
         private void SendBtnClick()
@@ -396,9 +402,14 @@ namespace UI
             _playerHpText.text = $"{curHp.ToString()}/{maxHp.ToString()}";
         }
 
-        public void FlushRoundCount(int curRound, int maxRound)
+        public void FlushRoundCount()
         {
-            _roundCountText.text = $"{curRound.ToString()}/{maxRound.ToString()}";
+            _sendLastCountText.text = $"剩余{(_fightManager.GetMaxRound() - _fightManager.GetCurRound()).ToString()}次";
+        }
+        
+        public void FlushFoldCount()
+        {
+            _foldLastCountText.text = $"剩余{(_fightManager.GetMaxFoldCount() - _fightManager.GetCurFoldCount()).ToString()}次";
         }
 
         public void InitEquipInfo()
