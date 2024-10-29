@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 969b5b324879a2b43bdf55011e4b7f3f, type: 3}
   m_Name: EnemyCardsConfig
   m_EditorClassIdentifier: 
-  maxHp: 2500
+  maxHp: 200
   enemyName: 
-  iconPath: 
+  iconPath: art/boss/Boss_Cerberus02
   maxRoundCount: 5
-  maxFoldCount: 5
+  maxFoldCount: 3
   enemyActions:
   - OneTimeAc: 1
     round: 3
