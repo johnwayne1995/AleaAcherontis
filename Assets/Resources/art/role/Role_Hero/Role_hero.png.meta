@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4c10bbf162265794095440862e59dde6
+guid: a303abef882711a41a669bb1e58c5cef
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -45,7 +45,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -84,12 +84,12 @@ TextureImporter:
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 12
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
-    overridden: 1
+    overridden: 0
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Cultist Brute Sprite Sheet_0
+      name: Role_hero_0
       rect:
         serializedVersion: 2
         x: 6
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1fbcb7782e717de4391192856ebbefb6
-      internalID: 502068006
+      spriteID: 9dedbf3c0f338c6448296caae601462f
+      internalID: 1803665311
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cultist Brute Sprite Sheet_1
+      name: Role_hero_1
       rect:
         serializedVersion: 2
         x: 38
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb7d5060511a2cf4c9f41086aa5faded
-      internalID: 129017509
+      spriteID: 79d42a7c575425741bc56c4d66058af2
+      internalID: 155574253
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cultist Brute Sprite Sheet_2
+      name: Role_hero_2
       rect:
         serializedVersion: 2
         x: 70
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aeb47b5c843832a4daa81a9b716f83ef
-      internalID: -2100651948
+      spriteID: 15dcaab45b0ec9b4d8da57e12be46015
+      internalID: -339134989
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cultist Brute Sprite Sheet_3
+      name: Role_hero_3
       rect:
         serializedVersion: 2
         x: 102
@@ -187,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6878e0292c7ec164eb787b0502095f24
-      internalID: 1229656218
+      spriteID: efe70fee1d260dc4884e8cd7647d4257
+      internalID: 1752389409
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cultist Brute Sprite Sheet_4
+      name: Role_hero_4
       rect:
         serializedVersion: 2
         x: 5
@@ -208,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d942a12bd697afd4aa59bf36704b2005
-      internalID: 1883548113
+      spriteID: 3630195be7e41b5408da0936d1647668
+      internalID: -1949739268
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cultist Brute Sprite Sheet_5
+      name: Role_hero_5
       rect:
         serializedVersion: 2
         x: 36
@@ -229,14 +229,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c4cd1d7e674cda649832fe0a1150e0fc
-      internalID: -798698306
+      spriteID: ec3120aec2cee854aaec70b7aca76adf
+      internalID: -241764590
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cultist Brute Sprite Sheet_6
+      name: Role_hero_6
       rect:
         serializedVersion: 2
         x: 69
@@ -250,14 +250,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7803288e99f8b5343ab4576768ab5d05
-      internalID: -1330337245
+      spriteID: 99c00c3fc351530448effa4027f8ade5
+      internalID: -1709721761
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cultist Brute Sprite Sheet_7
+      name: Role_hero_7
       rect:
         serializedVersion: 2
         x: 101
@@ -271,14 +271,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c4b9a75f0ef57647b47ec5f9694450e
-      internalID: 34329568
+      spriteID: 9caedf6b88a55ec4fb12ac1662100b42
+      internalID: 1774538696
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cultist Brute Sprite Sheet_8
+      name: Role_hero_8
       rect:
         serializedVersion: 2
         x: 133
@@ -292,14 +292,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bee880202a408c8428939c442b494b90
-      internalID: 57252701
+      spriteID: 048125b8de564e548848232162f87f00
+      internalID: 665888363
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cultist Brute Sprite Sheet_9
+      name: Role_hero_9
       rect:
         serializedVersion: 2
         x: 6
@@ -313,14 +313,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b28050b65f524fd409888cdf2e029e12
-      internalID: -1741999624
+      spriteID: 615624f1bbcac1e4c9685075e6787ff3
+      internalID: -67726665
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cultist Brute Sprite Sheet_10
+      name: Role_hero_10
       rect:
         serializedVersion: 2
         x: 35
@@ -334,14 +334,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de6929f9cb921a04eb77c3c95a541b29
-      internalID: 499007334
+      spriteID: 2b87d9b091166064bb0d38bba24ca219
+      internalID: -1089839498
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cultist Brute Sprite Sheet_11
+      name: Role_hero_11
       rect:
         serializedVersion: 2
         x: 66
@@ -355,14 +355,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e700292ad3cdf740a18ecdb3aa597f3
-      internalID: 1512379184
+      spriteID: aa043c42bda936046a692a26f4a81715
+      internalID: 222754024
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cultist Brute Sprite Sheet_12
+      name: Role_hero_12
       rect:
         serializedVersion: 2
         x: 102
@@ -376,14 +376,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 53b09c9afea962e48af3a2ecdf192cdc
-      internalID: 1487104235
+      spriteID: fb109be3e8d93bc4f99d71b0e33e0a5b
+      internalID: 1717555440
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cultist Brute Sprite Sheet_13
+      name: Role_hero_13
       rect:
         serializedVersion: 2
         x: 134
@@ -397,14 +397,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 046f311725434df4285c394d2a282faf
-      internalID: -866568982
+      spriteID: f424ca89113599f478dc8fe34da4f042
+      internalID: 1694881117
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cultist Brute Sprite Sheet_14
+      name: Role_hero_14
       rect:
         serializedVersion: 2
         x: 166
@@ -418,14 +418,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b20e2ddb2755e3941a4c45e36bd2887d
-      internalID: -626578546
+      spriteID: 54ca3e710b927184081a7020ff11201e
+      internalID: 154553510
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cultist Brute Sprite Sheet_15
+      name: Role_hero_15
       rect:
         serializedVersion: 2
         x: 6
@@ -439,14 +439,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c060cfb91538a2409feb51bafa5ba50
-      internalID: -763457039
+      spriteID: fabb217c682116243937e2d1ce2de523
+      internalID: 1991013094
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cultist Brute Sprite Sheet_16
+      name: Role_hero_16
       rect:
         serializedVersion: 2
         x: 36
@@ -460,14 +460,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bcd2222ed3a8736428142e6fc945f916
-      internalID: 1658137524
+      spriteID: 564622c97c94db9418da3590e7ad4a34
+      internalID: 1020559133
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cultist Brute Sprite Sheet_17
+      name: Role_hero_17
       rect:
         serializedVersion: 2
         x: 67
@@ -481,14 +481,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 27c41738babbd684a8342613ecfdaa1a
-      internalID: 126582773
+      spriteID: 67ca765fe9b1a2b4983ad43f38d21370
+      internalID: -1697461930
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cultist Brute Sprite Sheet_18
+      name: Role_hero_18
       rect:
         serializedVersion: 2
         x: 101
@@ -502,14 +502,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e1fda899fc4314a44ac9f045b542d78e
-      internalID: -727178618
+      spriteID: 05d0d3445c0888d48b0042dc81c1d342
+      internalID: -1845459891
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cultist Brute Sprite Sheet_19
+      name: Role_hero_19
       rect:
         serializedVersion: 2
         x: 6
@@ -523,14 +523,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d79101e9b7eaff64080e8a12efe41006
-      internalID: -1717212788
+      spriteID: a36861ed4d379d7409440d235b3b0b15
+      internalID: -18676013
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cultist Brute Sprite Sheet_20
+      name: Role_hero_20
       rect:
         serializedVersion: 2
         x: 36
@@ -544,14 +544,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01bc74830ef55ac49a09a5c3e52046d0
-      internalID: 1990056155
+      spriteID: 1bdb474af8f87ae40baa1b77fb58be4d
+      internalID: 22508813
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cultist Brute Sprite Sheet_21
+      name: Role_hero_21
       rect:
         serializedVersion: 2
         x: 67
@@ -565,14 +565,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b634f189a2f92140b43fec57258c7e3
-      internalID: 587284175
+      spriteID: 07640ca48c38d9b42a6156ac650c0bc3
+      internalID: 2085000228
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cultist Brute Sprite Sheet_22
+      name: Role_hero_22
       rect:
         serializedVersion: 2
         x: 100
@@ -586,14 +586,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b18f9b1c7c126e040aa88aa78f9650d7
-      internalID: -1723906240
+      spriteID: 7595367be6de337449259854efd87475
+      internalID: -1335120465
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cultist Brute Sprite Sheet_23
+      name: Role_hero_23
       rect:
         serializedVersion: 2
         x: 130
@@ -607,8 +607,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9cb4d2ed352fb414e878f51fa0c5f0d4
-      internalID: 535390378
+      spriteID: 872589b3885db67418c09f98a52a3f97
+      internalID: -1876724153
       vertices: []
       indices: 
       edges: []
@@ -624,30 +624,30 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Cultist Brute Sprite Sheet_0: 502068006
-      Cultist Brute Sprite Sheet_1: 129017509
-      Cultist Brute Sprite Sheet_10: 499007334
-      Cultist Brute Sprite Sheet_11: 1512379184
-      Cultist Brute Sprite Sheet_12: 1487104235
-      Cultist Brute Sprite Sheet_13: -866568982
-      Cultist Brute Sprite Sheet_14: -626578546
-      Cultist Brute Sprite Sheet_15: -763457039
-      Cultist Brute Sprite Sheet_16: 1658137524
-      Cultist Brute Sprite Sheet_17: 126582773
-      Cultist Brute Sprite Sheet_18: -727178618
-      Cultist Brute Sprite Sheet_19: -1717212788
-      Cultist Brute Sprite Sheet_2: -2100651948
-      Cultist Brute Sprite Sheet_20: 1990056155
-      Cultist Brute Sprite Sheet_21: 587284175
-      Cultist Brute Sprite Sheet_22: -1723906240
-      Cultist Brute Sprite Sheet_23: 535390378
-      Cultist Brute Sprite Sheet_3: 1229656218
-      Cultist Brute Sprite Sheet_4: 1883548113
-      Cultist Brute Sprite Sheet_5: -798698306
-      Cultist Brute Sprite Sheet_6: -1330337245
-      Cultist Brute Sprite Sheet_7: 34329568
-      Cultist Brute Sprite Sheet_8: 57252701
-      Cultist Brute Sprite Sheet_9: -1741999624
+      Role_hero_0: 1803665311
+      Role_hero_1: 155574253
+      Role_hero_10: -1089839498
+      Role_hero_11: 222754024
+      Role_hero_12: 1717555440
+      Role_hero_13: 1694881117
+      Role_hero_14: 154553510
+      Role_hero_15: 1991013094
+      Role_hero_16: 1020559133
+      Role_hero_17: -1697461930
+      Role_hero_18: -1845459891
+      Role_hero_19: -18676013
+      Role_hero_2: -339134989
+      Role_hero_20: 22508813
+      Role_hero_21: 2085000228
+      Role_hero_22: -1335120465
+      Role_hero_23: -1876724153
+      Role_hero_3: 1752389409
+      Role_hero_4: -1949739268
+      Role_hero_5: -241764590
+      Role_hero_6: -1709721761
+      Role_hero_7: 1774538696
+      Role_hero_8: 665888363
+      Role_hero_9: -67726665
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
