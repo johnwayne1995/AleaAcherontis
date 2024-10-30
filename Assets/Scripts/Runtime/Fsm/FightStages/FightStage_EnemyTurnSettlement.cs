@@ -27,7 +27,7 @@ namespace Fsm.FightStages
             
             if (_fightManager.CurHp > 0)
             {
-                STimer.Wait(0.5f, () =>
+                STimer.Wait(0.2f, () =>
                 {
                     _fightManager.ChangeState(EFIGHT_STAGE.Player);
                 });

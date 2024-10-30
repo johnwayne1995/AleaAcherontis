@@ -51,6 +51,7 @@ namespace UI
         private Transform _equipParent;
         private Transform _tipParent;
         private Transform _enemyParent;
+        private RectTransform _cardSetParent;
         private CanvasGroup _dialogCanvas;
 
         private Button _faceSortBtn;
@@ -84,6 +85,7 @@ namespace UI
 
             _playerBloodIcon = transform.Find("playerHp/Icon_Blood").GetComponent<Image>();
             _enemyParent = transform.Find("enemyParent");
+            _cardSetParent = transform.Find("cardSet").GetComponent<RectTransform>();
             _equipParent = transform.Find("rightMiddlePanel/cardGrid");
             _caseText = transform.Find("leftMiddlePanel/caseTip/caseText").GetComponent<Text>();
             _caseDamageText = transform.Find("leftMiddlePanel/damagePanel/caseDamageText").GetComponent<Text>();
@@ -316,8 +318,9 @@ namespace UI
             for (int i = 0; i < _sendCardList.Count; i++)
             {
                 var card = _sendCardList[i];
-                var tweener = card.DoInitMoveAni(new Vector2(1000, -700), 0.25f);
-                card.DoScaleAni(0, 0.25f);
+                
+                var scaleTweener = card.DoScaleAni(0, 0.6f);
+                var tweener = card.DoMove(_cardSetParent.position, 0.8f);
                 tweener.onComplete = () =>
                 {
                     _pokerCardPool.Free(card);
@@ -355,11 +358,12 @@ namespace UI
             }
 
             float offset = 600f / _sendCardList.Count;
-            Vector2 enPos = new Vector2(-_sendCardList.Count / 2f * offset + offset * 0.5f, 0);
+            Vector3 enPos = new Vector3(-_sendCardList.Count / 2f * offset + offset * 0.5f, 0, 0) + new Vector3(Screen.width / 2, Screen.height / 2, 0);
             for (int i = 0; i < _sendCardList.Count; i++)
             {
                 var card = _sendCardList[i];
-                card.DoInitMoveAni(enPos);
+                card.isEnable = false;
+                card.DoMove(enPos, 0.3f);
                 enPos.x = enPos.x + offset;
             }
 
@@ -372,8 +376,11 @@ namespace UI
             {
                 var item = _sendCardList[i];
                 _fightCardManager.UseCard(item.GetCardConfig());
-                var tweener = item.DoInitMoveAni(new Vector2(1000, -700), 0.25f);
-                item.DoScaleAni(0, 0.25f);
+                var scaleTweener = item.DoScaleAni(0, 0.6f);
+                var tweener = item.DoMove(_cardSetParent.position, 0.8f);
+                tweener.SetDelay(0.6f);
+                scaleTweener.SetDelay(0.6f);
+                
                 tweener.onComplete = () =>
                 {
                     _pokerCardPool.Free(item);

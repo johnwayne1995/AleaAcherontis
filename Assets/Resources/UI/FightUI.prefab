@@ -2804,7 +2804,7 @@ GameObject:
   - component: {fileID: 2596724954628992299}
   - component: {fileID: 7708028293674462615}
   m_Layer: 5
-  m_Name: sendBtn
+  m_Name: cardSet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2825,10 +2825,10 @@ RectTransform:
   - {fileID: 6089313086049949231}
   m_Father: {fileID: 1863112556232547323}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1750, y: 170}
-  m_SizeDelta: {x: 185.1, y: 273.3}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -170, y: 170}
+  m_SizeDelta: {x: 185.1001, y: 273.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &360110470264433535
 CanvasRenderer:

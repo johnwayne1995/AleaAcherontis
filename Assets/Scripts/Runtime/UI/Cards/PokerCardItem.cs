@@ -251,10 +251,10 @@ namespace UI
         {
         }
         
-        public TweenerCore<Vector2, Vector2, VectorOptions> DoInitMoveAni(Vector2 endPos, float time = 0.5f)
+        public TweenerCore<Vector3, Vector3, VectorOptions> DoMove(Vector3 endPos, float time)
         {
-            this._oriPos = endPos;
-            return _rectTransform.DOAnchorPos(endPos, time);
+            transform.DORotate(Vector3.zero, time);
+            return transform.DOMove(endPos, time);
         }
 
         public void SetRectAnchorPos(Vector2 pos)
@@ -262,9 +262,9 @@ namespace UI
             _rectTransform.anchoredPosition = pos;
         }
         
-        public void DoScaleAni(float scale, float time)
+        public TweenerCore<Vector3, Vector3, VectorOptions> DoScaleAni(float scale, float time)
         {
-            //_rectTransform.DOScale(scale, time);
+            return _rectTransform.DOScale(scale, time);
         }
         
         public PokerCard GetCardConfig()
