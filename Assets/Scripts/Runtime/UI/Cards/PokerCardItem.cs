@@ -137,7 +137,7 @@ namespace UI
             isEnable = true;
             _config = config;
             _cardNameTipText.text = config.name;
-            _pointText.text = $"+{_config.basePoint}筹码";
+            _pointText.text = $"+{_config.basePoint}攻击";
             _cardSendStateChangedAc = cardStateChangeAc;
             transform.position = _oriPos;
             _bgImg.sprite = Resources.Load<Sprite>(config.bgPath);
