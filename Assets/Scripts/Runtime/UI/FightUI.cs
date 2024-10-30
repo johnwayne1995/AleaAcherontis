@@ -62,7 +62,6 @@ namespace UI
         private Text _caseDamageText;
         private Text _magnificationText;
         private Text _playerHpText;
-        private Text _roundCountText;
         private Text _tipText;
         private Text _dialogText;
 
@@ -88,7 +87,6 @@ namespace UI
             _caseDamageText = transform.Find("leftMiddlePanel/damagePanel/caseDamageText").GetComponent<Text>();
             _magnificationText = transform.Find("leftMiddlePanel/damagePanel/magnificationText").GetComponent<Text>();
             _playerHpText = transform.Find("playerHp").GetComponent<Text>();
-            _roundCountText = transform.Find("roundCount").GetComponent<Text>();
             _tipText = transform.Find("tipPanel/tip/tipText").GetComponent<Text>();
             _dialogText = transform.Find("tipPanel/dialog/dialogText").GetComponent<Text>();
 
