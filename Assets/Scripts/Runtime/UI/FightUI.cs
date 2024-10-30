@@ -56,6 +56,7 @@ namespace UI
         private Button _faceSortBtn;
         private Button _suitSortBtn;
 
+        private Image _playerBloodIcon;
         private Button _foldBtn;
         private Button _sendBtn;
         private Text _caseText;
@@ -81,6 +82,7 @@ namespace UI
             _tipParent = transform.Find("tipPanel/tip");
             _dialogCanvas = transform.Find("tipPanel/dialog").GetComponent<CanvasGroup>();
 
+            _playerBloodIcon = transform.Find("playerHp/Icon_Blood").GetComponent<Image>();
             _enemyParent = transform.Find("enemyParent");
             _equipParent = transform.Find("rightMiddlePanel/cardGrid");
             _caseText = transform.Find("leftMiddlePanel/caseTip/caseText").GetComponent<Text>();
@@ -399,6 +401,7 @@ namespace UI
 
         public void FlushHp(int curHp, int maxHp)
         {
+            _playerBloodIcon.fillAmount = (float)curHp / maxHp;
             _playerHpText.text = $"{curHp.ToString()}/{maxHp.ToString()}";
         }
 

@@ -48,11 +48,9 @@ namespace Managers
             _fsmController.AddState(EFIGHT_STAGE.Fail, new FightStage_Fail(EFIGHT_STAGE.Fail, _fsmController));
             _fsmController.SetDefault(EFIGHT_STAGE.Player);
             _roundCount = 0;
-            CurHp = MaxHp = 1000;
             
-            // var config = Resources.Load<GameConfig>("Configs/GameConfig");
-            // _maxRoundCount = config.maxSendCardCount;
-            // _maxFoldCount = config.maxFoldCardCount;
+            var config = Resources.Load<GameConfig>("Configs/GameConfig");
+            CurHp = MaxHp = config.hpMax;
         }
 
         /// <summary>
