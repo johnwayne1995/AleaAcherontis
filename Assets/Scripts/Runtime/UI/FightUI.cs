@@ -233,7 +233,7 @@ namespace UI
                     _caseText.text = "高牌";
                     break;
                 default:
-                    _caseText.text = String.Empty;
+                    _caseText.text = "攻击计算面板";
                     _caseDamageText.text = String.Empty;
                     _magnificationText.text = String.Empty;
                     return;

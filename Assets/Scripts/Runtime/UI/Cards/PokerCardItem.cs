@@ -10,7 +10,7 @@ using UnityEngine.UI;
 
 namespace UI
 {
-    public class PokerCardItem : CardItemBase<PokerCard> //, IPointerEnterHandler, IPointerExitHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
+    public class PokerCardItem : CardItemBase<PokerCard> , IPointerEnterHandler, IPointerExitHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
         /// <summary>  
         /// 卡牌扇形展开中心点  
@@ -32,11 +32,15 @@ namespace UI
         public bool isSelected = false;
         public bool isEnable = false;
         
-        private Text _nameText;
+        private Text _pointText;
+        private Text _cardNameTipText;
+
         private Button _cardBtn;
         private Image _bgImg;
         private int _index;
         private RectTransform _rectTransform;
+        private CanvasGroup _pointTipCanvasGroup;
+
         private Vector3 _oriPos;
         private Vector3 _lastPos;
 
@@ -46,14 +50,18 @@ namespace UI
         public override void OnAwake()
         {
             base.OnAwake();
-            _nameText = transform.Find("bg/nameText").GetComponent<Text>();
+            _cardNameTipText = transform.Find("bg/pointTip/cardNameTipText").GetComponent<Text>();
+            _pointText = transform.Find("bg/pointTip/pointText").GetComponent<Text>();
+
             _bgImg = transform.Find("bg").GetComponent<Image>();
             _cardBtn = _bgImg.GetComponent<Button>();
             _bgImg.material = Instantiate(Resources.Load<Material>("Mats/outline"));
             _rectTransform = GetComponent<RectTransform>();
+            _pointTipCanvasGroup = transform.Find("bg/pointTip").GetComponent<CanvasGroup>();
             _cardBtn.onClick.AddListener(OnCardClicked);
             _oriPos = new Vector3((float)Screen.width / 2, -200, 0);
             _lastPos = Vector3.zero;
+            _pointTipCanvasGroup.alpha = 0;
         }
 
         private void Update()
@@ -128,8 +136,8 @@ namespace UI
         {
             isEnable = true;
             _config = config;
-            //_nameText.text = ConvertIdToName(_config.id, out var col);
-            //_nameText.color = col;
+            _cardNameTipText.text = config.name;
+            _pointText.text = $"+{_config.basePoint}筹码";
             _cardSendStateChangedAc = cardStateChangeAc;
             transform.position = _oriPos;
             _bgImg.sprite = Resources.Load<Sprite>(config.bgPath);
@@ -212,7 +220,9 @@ namespace UI
         /// <exception cref="NotImplementedException"></exception>
         public void OnPointerEnter(PointerEventData eventData)
         {
-            // transform.DOScale(1.1f, 0.15f);
+            transform.DOScale(1.1f, 0.15f);
+            _pointTipCanvasGroup.DOFade(1, 0.15f);
+
             // _index = transform.GetSiblingIndex();
             // transform.SetAsLastSibling();
             // _bgImg.material.SetColor("_lineColor", Color.yellow);
@@ -221,7 +231,9 @@ namespace UI
         
         public void OnPointerExit(PointerEventData eventData)
         {
-            // transform.DOScale(1, 0.15f);
+            transform.DOScale(1, 0.15f);
+            _pointTipCanvasGroup.DOFade(0, 0.15f);
+
             // transform.SetSiblingIndex(_index);
             // _bgImg.material.SetColor("_lineColor", Color.black);
             // _bgImg.material.SetFloat("_lineWidth", 1);
@@ -252,8 +264,7 @@ namespace UI
         
         public void DoScaleAni(float scale, float time)
         {
-            
-            //_rectTransform.DOScale(scale, time);
+            _rectTransform.DOScale(scale, time);
         }
         
         public PokerCard GetCardConfig()
@@ -263,16 +274,17 @@ namespace UI
         
         public void ResetView()
         {
-            _nameText.text = String.Empty;
+            _pointText.text = String.Empty;
             _cardSendStateChangedAc = null;
             _oriPos = Vector3.zero;
             _cardSendStateChangedAc = null;
             isSelected = false;
             isEnable = false;
-            this._rectTransform.localScale = Vector3.one;
+            _rectTransform.localScale = Vector3.one;
             _bgImg.material.SetColor("_lineColor", Color.black);
             _bgImg.material.SetFloat("_lineWidth",1);
             SetRectAnchorPos(PokerCardPool.HidePos);
+            _pointTipCanvasGroup.alpha = 0;
         }
     }
 }
