@@ -264,7 +264,7 @@ namespace UI
         
         public void DoScaleAni(float scale, float time)
         {
-            _rectTransform.DOScale(scale, time);
+            //_rectTransform.DOScale(scale, time);
         }
         
         public PokerCard GetCardConfig()

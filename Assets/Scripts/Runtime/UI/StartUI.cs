@@ -3,6 +3,7 @@ using Managers;
 using Modules;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 namespace UI
 {
@@ -10,7 +11,7 @@ namespace UI
     {
         private void Awake()
         {
-            Register("startBtn").onClick = OnStartGameBtnClick;
+            transform.Find("startBtn").GetComponent<Button>().onClick.AddListener(OnStartGameBtnClick);
         }
 
         public override void OnShow()
@@ -20,7 +21,7 @@ namespace UI
             audioMgr.PlayBgm("bgm1", true);
         }
 
-        private void OnStartGameBtnClick(GameObject obj, PointerEventData pData)
+        private void OnStartGameBtnClick()
         {
             //关闭login界面
             Close();
