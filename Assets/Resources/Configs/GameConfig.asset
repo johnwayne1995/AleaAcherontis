@@ -12,5 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b86fb3b9b67419884550a462108f902, type: 3}
   m_Name: GameConfig
   m_EditorClassIdentifier: 
-  maxSendCardCount: 0
-  maxFoldCardCount: 0
+  hpMax: 500
