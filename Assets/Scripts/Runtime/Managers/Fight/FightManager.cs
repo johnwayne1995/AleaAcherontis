@@ -78,11 +78,12 @@ namespace Managers
                 enemyConfig = Resources.Load<EnemyConfig>("Configs/EnemyConfigs/EnemyCardsConfig");
             else
                 enemyConfig = Resources.Load<EnemyConfig>("Configs/EnemyConfigs/"+path);
-            var enemyManager = GameManagerContainer.Instance.GetManager<EnemyManager>();
-            enemyManager.LoadEnemy(enemyConfig);
-
+            
             _maxFoldCount = enemyConfig.maxFoldCount;
             _maxRoundCount = enemyConfig.maxRoundCount;
+            
+            var enemyManager = GameManagerContainer.Instance.GetManager<EnemyManager>();
+            enemyManager.LoadEnemy(enemyConfig);
         }
         
         //切换战斗类型

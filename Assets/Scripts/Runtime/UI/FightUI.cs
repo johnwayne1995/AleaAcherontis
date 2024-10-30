@@ -152,8 +152,6 @@ namespace UI
             var audioMgr = GameManagerContainer.Instance.GetManager<AudioManager>();
             audioMgr.PlayBgm("battle", true);
             InitEquipInfo();
-            FlushFoldCount();
-            FlushRoundCount();
         }
 
         public override void OnHide()
@@ -393,6 +391,9 @@ namespace UI
             var item = obj.AddComponent<EnemyCardItem>();
             obj.transform.SetAsFirstSibling();
             item.Init(enemyConfig);
+            
+            FlushFoldCount();
+            FlushRoundCount();
             return item;
         }
 
