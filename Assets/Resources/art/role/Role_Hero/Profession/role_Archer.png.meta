@@ -1,0 +1,1328 @@
+fileFormatVersion: 2
+guid: a3ed45f480d25d249b1b28221db044d1
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: role_Archer_0
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 1002
+        width: 105
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 069890911635ed742ab8ec6e3d3c2c1f
+      internalID: 1707732912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: role_Archer_1
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 1002
+        width: 104
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 134bc55954b4e93479114aeee4fbf875
+      internalID: -1490936243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: role_Archer_2
+      rect:
+        serializedVersion: 2
+        x: 782
+        y: 1002
+        width: 102
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f2c19dfe69349447b6155d68741911b
+      internalID: -1463470643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: role_Archer_3
+      rect:
+        serializedVersion: 2
+        x: 1097
+        y: 1013
+        width: 116
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60a3aeee1bc2c7546b03dc695a1cdd0e
+      internalID: 274071076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: role_Archer_4
+      rect:
+        serializedVersion: 2
+        x: 1444
+        y: 1015
+        width: 108
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11236393965c67f4b8a54ebd2d8e8754
+      internalID: 1921870641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: role_Archer_5
+      rect:
+        serializedVersion: 2
+        x: 1779
+        y: 1016
+        width: 120
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 809d134771bcf584db21054f343f4bfd
+      internalID: -1276960843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: role_Archer_6
+      rect:
+        serializedVersion: 2
+        x: 2098
+        y: 1000
+        width: 132
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e6dd9f0ae68ca44eb5a70717f7f4b9f
+      internalID: -1186481988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: role_Archer_7
+      rect:
+        serializedVersion: 2
+        x: 2436
+        y: 1000
+        width: 127
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee7e381cc58f1734f85f6ca0046510aa
+      internalID: 1350436905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: role_Archer_8
+      rect:
+        serializedVersion: 2
+        x: 2766
+        y: 1000
+        width: 132
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62e3a62e0551cd14f889f005933a2e83
+      internalID: -1043586644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: role_Archer_9
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 802
+        width: 109
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed9efa1a54f6c6642a9f9f045b344f63
+      internalID: -534199948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: role_Archer_10
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 802
+        width: 110
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f879f346c87a16d43b8588ad831468ce
+      internalID: -1042888120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: role_Archer_11
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 802
+        width: 113
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52c3b427f0f803046b5faacb9dd07d5c
+      internalID: 993983353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: role_Archer_12
+      rect:
+        serializedVersion: 2
+        x: 1124
+        y: 802
+        width: 139
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4aeacf2ccb320f547aff161a1b74a5da
+      internalID: 1461195410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: role_Archer_13
+      rect:
+        serializedVersion: 2
+        x: 1460
+        y: 802
+        width: 139
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a528741b6f1a934ca437c03eb972f61
+      internalID: -1244245650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: role_Archer_14
+      rect:
+        serializedVersion: 2
+        x: 1793
+        y: 802
+        width: 138
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7221d8865f9a92478a7079bb07c66f9
+      internalID: -274051935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: role_Archer_15
+      rect:
+        serializedVersion: 2
+        x: 2113
+        y: 802
+        width: 132
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eff41144cbdc1fd4183413b44fa2c9d5
+      internalID: -795453821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: role_Archer_16
+      rect:
+        serializedVersion: 2
+        x: 2448
+        y: 802
+        width: 133
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74b7a2a0aad02924f8a7a4012db210c6
+      internalID: -23087976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: role_Archer_17
+      rect:
+        serializedVersion: 2
+        x: 2781
+        y: 802
+        width: 133
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec28c52d8117798408e4fc99fe2e1cba
+      internalID: -1382511375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: role_Archer_18
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 601
+        width: 114
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3a13df725bccaa43ac1df44cd935bb9
+      internalID: 1193410238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: role_Archer_19
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 601
+        width: 114
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d2b6143e60e4d94d9e34ed37c631adc
+      internalID: -216669811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: role_Archer_20
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 601
+        width: 114
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef7f740f91a5df94594c18ffda631d28
+      internalID: -1902521597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: role_Archer_21
+      rect:
+        serializedVersion: 2
+        x: 1105
+        y: 601
+        width: 139
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b64660750b6d1b545a75d42b7cf514d2
+      internalID: -445499975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: role_Archer_22
+      rect:
+        serializedVersion: 2
+        x: 1442
+        y: 601
+        width: 137
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89cc92f27d001544b8e4724c04944f00
+      internalID: 1848324296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: role_Archer_23
+      rect:
+        serializedVersion: 2
+        x: 1774
+        y: 601
+        width: 141
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ef86e0d0fd21d8428a52d8e0db5ba07
+      internalID: 1763000505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: role_Archer_24
+      rect:
+        serializedVersion: 2
+        x: 2119
+        y: 601
+        width: 102
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 011c49f30f0460142b1c3319e7ab092d
+      internalID: 935946388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: role_Archer_25
+      rect:
+        serializedVersion: 2
+        x: 2452
+        y: 601
+        width: 101
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1aa051e3e6eff4c4da8dd4f8bb980c96
+      internalID: 946179577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: role_Archer_26
+      rect:
+        serializedVersion: 2
+        x: 2787
+        y: 601
+        width: 99
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 480bc996c3b63244abc2ebfddc391486
+      internalID: -58896409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: role_Archer_27
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 401
+        width: 133
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 771b04b84b061f64d9c81462d787e940
+      internalID: -1979214549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: role_Archer_28
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 401
+        width: 132
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dc002330a71be74b9847bcc6acbd4be
+      internalID: -2019200155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: role_Archer_29
+      rect:
+        serializedVersion: 2
+        x: 739
+        y: 401
+        width: 129
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f95cb0d116baf2949ad473abe2bf1fd2
+      internalID: -1512010455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: role_Archer_30
+      rect:
+        serializedVersion: 2
+        x: 1090
+        y: 403
+        width: 122
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 709b738e367fc704190b361950f1245a
+      internalID: 1886013360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: role_Archer_31
+      rect:
+        serializedVersion: 2
+        x: 1426
+        y: 401
+        width: 110
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b754976cd75f6c4887deea2fefa44d7
+      internalID: 598566309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: role_Archer_32
+      rect:
+        serializedVersion: 2
+        x: 1755
+        y: 401
+        width: 116
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7683bfee37ad1c4b82806169b78f7dc
+      internalID: -1427106749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: role_Archer_33
+      rect:
+        serializedVersion: 2
+        x: 2119
+        y: 401
+        width: 102
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcbe58b755b3052449081e6de95a7122
+      internalID: -1715978586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: role_Archer_34
+      rect:
+        serializedVersion: 2
+        x: 2452
+        y: 401
+        width: 101
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba87d5d9f0454f049bdf88707817be49
+      internalID: 2110195778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: role_Archer_35
+      rect:
+        serializedVersion: 2
+        x: 2787
+        y: 401
+        width: 99
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfe8702935aefb444b12cf8a30e03269
+      internalID: -1937960003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: role_Archer_36
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 202
+        width: 121
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b4c150e1e7d33e40bf8d55f6222b008
+      internalID: 824008198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: role_Archer_37
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 200
+        width: 142
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37bc5cdd7a2f26945b237aa5d4fa4728
+      internalID: 960257036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: role_Archer_38
+      rect:
+        serializedVersion: 2
+        x: 767
+        y: 200
+        width: 139
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5738ee4c3b582f489d21f55b723eb29
+      internalID: 1354451027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: role_Archer_39
+      rect:
+        serializedVersion: 2
+        x: 1122
+        y: 200
+        width: 123
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f84b2735ad77ec40af6f0f569d624f8
+      internalID: -941219852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: role_Archer_40
+      rect:
+        serializedVersion: 2
+        x: 1438
+        y: 200
+        width: 139
+        height: 148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0d86dadd6a7c704aa72137b3235f014
+      internalID: 2069422063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: role_Archer_41
+      rect:
+        serializedVersion: 2
+        x: 1774
+        y: 200
+        width: 139
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1758c2b2373368b418af4a65559d275f
+      internalID: 1696776414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: role_Archer_42
+      rect:
+        serializedVersion: 2
+        x: 2119
+        y: 200
+        width: 102
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bf5a132f2069004d85ec8d0545071d2
+      internalID: -53100086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: role_Archer_43
+      rect:
+        serializedVersion: 2
+        x: 2452
+        y: 201
+        width: 101
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eed2d192632a9564c85f5925c477b049
+      internalID: 981976944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: role_Archer_44
+      rect:
+        serializedVersion: 2
+        x: 2787
+        y: 201
+        width: 99
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 439759e8da827164189993589be3699b
+      internalID: 57030749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: role_Archer_45
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 2
+        width: 108
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97f6f2e2e2724fa45b44b3fc4893b177
+      internalID: 1934919798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: role_Archer_46
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 4
+        width: 102
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba0fb020176e3684c81457c4e2e56a8e
+      internalID: 1312787948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: role_Archer_47
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 5
+        width: 109
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e08a829ca0bdd541ad033d76d441297
+      internalID: -512650284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: role_Archer_48
+      rect:
+        serializedVersion: 2
+        x: 1102
+        y: 1
+        width: 136
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb7e5ce357e8a614286b5e5b85150472
+      internalID: 1765672867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: role_Archer_49
+      rect:
+        serializedVersion: 2
+        x: 1435
+        y: 1
+        width: 141
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82ae5ee4969526b4f9a356df7cd53637
+      internalID: 1101879693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: role_Archer_50
+      rect:
+        serializedVersion: 2
+        x: 1769
+        y: 1
+        width: 137
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bce6de8e68aaac49ad128f24aa2ea5e
+      internalID: -1494276593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: role_Archer_51
+      rect:
+        serializedVersion: 2
+        x: 2095
+        y: 1
+        width: 147
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbdb2d6e34be72a458eb2d89b7b6e397
+      internalID: 248346320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: role_Archer_52
+      rect:
+        serializedVersion: 2
+        x: 2430
+        y: 1
+        width: 147
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffb1ea04520c2ed4096fc58aac72e053
+      internalID: -1796047940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: role_Archer_53
+      rect:
+        serializedVersion: 2
+        x: 2763
+        y: 1
+        width: 148
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fe85e22f246e874db950183b30a9c13
+      internalID: -1452461225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      role_Archer_0: 1707732912
+      role_Archer_1: -1490936243
+      role_Archer_10: -1042888120
+      role_Archer_11: 993983353
+      role_Archer_12: 1461195410
+      role_Archer_13: -1244245650
+      role_Archer_14: -274051935
+      role_Archer_15: -795453821
+      role_Archer_16: -23087976
+      role_Archer_17: -1382511375
+      role_Archer_18: 1193410238
+      role_Archer_19: -216669811
+      role_Archer_2: -1463470643
+      role_Archer_20: -1902521597
+      role_Archer_21: -445499975
+      role_Archer_22: 1848324296
+      role_Archer_23: 1763000505
+      role_Archer_24: 935946388
+      role_Archer_25: 946179577
+      role_Archer_26: -58896409
+      role_Archer_27: -1979214549
+      role_Archer_28: -2019200155
+      role_Archer_29: -1512010455
+      role_Archer_3: 274071076
+      role_Archer_30: 1886013360
+      role_Archer_31: 598566309
+      role_Archer_32: -1427106749
+      role_Archer_33: -1715978586
+      role_Archer_34: 2110195778
+      role_Archer_35: -1937960003
+      role_Archer_36: 824008198
+      role_Archer_37: 960257036
+      role_Archer_38: 1354451027
+      role_Archer_39: -941219852
+      role_Archer_4: 1921870641
+      role_Archer_40: 2069422063
+      role_Archer_41: 1696776414
+      role_Archer_42: -53100086
+      role_Archer_43: 981976944
+      role_Archer_44: 57030749
+      role_Archer_45: 1934919798
+      role_Archer_46: 1312787948
+      role_Archer_47: -512650284
+      role_Archer_48: 1765672867
+      role_Archer_49: 1101879693
+      role_Archer_5: -1276960843
+      role_Archer_50: -1494276593
+      role_Archer_51: 248346320
+      role_Archer_52: -1796047940
+      role_Archer_53: -1452461225
+      role_Archer_6: -1186481988
+      role_Archer_7: 1350436905
+      role_Archer_8: -1043586644
+      role_Archer_9: -534199948
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
