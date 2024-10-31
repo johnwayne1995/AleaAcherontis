@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using Modules;
-    
+using UI.Jobs;
+
 namespace Managers
 {
     public class JobManager : TGameManager<JobManager>
@@ -16,6 +17,9 @@ namespace Managers
         private void InitJobMapping()
         {
             _jobsPool = new Dictionary<Type, ObjectPool<DependentJob>>();
+            RegisterJob<CalculateAllPointJob>();
+            RegisterJob<ShowPokerCardDamageJob>();
+            RegisterJob<ShowEquipCardEffectJob>();
         }
         
         private void RegisterJob<T>() where T : DependentJob

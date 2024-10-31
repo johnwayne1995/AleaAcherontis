@@ -5,7 +5,9 @@ using DG.Tweening;
 using Fsm;
 using Managers;
 using Modules;
+using UI.Jobs;
 using UnityEngine;
+using UnityEngine.Pool;
 using UnityEngine.UI;
 
 namespace UI
@@ -22,6 +24,11 @@ namespace UI
         /// </summary>
         private List<PokerCardItem> _sendCardList;
 
+        /// <summary>
+        /// 装备牌
+        /// </summary>
+        private List<EquipCardItem> _equipCardItems;
+        
         /// <summary>  
         /// 卡牌起始位置  
         /// </summary>  
@@ -47,7 +54,8 @@ namespace UI
         private FightCardManager _fightCardManager;
         private FightManager _fightManager;
         private EquipManager _equipManager;
-
+        private JobManager _jobManager;
+        
         private Transform _equipParent;
         private Transform _tipParent;
         private Transform _enemyParent;
@@ -73,12 +81,16 @@ namespace UI
         private Transform _cardParent;
         private Vector3 _foldPos;
 
+        private CalculateAllPointJob _showPokerCardDamageJob;
+        private CardCase _curCardCase;
+
         private void Awake()
         {
             _fightCardManager = GameManagerContainer.Instance.GetManager<FightCardManager>();
             _fightManager = GameManagerContainer.Instance.GetManager<FightManager>();
             _equipManager = GameManagerContainer.Instance.GetManager<EquipManager>();
-
+            _jobManager = GameManagerContainer.Instance.GetManager<JobManager>();
+            
             rootPos.x = (float)Screen.width / 2;
             
             _tipParent = transform.Find("tipPanel/tip");
@@ -125,12 +137,18 @@ namespace UI
             _pokerCardPool = new PokerCardPool(_cardParent);
             _cardItemList = new List<PokerCardItem>();
             _sendCardList = new List<PokerCardItem>();
+            _equipCardItems = new List<EquipCardItem>();
             _rotPos = InitRotPos(FightCardManager.CMAX_SAVE_CARD_COUNT);
         }
 
         private void Update()
         {
             RefreshCardPos();
+
+            if (_showPokerCardDamageJob != null)
+            {
+                _showPokerCardDamageJob.UpdateJob(Time.deltaTime);
+            }
         }
 
         /// <summary>  
@@ -170,6 +188,8 @@ namespace UI
 
         public void CreateCardItem()
         {
+            OnWaitSendListChanged();
+            
             var curHandCardCount = _fightCardManager.UsingCardList.Count;
             if (curHandCardCount > FightCardManager.CMAX_SAVE_CARD_COUNT)
             {
@@ -245,9 +265,9 @@ namespace UI
                     _magnificationText.text = String.Empty;
                     return;
             }
-            var cardCaseConfig = _fightCardManager.GetCardCaseConfigByCaseType(cardCase);
-            _caseDamageText.text = cardCaseConfig.damageValue.ToString();
-            _magnificationText.text = cardCaseConfig.magnification.ToString();
+            _curCardCase = _fightCardManager.GetCardCaseConfigByCaseType(cardCase);
+            _caseDamageText.text = _curCardCase.damageValue.ToString();
+            _magnificationText.text = _curCardCase.magnification.ToString();
         }
 
         private void FaceSortBtnClick()
@@ -298,7 +318,7 @@ namespace UI
 
         private void FoldBtnClick()
         {
-            if (_fightCardManager.CardListWaitToSend.Count == 0 || !_fightManager.CanFold())
+            if (_fightCardManager.CardListWaitToSend.Count == 0 || !_fightManager.CanFold() || _showPokerCardDamageJob != null)
             {
                 return;
             }
@@ -340,7 +360,7 @@ namespace UI
 
         private void SendBtnClick()
         {
-            if (_fightCardManager.CardListWaitToSend.Count == 0)
+            if (_fightCardManager.CardListWaitToSend.Count == 0 || _showPokerCardDamageJob != null) 
             {
                 return;
             }
@@ -349,6 +369,8 @@ namespace UI
             for (int i = 0; i < _cardItemList.Count; i++)
             {
                 var card = _cardItemList[i];
+                card.isEnable = false;
+
                 if (card.isSelected)
                 {
                     _sendCardList.Add(card);
@@ -360,17 +382,68 @@ namespace UI
                 _cardItemList.Remove(_sendCardList[i]);
             }
 
-            float offset = 600f / _sendCardList.Count;
+            _showPokerCardDamageJob = _jobManager.CreateNewJob<CalculateAllPointJob>();
+            List<DependentJob> jobList = ListPool<DependentJob>.Get();
+
+            float offset = ((float)Screen.width / 2) / _sendCardList.Count;
             Vector3 enPos = new Vector3(-_sendCardList.Count / 2f * offset + offset * 0.5f, 0, 0) + new Vector3(Screen.width / 2, Screen.height / 2, 0);
+            var curDamage = _curCardCase.damageValue;
+            var curMag = _curCardCase.magnification;
+
             for (int i = 0; i < _sendCardList.Count; i++)
             {
+                var pokerCardDamageJob = _jobManager.CreateNewJob<ShowPokerCardDamageJob>();
                 var card = _sendCardList[i];
-                card.isEnable = false;
-                card.DoMove(enPos, 0.3f);
+                card.DoMove(enPos, 0.2f);
                 enPos.x = enPos.x + offset;
+                
+                pokerCardDamageJob.InitParam(card);
+                pokerCardDamageJob.jobCompletedEvent += job =>
+                {
+                    curDamage += card.GetDamage();
+                    _caseDamageText.text = curDamage.ToString();
+                };
+                
+                jobList.Add(pokerCardDamageJob);
             }
 
-            _fightManager.ChangeState(EFIGHT_STAGE.PlayerTurnSettlement);
+            for (int i = 0; i < _equipCardItems.Count; i++)
+            {
+                var carItem = _equipCardItems[i];
+                if(carItem.isEmpty)
+                    continue;
+                
+                var equipEffectJob = _jobManager.CreateNewJob<ShowEquipCardEffectJob>();
+                jobList.Add(equipEffectJob);
+                equipEffectJob.jobCompletedEvent += job =>
+                {
+                    switch (carItem.equipConfig.devilCardInfluenceType)
+                    {
+                        case DevilCardInfluenceType.Add:
+                            curMag += carItem.equipConfig.paramValue;
+                            _magnificationText.text = curMag.ToString();
+                            break;
+                        case DevilCardInfluenceType.Multiplication:
+                            curMag *= carItem.equipConfig.paramValue;
+                            _magnificationText.text = curMag.ToString();
+                            break;
+                    }
+                    
+                };
+                equipEffectJob.InitParam(carItem);
+            }
+            
+            _showPokerCardDamageJob.jobCompletedEvent += job =>
+            {
+                if (_showPokerCardDamageJob != null)
+                {
+                    _jobManager.RecycleJob(_showPokerCardDamageJob);
+                    _showPokerCardDamageJob = null;
+                }
+                _fightManager.ChangeState(EFIGHT_STAGE.PlayerTurnSettlement);
+            };
+            _showPokerCardDamageJob.SetDependenies(ref jobList);
+            _showPokerCardDamageJob.Start();
         }
 
         public void RemoveAllSendCard()
@@ -427,6 +500,7 @@ namespace UI
 
         public void InitEquipInfo()
         {
+            RemoveAllEquipCardItem();
             for (int i = 0; i < _equipManager.MaxEquipSlotCount; i++)
             {
                 bool isLock = i >= _equipManager.CanEquipSlotCount;
@@ -436,9 +510,19 @@ namespace UI
                 obj.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 100);
                 var item = obj.AddComponent<EquipCardItem>();
                 item.Init(isLock, cardConfig);
+                _equipCardItems.Add(item);
             }
         }
 
+        private void RemoveAllEquipCardItem()
+        {
+            for (int i = 0; i < _equipCardItems.Count; i++)
+            {
+                _equipCardItems[i].Recycle();
+            }
+            _equipCardItems.Clear();
+        }
+        
         public void ShowTip(string tipStr)
         {
             _tipParent.gameObject.SetActive(true);
