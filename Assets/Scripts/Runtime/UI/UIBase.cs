@@ -26,6 +26,18 @@ namespace UI
             UIModule.Instance.CloseUI(gameObject.name);
         }
         
+        public Transform Find(string name)
+        {
+            Transform[] transforms = gameObject.GetComponentsInChildren<Transform>(true);
+            foreach (var tra in transforms)
+            {
+                if(tra.name == name)
+                    return tra;
+            }
+
+            return null;
+        }
+        
         public UIEventTrigger Register(string name)
         {
             Transform[] transforms = gameObject.GetComponentsInChildren<Transform>(true);

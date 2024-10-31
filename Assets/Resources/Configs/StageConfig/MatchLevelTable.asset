@@ -19,71 +19,55 @@ MonoBehaviour:
     _CanSkip: 0
     _IsRandom: 0
     _Restrict: 00000000
-    _EnemyConfig: "EnemyCardsConfig"
-    _RoomWeight: []
+    _EnemyConfig: EnemyCardsConfig
   - _RoomID: 102
     _RoomLayer: 1
     _EnemyType: 0
-    _CanSkip: 0
+    _CanSkip: 1
     _IsRandom: 0
     _Restrict: 01000000
-    _EnemyConfig: "EnemyCardsConfig"
-    _RoomWeight: []
+    _EnemyConfig: EnemyCardsConfig
   - _RoomID: 103
     _RoomLayer: 1
     _EnemyType: 1
-    _CanSkip: 0
+    _CanSkip: 1
     _IsRandom: 1
     _Restrict: 00000000
-    _EnemyConfig: "EnemyCardsConfig"
-    _RoomWeight:
-    - param1: 0
-      param2: 30
-    - param1: 1
-      param2: 80
-    - param1: 2
-      param2: 60
-    - param1: 3
-      param2: 100
+    _EnemyConfig: EnemyCardsConfig
   - _RoomID: 104
     _RoomLayer: 1
     _EnemyType: 2
     _CanSkip: 0
     _IsRandom: 0
     _Restrict: 010000000300000004000000
-    _EnemyConfig: "EnemyCardsConfig"
-    _RoomWeight: []
+    _EnemyConfig: EnemyCardsConfig
   - _RoomID: 201
     _RoomLayer: 2
     _EnemyType: 0
     _CanSkip: 1
     _IsRandom: 0
     _Restrict: 00000000
-    _EnemyConfig: "EnemyCardsConfig"
-    _RoomWeight: []
+    _EnemyConfig: EnemyCardsConfig
   - _RoomID: 202
     _RoomLayer: 2
     _EnemyType: 0
     _CanSkip: 1
     _IsRandom: 0
     _Restrict: 00000000
-    _EnemyConfig: "EnemyCardsConfig"
-    _RoomWeight: []
+    _EnemyConfig: EnemyCardsConfig
   - _RoomID: 203
-    _RoomLayer: 1
+    _RoomLayer: 2
     _EnemyType: 1
     _CanSkip: 0
     _IsRandom: 1
     _Restrict: 00000000
-    _EnemyConfig: "EnemyCardsConfig"
-    _RoomWeight: []
+    _EnemyConfig: EnemyCardsConfig
   - _RoomID: 303
-    _RoomLayer: 1
+    _RoomLayer: 3
     _EnemyType: 1
     _CanSkip: 0
     _IsRandom: 1
     _Restrict: 00000000
-    _EnemyConfig: "EnemyCardsConfig"
-    _RoomWeight: []
+    _EnemyConfig: EnemyCardsConfig
   excelName: Level
   version: 0
