@@ -52,6 +52,18 @@ namespace Excel
         [UnityEngine.SerializeField()]
         private string _EnemyConfig;
         
+        // 敌人血量
+        [UnityEngine.SerializeField()]
+        private bool _ifGetReward;
+        
+        // 敌人血量
+        [UnityEngine.SerializeField()]
+        private string _RewardItem;
+        
+        // 敌人血量
+        [UnityEngine.SerializeField()]
+        private int _EnemyBlood;
+        
         // 肉鸽房间的刷新权重
         //（格式：房间类型1,权重|房间类型2,权重|...）
         //0=许愿池，花费指定金币，三选一一个效果。花费的数额会越来越高
@@ -138,6 +150,39 @@ namespace Excel
             get
             {
                 return this._EnemyConfig;
+            }
+        }
+        
+        /// <summary>
+        /// 是否得到奖励
+        /// </summary>
+        public bool IfGetReward
+        {
+            get
+            {
+                return this._ifGetReward;
+            }
+        }
+        
+        /// <summary>
+        /// 奖励Item
+        /// </summary>
+        public string RewardItem
+        {
+            get
+            {
+                return this._RewardItem;
+            }
+        }
+        
+        /// <summary>
+        /// 敌人血量
+        /// </summary>
+        public int EnemyBlood
+        {
+            get
+            {
+                return this._EnemyBlood;
             }
         }
         
