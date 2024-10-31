@@ -295,14 +295,14 @@ namespace UI
         {
             _damageText.text = "+" + this._config.basePoint;
             _damageTipCanvasGroup.transform.localScale = Vector3.zero;
-            _damageTipCanvasGroup.transform.DOScale(1, 0.6f);
-            _damageTipCanvasGroup.DOFade(1, 0.6f);
+            _damageTipCanvasGroup.transform.DOScale(1, 0.3f);
+            _damageTipCanvasGroup.DOFade(1, 0.35f);
             
-            var hideTw = _damageTipCanvasGroup.transform.DOScale(0, 0.3f);
-            hideTw.SetDelay(1.0f);
+            var hideTw = _damageTipCanvasGroup.transform.DOScale(0, 0.2f);
+            hideTw.SetDelay(0.6f);
             
-            var fadeTw = _damageTipCanvasGroup.DOFade(0, 0.3f);
-            fadeTw.SetDelay(1.0f);
+            var fadeTw = _damageTipCanvasGroup.DOFade(0, 0.2f);
+            fadeTw.SetDelay(0.6f);
             fadeTw.onComplete += () =>
             {
                 onShowDamageOver?.Invoke();

@@ -36,6 +36,7 @@ namespace Managers
         /// <param name="getCurHandsDamage"></param>
         public void BeHit(int getCurHandsDamage)
         {
+            var fightUi = UIModule.Instance.GetUI<FightUI>("FightUI");
             var isDone = _curEnemy.Hit(getCurHandsDamage);
             if (isDone)
             {
@@ -49,7 +50,6 @@ namespace Managers
             {
                 STimer.Wait(0.5f, () =>
                 {
-                    var fightUi = UIModule.Instance.GetUI<FightUI>("FightUI");
                     fightUi.RemoveAllSendCard();
                 });
             }

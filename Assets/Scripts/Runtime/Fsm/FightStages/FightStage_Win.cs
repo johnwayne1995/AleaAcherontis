@@ -14,9 +14,6 @@ namespace Fsm.FightStages
         protected override void OnEnterStage(object e = null)
         {
             UIModule.Instance.ShowUI<WinUI>("WinUI");
-            var equipManager = GameManagerContainer.Instance.GetManager<EquipManager>();
-            var reward = Resources.Load<EquipCardConfig>("Configs/CardConfig/EquipCardsConfig");
-            equipManager.AddEquipReward(reward);
         }
         protected override void OnUpdateStage(float deltaTimes)
         {
