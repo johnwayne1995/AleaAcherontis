@@ -20,20 +20,29 @@ MonoBehaviour:
     _IsRandom: 0
     _Restrict: 00000000
     _EnemyConfig: EnemyCardsConfig
+    _ifGetReward: 0
+    _RewardItem: 0
+    _EnemyBlood: 300
   - _RoomID: 102
-    _RoomLayer: 1
-    _EnemyType: 0
-    _CanSkip: 1
-    _IsRandom: 0
-    _Restrict: 01000000
-    _EnemyConfig: EnemyCardsConfig
-  - _RoomID: 103
     _RoomLayer: 1
     _EnemyType: 1
     _CanSkip: 1
+    _IsRandom: 0
+    _Restrict: 01000000
+    _EnemyConfig: EnemyCardsConfig 1
+    _ifGetReward: 1
+    _RewardItem: EquipCardsConfig
+    _EnemyBlood: 450
+  - _RoomID: 103
+    _RoomLayer: 1
+    _EnemyType: 2
+    _CanSkip: 1
     _IsRandom: 1
     _Restrict: 00000000
-    _EnemyConfig: EnemyCardsConfig
+    _EnemyConfig: EnemyCardsConfig 2
+    _ifGetReward: 1
+    _RewardItem: EquipCardsConfig 1
+    _EnemyBlood: 600
   - _RoomID: 104
     _RoomLayer: 1
     _EnemyType: 2
@@ -41,6 +50,9 @@ MonoBehaviour:
     _IsRandom: 0
     _Restrict: 010000000300000004000000
     _EnemyConfig: EnemyCardsConfig
+    _ifGetReward: 0
+    _RewardItem: 0
+    _EnemyBlood: 800
   - _RoomID: 201
     _RoomLayer: 2
     _EnemyType: 0
@@ -48,6 +60,9 @@ MonoBehaviour:
     _IsRandom: 0
     _Restrict: 00000000
     _EnemyConfig: EnemyCardsConfig
+    _ifGetReward: 0
+    _RewardItem: 0
+    _EnemyBlood: 100
   - _RoomID: 202
     _RoomLayer: 2
     _EnemyType: 0
@@ -55,6 +70,9 @@ MonoBehaviour:
     _IsRandom: 0
     _Restrict: 00000000
     _EnemyConfig: EnemyCardsConfig
+    _ifGetReward: 0
+    _RewardItem: 0
+    _EnemyBlood: 100
   - _RoomID: 203
     _RoomLayer: 2
     _EnemyType: 1
@@ -62,6 +80,9 @@ MonoBehaviour:
     _IsRandom: 1
     _Restrict: 00000000
     _EnemyConfig: EnemyCardsConfig
+    _ifGetReward: 0
+    _RewardItem: 0
+    _EnemyBlood: 100
   - _RoomID: 303
     _RoomLayer: 3
     _EnemyType: 1
@@ -69,5 +90,9 @@ MonoBehaviour:
     _IsRandom: 1
     _Restrict: 00000000
     _EnemyConfig: EnemyCardsConfig
+    _ifGetReward: 0
+    _RewardItem: 0
+    _EnemyBlood: 100
+
   excelName: Level
   version: 0
