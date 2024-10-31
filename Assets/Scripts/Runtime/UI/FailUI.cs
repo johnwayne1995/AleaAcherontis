@@ -3,14 +3,17 @@ using Managers;
 using Modules;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 namespace UI
 {
     public class FailUI : UIBase
     {
+        private Button _restartBtn;
         private void Awake()
         {
-            Register("restartBtn").onClick = OnStartGameBtnClick;
+            _restartBtn = transform.Find("restartBtn").GetComponent<Button>();
+            _restartBtn.onClick.AddListener(OnStartGameBtnClick);
         }
 
         public override void OnShow()
@@ -20,7 +23,7 @@ namespace UI
             audioMgr.PlayBgm("bgm1", true);
         }
 
-        private void OnStartGameBtnClick(GameObject obj, PointerEventData pData)
+        private void OnStartGameBtnClick()
         {
             //关闭login界面
             Close();

@@ -4,7 +4,6 @@ using Fsm;
 using Managers;
 using Modules;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace UI
