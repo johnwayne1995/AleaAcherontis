@@ -10,32 +10,39 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 969b5b324879a2b43bdf55011e4b7f3f, type: 3}
-  m_Name: EnemyCardsConfig
+  m_Name: EnemyCardsConfig 2
   m_EditorClassIdentifier: 
-  maxHp: 300
-  enemyName: "\u5730\u72F1\u5C71\u7F8A"
-  iconPath: art/boss/Boss_Monster01
+  maxHp: 600
+  enemyName: "\u5730\u72F1\u72AC"
+  iconPath: art/boss/Boss_Cerberus02
   maxRoundCount: 5
-  maxFoldCount: 5
+  maxFoldCount: 3
   enemyActions:
   - OneTimeAc: 1
-    round: 2
+    round: 3
     isEnableOnPlayerTurn: 0
-    perRound: 0
+    perRound: 2
     enemyActionType: 0
-    param: 10
+    param: 50
     paramStr: 
   - OneTimeAc: 1
-    round: 2
+    round: 1
+    isEnableOnPlayerTurn: 0
+    perRound: 1
+    enemyActionType: 1
+    param: 0
+    paramStr: "BOSS\u5C06\u57282\u4E2A\u56DE\u5408\u540E \u91CA\u653E\u9ED1\u6D1E"
+  - OneTimeAc: 1
+    round: 0
     isEnableOnPlayerTurn: 0
     perRound: 0
     enemyActionType: 1
     param: 0
-    paramStr: "\u602A\u7269\u5C06\u5728 2 \u56DE\u5408\u540E\u91CA\u653E \u649E\u51FB"
+    paramStr: "BOSS\u5C06\u57281\u4E2A\u56DE\u5408\u540E \u91CA\u653E\u9ED1\u6D1E"
   - OneTimeAc: 1
-    round: 2
+    round: 3
     isEnableOnPlayerTurn: 0
     perRound: 0
     enemyActionType: 2
     param: 0
-    paramStr: "\u543C\u2014\u2014\uFF08\u649E\u4E86\u8FC7\u6765\uFF09"
+    paramStr: "\u53D7\u6B7B\u5427\u2026\u2026\uFF08\u5047\u88C5\u6709\u7279\u6548\uFF09"
