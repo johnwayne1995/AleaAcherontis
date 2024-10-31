@@ -220,23 +220,22 @@ namespace UI
         /// <exception cref="NotImplementedException"></exception>
         public void OnPointerEnter(PointerEventData eventData)
         {
+            if (!isEnable)
+            {
+                return;
+            }
             transform.DOScale(1.1f, 0.15f);
             _pointTipCanvasGroup.DOFade(1, 0.15f);
-
-            // _index = transform.GetSiblingIndex();
-            // transform.SetAsLastSibling();
-            // _bgImg.material.SetColor("_lineColor", Color.yellow);
-            // _bgImg.material.SetFloat("_lineWidth",10);
         }
         
         public void OnPointerExit(PointerEventData eventData)
         {
+            if (!isEnable)
+            {
+                return;
+            }
             transform.DOScale(1, 0.15f);
             _pointTipCanvasGroup.DOFade(0, 0.15f);
-
-            // transform.SetSiblingIndex(_index);
-            // _bgImg.material.SetColor("_lineColor", Color.black);
-            // _bgImg.material.SetFloat("_lineWidth", 1);
         }
         
         public void OnBeginDrag(PointerEventData eventData)
