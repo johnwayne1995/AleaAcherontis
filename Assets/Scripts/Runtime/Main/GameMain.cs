@@ -1,6 +1,4 @@
-﻿using GCommon.Excel;
-using Managers;
-using Modules;
+﻿using Modules;
 using UnityEngine;
 
 namespace CardGame

@@ -237,6 +237,7 @@ namespace Managers
         public void ClearWaitToSendList()
         {
             CardListWaitToSend.Clear();
+            _pokerHand = null;
         }
 
         public int GetCurHandsDamage()

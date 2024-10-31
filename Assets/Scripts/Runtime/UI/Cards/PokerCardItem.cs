@@ -33,6 +33,7 @@ namespace UI
         public bool isEnable = false;
         
         private Text _pointText;
+        private Text _damageText;
         private Text _cardNameTipText;
 
         private Button _cardBtn;
@@ -40,28 +41,32 @@ namespace UI
         private int _index;
         private RectTransform _rectTransform;
         private CanvasGroup _pointTipCanvasGroup;
+        private CanvasGroup _damageTipCanvasGroup;
 
         private Vector3 _oriPos;
         private Vector3 _lastPos;
 
         private Action _cardSendStateChangedAc;
-        
 
         public override void OnAwake()
         {
             base.OnAwake();
             _cardNameTipText = transform.Find("bg/pointTip/cardNameTipText").GetComponent<Text>();
             _pointText = transform.Find("bg/pointTip/pointText").GetComponent<Text>();
-
+            _damageText = transform.Find("bg/damagePointTip/damagePointTipText").GetComponent<Text>();
+            
             _bgImg = transform.Find("bg").GetComponent<Image>();
             _cardBtn = _bgImg.GetComponent<Button>();
             _bgImg.material = Instantiate(Resources.Load<Material>("Mats/outline"));
             _rectTransform = GetComponent<RectTransform>();
             _pointTipCanvasGroup = transform.Find("bg/pointTip").GetComponent<CanvasGroup>();
+            _damageTipCanvasGroup = transform.Find("bg/damagePointTip").GetComponent<CanvasGroup>();
+
             _cardBtn.onClick.AddListener(OnCardClicked);
             _oriPos = new Vector3((float)Screen.width / 2, -200, 0);
             _lastPos = Vector3.zero;
             _pointTipCanvasGroup.alpha = 0;
+            _damageTipCanvasGroup.alpha = 0;
         }
 
         private void Update()
@@ -284,6 +289,29 @@ namespace UI
             _bgImg.material.SetFloat("_lineWidth",1);
             SetRectAnchorPos(PokerCardPool.HidePos);
             _pointTipCanvasGroup.alpha = 0;
+        }
+        
+        public void ShowDamage(Action onShowDamageOver)
+        {
+            _damageText.text = "+" + this._config.basePoint;
+            _damageTipCanvasGroup.transform.localScale = Vector3.zero;
+            _damageTipCanvasGroup.transform.DOScale(1, 0.6f);
+            _damageTipCanvasGroup.DOFade(1, 0.6f);
+            
+            var hideTw = _damageTipCanvasGroup.transform.DOScale(0, 0.3f);
+            hideTw.SetDelay(1.0f);
+            
+            var fadeTw = _damageTipCanvasGroup.DOFade(0, 0.3f);
+            fadeTw.SetDelay(1.0f);
+            fadeTw.onComplete += () =>
+            {
+                onShowDamageOver?.Invoke();
+            };
+        }
+        
+        public int GetDamage()
+        {
+            return _config.basePoint;
         }
     }
 }
