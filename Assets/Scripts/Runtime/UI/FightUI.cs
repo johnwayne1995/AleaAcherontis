@@ -71,6 +71,7 @@ namespace UI
         private Text _foldLastCountText;
         
         private Transform _cardParent;
+        private Vector3 _foldPos;
 
         private void Awake()
         {
@@ -103,6 +104,8 @@ namespace UI
             _sendLastCountText = transform.Find("sendBtn/lastCount").GetComponent<Text>();
             _foldLastCountText = transform.Find("foldBtn/lastCount").GetComponent<Text>();
 
+            _foldPos = transform.Find("foldPos").position;
+            
             _faceSortBtn.onClick.AddListener(FaceSortBtnClick);
             _suitSortBtn.onClick.AddListener(SuitSortBtnClick);
 
@@ -320,7 +323,7 @@ namespace UI
                 var card = _sendCardList[i];
                 
                 var scaleTweener = card.DoScaleAni(0, 0.6f);
-                var tweener = card.DoMove(_cardSetParent.position, 0.8f);
+                var tweener = card.DoMove(_foldPos, 0.8f);
                 tweener.onComplete = () =>
                 {
                     _pokerCardPool.Free(card);
@@ -377,7 +380,7 @@ namespace UI
                 var item = _sendCardList[i];
                 _fightCardManager.UseCard(item.GetCardConfig());
                 var scaleTweener = item.DoScaleAni(0, 0.6f);
-                var tweener = item.DoMove(_cardSetParent.position, 0.8f);
+                var tweener = item.DoMove(_foldPos, 0.8f);
                 tweener.SetDelay(0.6f);
                 scaleTweener.SetDelay(0.6f);
                 
