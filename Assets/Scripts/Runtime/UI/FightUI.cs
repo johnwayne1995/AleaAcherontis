@@ -83,6 +83,9 @@ namespace UI
 
         private CalculateAllPointJob _showPokerCardDamageJob;
         private CardCase _curCardCase;
+        
+        private GameObject _pointFxL;
+        private GameObject _pointFxR;
 
         private void Awake()
         {
@@ -93,6 +96,9 @@ namespace UI
             
             rootPos.x = (float)Screen.width / 2;
             
+            _pointFxL = transform.Find("leftMiddlePanel/damagePanel/UIFX_L").gameObject;
+            _pointFxR = transform.Find("leftMiddlePanel/damagePanel/UIFX_R").gameObject;
+
             _tipParent = transform.Find("tipPanel/tip");
             _dialogCanvas = transform.Find("tipPanel/dialog").GetComponent<CanvasGroup>();
 
@@ -139,6 +145,9 @@ namespace UI
             _sendCardList = new List<PokerCardItem>();
             _equipCardItems = new List<EquipCardItem>();
             _rotPos = InitRotPos(FightCardManager.CMAX_SAVE_CARD_COUNT);
+            
+            _pointFxL.SetActive(false);
+            _pointFxR.SetActive(false);
         }
 
         private void Update()
@@ -263,11 +272,14 @@ namespace UI
                     _caseText.text = "攻击计算面板";
                     _caseDamageText.text = String.Empty;
                     _magnificationText.text = String.Empty;
+                    
+                    CheckShowPointEffect(0, 0);
                     return;
             }
             _curCardCase = _fightCardManager.GetCardCaseConfigByCaseType(cardCase);
             _caseDamageText.text = _curCardCase.damageValue.ToString();
             _magnificationText.text = _curCardCase.magnification.ToString();
+            CheckShowPointEffect(_curCardCase.damageValue, _curCardCase.magnification);
         }
 
         private void FaceSortBtnClick()
@@ -401,6 +413,7 @@ namespace UI
                 pokerCardDamageJob.jobCompletedEvent += job =>
                 {
                     curDamage += card.GetDamage();
+                    CheckShowPointEffect(curDamage, curMag);
                     _caseDamageText.text = curDamage.ToString();
                 };
                 
@@ -421,10 +434,12 @@ namespace UI
                     {
                         case DevilCardInfluenceType.Add:
                             curMag += carItem.equipConfig.paramValue;
+                            CheckShowPointEffect(curDamage, curMag);
                             _magnificationText.text = curMag.ToString();
                             break;
                         case DevilCardInfluenceType.Multiplication:
                             curMag *= carItem.equipConfig.paramValue;
+                            CheckShowPointEffect(curDamage, curMag);
                             _magnificationText.text = curMag.ToString();
                             break;
                     }
@@ -540,6 +555,20 @@ namespace UI
         public void HideTip()
         {
             _tipParent.gameObject.SetActive(false);
+        }
+
+        private void CheckShowPointEffect(int curDmg, int curMag)
+        {
+            if (curDmg * curMag > 100)
+            {
+                _pointFxL.gameObject.SetActive(true);
+                _pointFxR.gameObject.SetActive(true);
+            }
+            else
+            {
+                _pointFxL.gameObject.SetActive(false);
+                _pointFxR.gameObject.SetActive(false);
+            }
         }
     }
 }
