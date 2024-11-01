@@ -15,6 +15,7 @@ namespace UI
             {
                 GameObject obj = GameObject.Instantiate(Resources.Load("UI/PokerCardItem"), parent) as GameObject;
                 var item = obj.AddComponent<PokerCardItem>();
+                item.transform.localPosition = Vector3.zero;
                 item.SetRectAnchorPos(HidePos);
                 EnqueItem(item);
             }

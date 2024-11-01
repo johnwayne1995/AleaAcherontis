@@ -67,6 +67,7 @@ namespace UI
             _lastPos = Vector3.zero;
             _pointTipCanvasGroup.alpha = 0;
             _damageTipCanvasGroup.alpha = 0;
+            _rectTransform.position = Vector3.zero;
         }
 
         private void Update()
@@ -76,9 +77,9 @@ namespace UI
 
         public void SetPos()
         {
-            if(!isEnable || transform == null)
+            if (!isEnable || transform == null)
                 return;
-            
+
             //选中卡牌半径增加  
             float radius = isSelected ? size + 50 : size;
             //选中卡牌旋转归零  
@@ -89,17 +90,14 @@ namespace UI
             float y = root.y + Mathf.Sin(rot) * radius;
             _lastPos.x = x;
             _lastPos.y = y;
-            // if (isSelected)
-            // {
-            //     _lastPos.y += 30;
-            // }
-            // else
-            // {
-            //     _lastPos.y = y;
-            // }
-            
+
             position = Vector2.Lerp(position, _lastPos, Time.deltaTime * animSpeed);
             _rectTransform.anchoredPosition = position;
+
+            var localPos = _rectTransform.transform.localPosition;
+            localPos.z = 0;
+            transform.localPosition = localPos;
+
             Quaternion rotationQuaternion = Quaternion.Euler(new Vector3(0, 0, rotZ));
             transform.rotation = Quaternion.RotateTowards(transform.rotation, rotationQuaternion, Time.deltaTime * animSpeed * 30);
         }
@@ -312,6 +310,11 @@ namespace UI
         public int GetDamage()
         {
             return _config.basePoint;
+        }
+
+        public Guid GetCardGuid()
+        {
+            return _config.guid;
         }
     }
 }

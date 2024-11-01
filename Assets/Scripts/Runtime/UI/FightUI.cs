@@ -397,27 +397,32 @@ namespace UI
             _showPokerCardDamageJob = _jobManager.CreateNewJob<CalculateAllPointJob>();
             List<DependentJob> jobList = ListPool<DependentJob>.Get();
 
-            float offset = ((float)Screen.width / 2) / _sendCardList.Count;
-            Vector2 enPos = new Vector2(-_sendCardList.Count / 2f * offset + offset * 0.5f, 0) + new Vector2(0, 500);
+            var offsetPos = (float)Screen.width / 2;
+            float offset = offsetPos / _sendCardList.Count;
+            Vector2 enPos = new Vector2(-_sendCardList.Count / 2f * offset + offset * 0.5f, 550);
             var curDamage = _curCardCase.damageValue;
             var curMag = _curCardCase.magnification;
 
             for (int i = 0; i < _sendCardList.Count; i++)
             {
-                var pokerCardDamageJob = _jobManager.CreateNewJob<ShowPokerCardDamageJob>();
                 var card = _sendCardList[i];
+                bool useful = _fightCardManager.CheckCardUseful(card);
                 card.DoMove(enPos, 0.2f);
                 enPos.x = enPos.x + offset;
-                
-                pokerCardDamageJob.InitParam(card);
-                pokerCardDamageJob.jobCompletedEvent += job =>
+
+                if (useful)
                 {
-                    curDamage += card.GetDamage();
-                    CheckShowPointEffect(curDamage, curMag);
-                    _caseDamageText.text = curDamage.ToString();
-                };
+                    var pokerCardDamageJob = _jobManager.CreateNewJob<ShowPokerCardDamageJob>();
+                    pokerCardDamageJob.InitParam(card);
+                    pokerCardDamageJob.jobCompletedEvent += job =>
+                    {
+                        curDamage += card.GetDamage();
+                        CheckShowPointEffect(curDamage, curMag);
+                        _caseDamageText.text = curDamage.ToString();
+                    };
                 
-                jobList.Add(pokerCardDamageJob);
+                    jobList.Add(pokerCardDamageJob);
+                }
             }
 
             for (int i = 0; i < _equipCardItems.Count; i++)
