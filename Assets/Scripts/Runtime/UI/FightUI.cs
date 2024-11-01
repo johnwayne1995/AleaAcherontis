@@ -32,7 +32,7 @@ namespace UI
         /// <summary>  
         /// 卡牌起始位置  
         /// </summary>  
-        public Vector3 rootPos = new Vector3(0, -2400, 0);
+        public Vector2 rootPos = new Vector2(0, -2400);
         /// <summary>  
         /// 扇形半径  
         /// </summary>  
@@ -552,7 +552,7 @@ namespace UI
 
         private void CheckShowPointEffect(int curDmg, int curMag)
         {
-            if (curDmg * curMag > 20)
+            if (curDmg * curMag > 100)
             {
                 _pointFxL.gameObject.SetActive(true);
                 _pointFxR.gameObject.SetActive(true);
