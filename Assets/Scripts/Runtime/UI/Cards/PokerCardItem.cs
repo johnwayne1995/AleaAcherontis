@@ -15,7 +15,7 @@ namespace UI
         /// <summary>  
         /// 卡牌扇形展开中心点  
         /// </summary>  
-        public Vector3 root;  
+        public Vector2 root;  
         /// <summary>  
         /// 展开角度  
         /// </summary>  
@@ -63,7 +63,7 @@ namespace UI
             _damageTipCanvasGroup = transform.Find("bg/damagePointTip").GetComponent<CanvasGroup>();
 
             _cardBtn.onClick.AddListener(OnCardClicked);
-            _oriPos = new Vector3((float)Screen.width / 2, -200, 0);
+            _oriPos = new Vector2(0, -300);
             _lastPos = Vector3.zero;
             _pointTipCanvasGroup.alpha = 0;
             _damageTipCanvasGroup.alpha = 0;
@@ -130,7 +130,7 @@ namespace UI
             return angleInDegrees;  
         }
 
-        public void RefreshData(Vector3 root, float rot, float size)
+        public void RefreshData(Vector2 root, float rot, float size)
         {
             this.root = root;
             this.rot = rot;
