@@ -1,4 +1,5 @@
 ﻿using Excel;
+using UnityEngine;
 
 namespace GCommon.Excel
 {
@@ -14,8 +15,9 @@ namespace GCommon.Excel
         // 私有构造函数，防止外部实例化
         private ExcelService()
         {
-            table = UnityEditor.AssetDatabase.LoadAssetAtPath<MatchLevelTable>("Assets/Resources/Configs/StageConfig/" +
-                                                                               "MatchLevelTable" + ".asset");
+            table = Resources.Load<MatchLevelTable>("Configs/StageConfig/MatchLevelTable");
+            // table = UnityEditor.AssetDatabase.LoadAssetAtPath<MatchLevelTable>("Assets/Resources/Configs/StageConfig/" +
+            //                                                                    "MatchLevelTable" + ".asset");
             table.CreateDictionary();
         }
 
