@@ -82,7 +82,7 @@ namespace UI
             //选中卡牌半径增加  
             float radius = isSelected ? size + 50 : size;
             //选中卡牌旋转归零  
-            var position = transform.position;
+            var position = _rectTransform.anchoredPosition;
             float rotZ = GetAngleInDegrees(root, position);
             //设置卡牌位置  
             float x = root.x + Mathf.Cos(rot) * radius;
@@ -98,8 +98,8 @@ namespace UI
             //     _lastPos.y = y;
             // }
             
-            position = Vector3.Lerp(position, _lastPos, Time.deltaTime * animSpeed);
-            transform.position = position;
+            position = Vector2.Lerp(position, _lastPos, Time.deltaTime * animSpeed);
+            _rectTransform.anchoredPosition = position;
             Quaternion rotationQuaternion = Quaternion.Euler(new Vector3(0, 0, rotZ));
             transform.rotation = Quaternion.RotateTowards(transform.rotation, rotationQuaternion, Time.deltaTime * animSpeed * 30);
         }
@@ -109,14 +109,14 @@ namespace UI
         /// </summary>    /// <param name="positionA">点A坐标</param>  
         /// <param name="positionB">点B坐标</param>  
         /// <returns></returns>    
-        public static float GetAngleInDegrees(Vector3 positionA, Vector3 positionB)  
+        public static float GetAngleInDegrees(Vector2 positionA, Vector2 positionB)  
         {        
             // 计算从A指向B的向量  
-            Vector3 direction = positionB - positionA;  
+            Vector2 direction = positionB - positionA;  
             // 将向量标准化  
-            Vector3 normalizedDirection = direction.normalized;  
+            Vector2 normalizedDirection = direction.normalized;  
             // 计算夹角的弧度值  
-            float dotProduct = Vector3.Dot(normalizedDirection, Vector3.up);  
+            float dotProduct = Vector2.Dot(normalizedDirection, Vector2.up);  
             float angleInRadians = Mathf.Acos(dotProduct);  
   
             //判断夹角的方向：通过计算一个参考向量与两个物体之间的叉乘，可以确定夹角是顺时针还是逆时针方向。这将帮助我们将夹角的范围扩展到0到360度。  
@@ -255,10 +255,10 @@ namespace UI
         {
         }
         
-        public TweenerCore<Vector3, Vector3, VectorOptions> DoMove(Vector3 endPos, float time)
+        public TweenerCore<Vector2, Vector2, VectorOptions> DoMove(Vector2 endPos, float time)
         {
             transform.DORotate(Vector3.zero, time);
-            return transform.DOMove(endPos, time);
+            return _rectTransform.DOAnchorPos(endPos, time);
         }
 
         public void SetRectAnchorPos(Vector2 pos)

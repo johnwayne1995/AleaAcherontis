@@ -7,7 +7,7 @@ namespace UI
     {
         private Queue<PokerCardItem> _pool = new Queue<PokerCardItem>(18);
         private const int MAX_COUNT = 18;
-        public static Vector2 HidePos = new Vector2(1000000, 1000000);
+        public static Vector2 HidePos = new Vector2(0, -500);
         
         public PokerCardPool(Transform parent)
         {

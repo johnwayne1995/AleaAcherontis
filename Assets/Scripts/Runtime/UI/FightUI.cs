@@ -78,8 +78,8 @@ namespace UI
         private Text _sendLastCountText;
         private Text _foldLastCountText;
         
-        private Transform _cardParent;
-        private Vector3 _foldPos;
+        private RectTransform _cardParent;
+        private Vector2 _foldPos;
 
         private CalculateAllPointJob _showPokerCardDamageJob;
         private CardCase _curCardCase;
@@ -93,8 +93,6 @@ namespace UI
             _fightManager = GameManagerContainer.Instance.GetManager<FightManager>();
             _equipManager = GameManagerContainer.Instance.GetManager<EquipManager>();
             _jobManager = GameManagerContainer.Instance.GetManager<JobManager>();
-            
-            rootPos.x = (float)Screen.width / 2;
             
             _pointFxL = transform.Find("leftMiddlePanel/damagePanel/UIFX_L").gameObject;
             _pointFxR = transform.Find("leftMiddlePanel/damagePanel/UIFX_R").gameObject;
@@ -122,7 +120,7 @@ namespace UI
             _sendLastCountText = transform.Find("sendBtn/lastCount").GetComponent<Text>();
             _foldLastCountText = transform.Find("foldBtn/lastCount").GetComponent<Text>();
 
-            _foldPos = transform.Find("foldPos").position;
+            _foldPos = transform.Find("Pokers/foldPos").GetComponent<RectTransform>().anchoredPosition;
             
             _faceSortBtn.onClick.AddListener(FaceSortBtnClick);
             _suitSortBtn.onClick.AddListener(SuitSortBtnClick);
@@ -131,12 +129,7 @@ namespace UI
             _foldBtn.onClick.AddListener(FoldBtnClick);
             OnWaitSendListChanged();
 
-            if (_cardParent == null)
-            {
-                _cardParent = new GameObject("Pokers").transform;
-                _cardParent.SetParent(transform);
-                _cardParent.transform.localPosition = Vector3.zero;
-            }
+            _cardParent = transform.Find("Pokers").GetComponent<RectTransform>();
             _tipParent.gameObject.SetActive(false);
             _dialogCanvas.alpha = 0;
             
@@ -398,7 +391,7 @@ namespace UI
             List<DependentJob> jobList = ListPool<DependentJob>.Get();
 
             float offset = ((float)Screen.width / 2) / _sendCardList.Count;
-            Vector3 enPos = new Vector3(-_sendCardList.Count / 2f * offset + offset * 0.5f, 0, 0) + new Vector3(Screen.width / 2, Screen.height / 2, 0);
+            Vector2 enPos = new Vector2(-_sendCardList.Count / 2f * offset + offset * 0.5f, 0) + new Vector2(0, 500);
             var curDamage = _curCardCase.damageValue;
             var curMag = _curCardCase.magnification;
 
