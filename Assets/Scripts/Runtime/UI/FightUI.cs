@@ -232,6 +232,13 @@ namespace UI
         public void OnWaitSendListChanged()
         {
             var cardCase = _fightCardManager.GetCurHandCardCase();
+            
+            _caseDamageText.rectTransform.localScale = Vector3.zero;
+            _caseDamageText.rectTransform.DOScale(1, 0.2f);
+
+            _magnificationText.rectTransform.localScale = Vector3.zero;
+            _magnificationText.rectTransform.DOScale(1, 0.2f);
+            
             switch (cardCase)
             {
                 case CaseEnum.StraightFlush:
