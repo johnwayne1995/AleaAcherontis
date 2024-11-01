@@ -37,17 +37,13 @@ namespace UI
             
             var matchLevelManager = GameManagerContainer.Instance.GetManager<MatchLevelManager>();
             var table = matchLevelManager.GetMatchLevelTable();
-            // var rewardCard = table[matchLevelManager.curRoom].RewardCard;
-            // if (rewardCard != null)
-            // {
-            //     
-            // }
-            var equipManager = GameManagerContainer.Instance.GetManager<EquipManager>();
-            var reward = Resources.Load<EquipCardConfig>("Configs/CardConfig/EquipCardsConfig");
-            equipManager.AddEquipReward(reward);
-            
-            if (reward != null)
+            var curLevConfig = table[matchLevelManager.curRoom];
+            var containReward = curLevConfig.IfGetReward;
+            if (containReward)
             {
+                var equipManager = GameManagerContainer.Instance.GetManager<EquipManager>();
+                var reward = Resources.Load<EquipCardConfig>("Configs/CardConfig/" + curLevConfig.RewardItem);
+                equipManager.AddEquipReward(reward);
                 _cardIcon.sprite = Resources.Load<Sprite>(reward.cardIconPath);
                 _dialogText.text = reward.dialog;
                 _nameText.text = reward.name;

@@ -146,7 +146,7 @@ namespace Managers
         /// <returns></returns>
         private bool IsFourOfAKind()
         {
-            var fourOfAKind = Cards.GroupBy(card => card.Rank).FirstOrDefault(group => group.Count() == 4);
+            var fourOfAKind = Cards.GroupBy(card => card.Rank).FirstOrDefault(group => group.Count() >= 4);
             if (fourOfAKind != null)
             {
                 HandDetails = fourOfAKind.ToList();
