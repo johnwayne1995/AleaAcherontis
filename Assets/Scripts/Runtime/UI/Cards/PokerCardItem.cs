@@ -43,8 +43,8 @@ namespace UI
         private CanvasGroup _pointTipCanvasGroup;
         private CanvasGroup _damageTipCanvasGroup;
 
-        private Vector3 _oriPos;
-        private Vector3 _lastPos;
+        private Vector2 _oriPos;
+        private Vector2 _lastPos;
 
         private Action _cardSendStateChangedAc;
 
@@ -63,7 +63,7 @@ namespace UI
             _damageTipCanvasGroup = transform.Find("bg/damagePointTip").GetComponent<CanvasGroup>();
 
             _cardBtn.onClick.AddListener(OnCardClicked);
-            _oriPos = new Vector2(0, -300);
+            _oriPos = new Vector2(0, -50f);
             _lastPos = Vector3.zero;
             _pointTipCanvasGroup.alpha = 0;
             _damageTipCanvasGroup.alpha = 0;
