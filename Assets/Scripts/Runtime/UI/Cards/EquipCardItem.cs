@@ -3,7 +3,6 @@ using Config;
 using DG.Tweening;
 using Managers;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 namespace UI
 {
@@ -19,6 +18,7 @@ namespace UI
         private Text _damageText;
         private CanvasGroup _damageTipCanvasGroup;
 
+        private GameObject _fxObj;
         
         public bool isEmpty;
         public EquipCard equipConfig;
@@ -28,7 +28,7 @@ namespace UI
             base.OnAwake();
             _lockPanel = transform.Find("lockPanel");
             _emptyPanel = transform.Find("emptyPanel");
-            
+            _fxObj = transform.Find("UIFX_Glow").gameObject;
             _namText = transform.Find("nameText").GetComponent<Text>();
             _dialogText = transform.Find("dialogText").GetComponent<Text>();
             _damageText = transform.Find("damagePointTip/damagePointTipText").GetComponent<Text>();
@@ -36,6 +36,7 @@ namespace UI
 
             _icon = transform.Find("icon").GetComponent<Image>();
             _damageTipCanvasGroup.alpha = 0;
+            _fxObj.SetActive(false);
         }
 
         public void Init(bool isLock, EquipCard cardConfig)
@@ -82,6 +83,7 @@ namespace UI
             _damageTipCanvasGroup.transform.localScale = Vector3.zero;
             _damageTipCanvasGroup.transform.DOScale(1, 0.3f);
             _damageTipCanvasGroup.DOFade(1, 0.2f);
+            _fxObj.SetActive(true);
             
             var fadeTw = _damageTipCanvasGroup.DOFade(0, 0.2f);
             fadeTw.SetDelay(0.6f);
@@ -89,6 +91,7 @@ namespace UI
             hideTw.SetDelay(0.6f);
             hideTw.onComplete += () =>
             {
+                _fxObj.SetActive(false);
                 onShowDamageOver?.Invoke();
             };
         }

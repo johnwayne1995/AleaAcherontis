@@ -559,7 +559,7 @@ namespace UI
 
         private void CheckShowPointEffect(int curDmg, int curMag)
         {
-            if (curDmg * curMag > 100)
+            if (curDmg * curMag > 20)
             {
                 _pointFxL.gameObject.SetActive(true);
                 _pointFxR.gameObject.SetActive(true);
