@@ -40,13 +40,15 @@ namespace UI
         public bool Hit(int getCurHandsDamage)
         {
             curHp -= getCurHandsDamage;
-            _hpText.text = $"{curHp.ToString()}/{maxHp.ToString()}";
 
             if (curHp <= 0)
             {
                 curHp = 0;
+                _hpText.text = $"{curHp.ToString()}/{maxHp.ToString()}";
                 return true;
             }
+            
+            _hpText.text = $"{curHp.ToString()}/{maxHp.ToString()}";
             return false;
         }
 
