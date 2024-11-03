@@ -11,29 +11,34 @@ namespace Managers
             _pokerHand = new PokerHand();
         }
         
-        public PokerHand AnalyzeHandStr(string handStr)
+        public PokerHand AnalyzeHandCards(List<PokerCard> cards)
         {
             _pokerHand.Cards.Clear();
 
             Rank curRank = Rank.Ace;
             char curRankChar = 'A';
-            
-            for (int i = 0; i < handStr.Length; i++)
+
+            for (int i = 0; i < cards.Count; i++)
             {
-                if (i % 2 == 0)
-                {
-                    //面数
-                    curRankChar = handStr[i];
-                    curRank = ConvertStrToRank(curRankChar);
-                }
-                else
-                {
-                    var suitValue = handStr[i];
-                    var curSuit = ConvertStrToSuit(suitValue);
-                    var card = new Card(curSuit, curRank, curRankChar.ToString() + suitValue);
-                    _pokerHand.Cards.Add(card);
-                }
+                _pokerHand.Cards.Add(cards[i]);
             }
+            
+            // for (int i = 0; i < handStr.Length; i++)
+            // {
+            //     if (i % 2 == 0)
+            //     {
+            //         //面数
+            //         curRankChar = handStr[i];
+            //         curRank = ConvertStrToRank(curRankChar);
+            //     }
+            //     else
+            //     {
+            //         var suitValue = handStr[i];
+            //         var curSuit = ConvertStrToSuit(suitValue);
+            //         var card = new Card(curSuit, curRank, curRankChar.ToString() + suitValue);
+            //         _pokerHand.Cards.Add(card);
+            //     }
+            // }
             
             return _pokerHand;
         }
@@ -93,9 +98,9 @@ namespace Managers
 
     public class PokerHand
     {
-        public List<Card> Cards { get; set; } = new List<Card>();
+        public List<PokerCard> Cards { get; set; } = new List<PokerCard>();
         public CaseEnum HandCase { get; set; } = CaseEnum.HighCard;
-        public List<Card> HandDetails { get; set; } = new List<Card>();
+        public List<PokerCard> HandDetails { get; set; } = new List<PokerCard>();
 
         public void EvaluateHand()
         {
@@ -246,25 +251,6 @@ namespace Managers
         }
     }
 
-    public class Card
-    {
-        public Suit Suit { get; set; }
-        public Rank Rank { get; set; }
-        public string CardId { get; set; }
-
-        public Card(Suit suit, Rank rank, string cardId)
-        {
-            Suit = suit;
-            Rank = rank;
-            CardId = cardId;
-        }
-
-        public override string ToString()
-        {
-            return $"{Rank} of {Suit}";
-        }
-    }
-    
     public enum CaseEnum
     {
         None = 9,

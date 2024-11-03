@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Config;
 using Modules;
+using UI;
 using UnityEngine;
 
 namespace Managers
@@ -70,6 +72,9 @@ namespace Managers
             for (int i = 0; i < cardsConfig.normalCards.Count; i++)
             {
                 var card = cardsConfig.normalCards[i];
+                card.guid = Guid.NewGuid();
+                card.Suit = TexasLogic.ConvertStrToSuit(card.id[1]);
+                card.Rank = TexasLogic.ConvertStrToRank(card.id[0]);
                 _cacheCardDamage.Add(card.id, card.basePoint);
             }
             
@@ -142,16 +147,24 @@ namespace Managers
             }
             
             CardListWaitToSend.Add(cardConfig);
-            var handStr = string.Empty;
+            // var handStr = string.Empty;
+            // for (int i = 0; i < CardListWaitToSend.Count; i++)
+            // {
+            //     if (CardListWaitToSend[i] is PokerCard pokerCard)
+            //     {
+            //         handStr += pokerCard.id;
+            //     }
+            // }
+
+            var tmpList = new List<PokerCard>();
             for (int i = 0; i < CardListWaitToSend.Count; i++)
             {
                 if (CardListWaitToSend[i] is PokerCard pokerCard)
                 {
-                    handStr += pokerCard.id;
+                    tmpList.Add(pokerCard);
                 }
             }
-            
-            _pokerHand = _texasLogic.AnalyzeHandStr(handStr);
+            _pokerHand = _texasLogic.AnalyzeHandCards(tmpList);
             _pokerHand.EvaluateHand();
             return true;
         }
@@ -256,7 +269,7 @@ namespace Managers
 
             for (int i = 0; i < _pokerHand.HandDetails.Count; i++)
             {
-                if (_cacheCardDamage.TryGetValue(_pokerHand.HandDetails[i].CardId, out var dmg))
+                if (_cacheCardDamage.TryGetValue(_pokerHand.HandDetails[i].id, out var dmg))
                 {
                     baseDmg += dmg;
                 }
@@ -295,6 +308,20 @@ namespace Managers
             UsedCardList.Add(getCardConfig);
             UsingCardList.Remove(getCardConfig);
             CardListWaitToSend.Clear();
+        }
+        
+        public bool CheckCardUseful(PokerCardItem card)
+        {
+            for (int i = 0; i < _pokerHand.HandDetails.Count; i++)
+            {
+                var item = _pokerHand.HandDetails[i];
+                if (item.guid == card.GetCardGuid())
+                {
+                    return true;
+                }
+            }
+            
+            return false;
         }
     }
 }
