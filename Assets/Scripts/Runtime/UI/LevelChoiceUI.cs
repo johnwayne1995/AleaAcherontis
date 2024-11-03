@@ -54,7 +54,7 @@ namespace UI
                     level.ChallengeBtn.onClick.AddListener(OnStartGameBtnClick);
                     level.SkipBtn.onClick.AddListener(OnSkipGameBtnClick);
                     level.Name.text = GetEnemyName(item.EnemyType);
-                    level.Hp.text = item.EnemyBlood.ToString();
+                    level.Hp.text = "血量："+item.EnemyBlood.ToString();
                     level.gameObject.SetActive(true);
                     level.DisableSkipBtn.SetActive(!item.CanSkip);
 
