@@ -76,7 +76,9 @@ namespace Managers
                 enemyConfig = Resources.Load<EnemyConfig>("Configs/EnemyConfigs/EnemyCardsConfig");
             else
                 enemyConfig = Resources.Load<EnemyConfig>("Configs/EnemyConfigs/"+path);
-            
+
+            _curFoldCount = 0;
+            _roundCount = 0;
             _maxFoldCount = enemyConfig.maxFoldCount;
             _maxRoundCount = enemyConfig.maxRoundCount;
             
